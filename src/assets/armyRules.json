@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Oath Of Moment",
+        "description": "If your Army Faction is Adeptus Astartes, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, each time a model from your army with this ability makes an attack that targets that enemy unit, you can re-roll the Hit roll and you can re-roll the Wound roll.",
+        "army": "Dark Angels",
+        "id": "1"
+    },
+    {
+        "name": "Doctrina Imperatives",
+        "description": "At the start of the battle round, you can select one of the Doctrina Imperatives below. Until the end of the battle round, that Doctrina Imperative is active for your army, and all units from your army that have the Doctrina Imperatives ability gain the relevant abilities shown below. \\nProtector Imperative: \\n■ Ranged weapons equipped by models in this unit have the [HEAVY] ability. \\n■ Each time a ranged attack targets this unit, if this unit is within your deployment zone, worsen the Armour Penetration characteristic of that attack by 1. \\nConqeror Imperative: \\n■ Ranged weapons equipped by models in this unit have the [ASSAULT] ability. \\n■ Each time a model in this unit makes a ranged attack, if the target of that attack is within your opponent's deployment zone, improve the Armour Penetration characteristic of that attack by 1.",
+        "army": "Adeptus Mechanicus",
+        "id": "2"
+    },
+    {
+        "name": "Oath Of Moment",
+        "description": "If your Army Faction is Adeptus Astartes, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, each time a model from your army with this ability makes an attack that targets that enemy unit, you can re-roll the Hit roll and you can re-roll the Wound roll.",
+        "army": "Blood Angels",
+        "id": "3"
+    },
+    {
+        "name": "Oath Of Moment",
+        "description": "If your Army Faction is Adeptus Astartes, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, each time a model from your army with this ability makes an attack that targets that enemy unit, you can re-roll the Hit roll and you can re-roll the Wound roll.",
+        "army": "Space Wolves",
+        "id": "4"
+    },
+    {
+        "name": "Oath Of Moment",
+        "description": "If your Army Faction is Adeptus Astartes, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, each time a model from your army with this ability makes an attack that targets that enemy unit, you can re-roll the Hit roll and you can re-roll the Wound roll. SPACE MARINE CHAPTERS ■ If an Adeptus Astartes unit has a second Faction keyword on its datasheet, that Faction keyword is the name of that unit’s Chapter. For example, Marneus Calgar has both the Adeptus Astartes and Ultramarines Faction keywords, and is therefore from the Ultramarines Chapter. ■ You cannot include units from more than one Chapter in your army.",
+        "army": "Space Marines",
+        "id": "5"
+    },
+    {
+        "name": "Nurgle's Gift (Aura)",
+        "description": "If your Army Faction is Death Guard, while an enemy unit is within Contagion Range of this unit, subtract 1 from the Toughness characteristic of models in that enemy unit. Contagion Range changes over the course of the battle, as shown right. 1st Battle Round, Contagion Range 3\", 2nd Battle Round, Contagion Range 6\", 3rd Battle Round, Contagion Range 9\"",
+        "army": "Death Guard",
+        "id": "6"
+    },
+    {
+        "name": "Cabal of Sorcerers",
+        "description": "If your Army Faction is Thousand Sons, at the end of your Command phase, each model from your army with this ability that is on the battlefield (excluding Battle-shocked models) generates you a number of Cabal points equal to the number shown in its ability (e.g. a model with the Cabal of Sorcerers 2 ability would generate you 2 Cabal points). The combined total of these is your Cabal points pool. During the battle round, you can use Rituals from the list below, deducting the Cabal points cost of each one from your Cabal points pool. If you do not have enough Cabal points for a Ritual, you cannot use it. Each Ritual can only be used once per phase. At the start of your next Command phase, your Cabal points pool resets to zero. Each time you use a Ritual, select one Thousand Sons Psyker model from your army, then apply that Ritual’s effect using that Psyker. \\nWEAVER OF FATES (PSYCHIC) 2 CABAL POINTS: \\nUse this Ritual at the start of any phase. Once during that phase, when a saving throw is failed for a friendly Thousand Sons model whose unit is within 18\" of this Psyker, you can re-roll that saving throw. \\nTEMPORAL SURGE (PSYCHIC) 5 CABAL POINTS: \\nUse this Ritual at the start of your Shooting phase. Select one friendly Thousand Sons unit within 18\" of this Psyker; unless that unit is within Engagement Range of one or more enemy units, it can make a Normal move. If it does, that unit is not eligible to declare a charge this turn. \\nECHOES FROM THE WARP (PSYCHIC) 6 CABAL POINTS: \\nUse this Ritual at the start of any phase. Once this phase, you can select this Psyker’s unit as the target of a Stratagem for 0CP, even if you have already used that Stratagem this phase. \\nDOOMBOLT (PSYCHIC) 7 CABAL POINTS: \\nUse this Ritual at the start of your Shooting phase. Select one enemy unit within 18\" of and visible to this Psyker and roll one D6: on a 1, that enemy unit suffers D3 mortal wounds; on a 2-5, it suffers D3+3 mortal wounds; on a 6, it suffers D3+6 mortal wounds. \\nTWIST OF FATE (PSYCHIC) 9 CABAL POINTS: \\nUse this Ritual at the start of any phase. Select one enemy unit within 18\" of and visible to this Psyker; until the end of the phase, armour saving throws cannot be made for models in that unit.",
+        "army": "Thousand Sons",
+        "id": "7"
+    },
+    {
+        "name": "Waaagh!",
+        "description": "If your Army Faction is Orks, once per battle, at the start of the battle round, you can call a Waaagh! If you do, until the start of the next battle round: ■ Orks units from your army are eligible to declare a charge in a turn in which they Advanced. ■ Add 1 to the Strength and Attacks characteristics of melee weapons equipped by Orks models from your army. ■ Orks models from your army have a 5+ invulnerable save.",
+        "army": "Orks",
+        "id": "8"
+    }
+]

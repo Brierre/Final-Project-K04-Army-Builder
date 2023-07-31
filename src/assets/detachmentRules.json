@@ -1,0 +1,65 @@
+[
+    {
+        "name": "Grim Resolve",
+        "description": "While an Adeptus Astartes unit from your army is Battle-shocked, change the Objective Control characteristic of models in that unit to 1, instead of 0.",
+        "army": "Dark Angels",
+        "detachment": "Unforgiven Task Force",
+        "id": "1"
+    },
+    {
+        "name": "Bombardment",
+        "description": "At the start of the first battle round, for each enemy unit within your opponent's deployment zone, your opponent must decide whether that unit will take cover or stand firm. If a unit takes cover, until the end of the battle round, that unit is Battle-shocked. If a unit stands firm, roll one D6 for that unit: on a 3+, that unit suffers D3 mortal wounds",
+        "army": "Adeptus Mechanicus",
+        "detachment": "Rad-Cohort",
+        "id": "2"
+    },
+    {
+        "name": "Fallout",
+        "description": "At the start of the second, third, fourth and fifth battle rounds, roll one D6 for each enemy unit within your opponent's deployment zone. On a 3+, that unit suffers 1 mortal wound.",
+        "army": "Adeptus Mechanicus",
+        "detachment": "Rad-Cohort",
+        "id": "3"
+    },
+    {
+        "name": "",
+        "description": "Each time an Adeptus Astartes unit from your army is selected to fight, if that unit made a Charge move this turn, until the end of the phase, add 1 to the Strength and Attacks characteristics of melee weapons equipped by models in that unit.",
+        "army": "Blood Angels",
+        "detachment": "Sons of Sanguinius",
+        "id": "4"
+    },
+    {
+        "name": "",
+        "description": "At the end of the battle round, you can select one of the Sagas listed below. If that Saga was completed by your army during that battle round, all Adeptus Astartes models from your army gain the associated benefit until the end of the battle. You can only select each Saga once per battle. \\n■ This Saga is completed if one or more Adeptus Astartes Character models from your army destroyed one or more enemy Character models during the battle round. \\n■ Benefit Once Completed: Melee weapons equipped by Adeptus Astartes models from your army have the [SUSTAINED HITS 1] ability; \\n■ This Saga is completed if one or more Adeptus Astartes Character models from your army were reduced to below half of their starting number of wounds during the battle round, but were not destroyed at the end of the battle round. \\n■ Benefit Once Completed: Adeptus Astartes models from your army have the Feel No Pain 6+ ability.; \\nThis Saga is completed if you controlled one or more objective markers in your opponent’s deployment zone at the end of either player’s turn during the battle round, and one or more Adeptus Astartes Character models from your army were within range of that objective marker. \\n■ Benefit Once Completed: Improve the Objective Control characteristic of Adeptus Astartes models from your army by 1.; \\n■ This Saga is completed if one or more Adeptus Astartes Character models from your army destroyed one or more enemy Monster or Vehicle models during the battle round. \\nBenefit Once Completed: Melee weapons equipped by Adeptus Astartes models from your army have the [LETHAL HITS] ability.",
+        "army": "Space Wolves",
+        "detachment": "Champions of Russ",
+        "id": "5"
+    },
+    {
+        "name": "Combat Doctrines",
+        "description": "At the start of your Command phase, you can select one of the Combat Doctrines listed below. Until the start of your next Command phase, that Combat Doctrine is active and its effects apply to all Adeptus Astartes units from your army with this ability. You can only select each Combat Doctrine once per battle. \\nDEVASTATOR DOCTRINE: This unit is eligible to shoot in a turn in which it Advanced. \\nTACTICAL DOCTRINE: This unit is eligible to shoot and declare a charge in a turn in which it Fell Back. \\nASSAULT DOCTRINE: This unit is eligible to declare a charge in a turn in which it Advanced.",
+        "army": "Space Marines",
+        "detachment": "Gladius Task Force",
+        "id": "6"
+    },
+    {
+        "name": "Spread the Sickness",
+        "description": "If you control an objective marker at the end of your Command phase and a Death Guard unit from your army is within range of that objective marker, that objective marker is said to be Infected and remains under your control even if you have no models within range of it, until your opponent controls it at the start or end of any turn. In addition, while an objective marker is Infected and under your control, it has the Nurgle’s Gift ability as if it were a unit from your army (so enemy units within Contagion Range of it will have their Toughness characteristic modified).",
+        "army": "Death Guard",
+        "detachment": "Plague Company",
+        "id": "7"
+    },
+    {
+        "name": "Kindred Sorcery",
+        "description": "In your Command phase, you can select one of the abilities listed below to take effect until the start of your next Command phase. Malevolent Charge: Psychic weapons equipped by Thousand Sons models from your army have the [LETHAL HITS] ability. Psychic Maelstrom: Psychic weapons equipped by Thousand Sons models from your army have the [SUSTAINED HITS 1] ability. Wrath of the Immaterium: Psychic weapons equipped by Thousand Sons models from your army have the [DEVASTATING WOUNDS] ability.",
+        "army": "Thousand Sons",
+        "detachment": "Cult of Magic",
+        "id": "8"
+    },
+    {
+        "name": "Get Stuck In",
+        "description": "Melee weapons equipped by Orks models from your army have the [SUSTAINED HITS 1] ability.",
+        "army": "Orks",
+        "detachment": "",
+        "id": "9"
+    }
+]

@@ -1,0 +1,226 @@
+[
+    {
+        "name": "Shroud of Heroes",
+        "description": "Adeptus Astartes model only. The first time the bearer is destroyed, roll one D6 at the end of the phase. On a 2+, set the bearer back up on the battlefield as close as possible to where it was destroyed and not within Engagement Range of any enemy units, with 3 wounds remaining (if the bearer was Battle-shocked when it was destroyed, it is instead returned with its full wounds remaining).",
+        "cost": "25",
+        "army": "Dark Angels",
+        "id": "1"
+    },
+    {
+        "name": "Stubborn Tenacity",
+        "description": "Adeptus Astartes model only. While the bearer is leading a unit, each time a model in that unit makes an attack, add 1 to the Hit roll if the bearer’s unit is below its Starting Strength, and add 1 to the Wound roll as well if the bearer’s unit is Battle-shocked.",
+        "cost": "15",
+        "army": "Dark Angels",
+        "id": "2"
+    },
+    {
+        "name": "Heavenfall Blade",
+        "description": "Adeptus Astartes model only. Add 1 to the Attacks, Strength and Damage characteristics of the bearer’s melee weapons. While the bearer is Battle-shocked, add 2 to the Attacks, Strength and Damage characteristics of the bearer’s melee weapons instead.",
+        "cost": "20",
+        "army": "Dark Angels",
+        "id": "3"
+    },
+    {
+        "name": "Penant of Rememberance",
+        "description": "Bladeguard Ancient, Primaris Ancient or Terminator Ancient model only. While the bearer is leading a unit, models in that unit have the Feel No Pain 6+ ability. While that unit is Battle-shocked, models in that unit have the Feel No Pain 4+ ability instead.",
+        "cost": "10",
+        "army": "Dark Angels",
+        "id": "4"
+    },
+    {
+        "name": "Archived Purge Protocols",
+        "description": "Skitarii Marshal model only. At the start of the battle round, you can select one friendly Skitarii unit within 12\" of the bearer. Until the start of the next battle round, if the Protector Imperative is active for your army, the Conqueror Imperative is active for that unit instead, and if the Conqueror Imperative is active for your army, the Protector Imperative is active for that unit instead.",
+        "cost": "10",
+        "army": "Adeptus Mechanicus",
+        "id": "5"
+    },
+    {
+        "name": "Excoriating Emanation",
+        "description": "Adeptus Mechanicus model only. While the bearer is leading a unit, models in that unit have the Stealth ability. ",
+        "cost": "25",
+        "army": "Adeptus Mechanicus",
+        "id": "6"
+    },
+    {
+        "name": "Master Annihilator",
+        "description": "Adeptus Mechanicus model only. While the bearer is leading a unit, ranged weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability. ",
+        "cost": "35",
+        "army": "Adeptus Mechanicus",
+        "id": "7"
+    },
+    {
+        "name": "Penant of Rememberance",
+        "description": "Adeptus Mechanicus model only. Add 3 to the Attacks characteristic of the bearer's ranged weapons. In addition, the bearer's ranged weapons have the [ANTI-INFANTRY 2+] and [ANTI-MONSTER 4+] abilities. ",
+        "cost": "20",
+        "army": "Adeptus Mechanicus",
+        "id": "8"
+    },
+    {
+        "name": "Artisan of War",
+        "description": "Adeptus Astartes model only. Improve the Armour Penetration characteristic of the bearer’s weapons by 1, and the bearer has a Save characteristic of 2+.",
+        "cost": "",
+        "army": "Blood Angels",
+        "id": "9"
+    },
+    {
+        "name": "Visage of Death",
+        "description": "Adeptus Astartes model only. While an enemy unit (excluding Monsters and Vehicles) is within Engagement Range of the bearer’s unit, halve the Objective Control characteristic of models in that unit.",
+        "cost": "",
+        "army": "Blood Angels",
+        "id": "10"
+    },
+    {
+        "name": "Archangel's Shard",
+        "description": "Adeptus Astartes model only. The bearer’s melee weapons have the [ANTI-CHAOS 5+] and [LANCE] abilities",
+        "cost": "",
+        "army": "Blood Angels",
+        "id": "11"
+    },
+    {
+        "name": "Icon of the Angel",
+        "description": "Adeptus Astartes model only. Each time an enemy unit (excluding Monsters and Vehicles) within Engagement Range of the bearer’s unit is selected to Fall Back, models in that enemy unit must take Desperate Escape tests as if their unit was Battle-shocked. When doing so, if that enemy unit is also Battle-shocked by other means, subtract 1 from each of those Desperate Escape tests.",
+        "cost": "",
+        "army": "Blood Angels",
+        "id": "12"
+    },
+    {
+        "name": "The Pelt of Balewolf",
+        "description": "Adeptus Astartes model only. At the start of the Fight phase, each enemy unit within Engagement Range of the bearer must take a Battle-shock test.",
+        "cost": "",
+        "army": "Space Wolves",
+        "id": "13"
+    },
+    {
+        "name": "Wolf Rail Talisman",
+        "description": "Adeptus Astartes model only. Each time an attack is allocated to the bearer, subtract 1 from the Damage characteristic of that attack.",
+        "cost": "",
+        "army": "Space Wolves",
+        "id": "14"
+    },
+    {
+        "name": "Black Death",
+        "description": "Adeptus Astartes model only. The bearer’s melee weapons have the [ANTI-MONSTER 4+] and [ANTI-VEHICLE 4+] abilities.",
+        "cost": "",
+        "army": "Space Wolves",
+        "id": "15"
+    },
+    {
+        "name": "Frost Weapon",
+        "description": "Adeptus Astartes model only. The bearer’s melee weapons have the [PRECISION] ability, and the Strength and Armour Penetration characteristics of those weapons are improved by 1.",
+        "cost": "",
+        "army": "Space Wolves",
+        "id": "16"
+    },
+    {
+        "name": "Artificier Armour",
+        "description": "Adeptus Astartes model only. The bearer has a Save characteristic of 2+ and the Feel No Pain 5+ ability.",
+        "cost": "",
+        "army": "Space Marines",
+        "id": "17"
+    },
+    {
+        "name": "The Honour Vehement",
+        "description": "Adeptus Astartes model only. Add 1 to the Attacks and Strength characteristics of the bearer’s melee weapons. While the bearer is under the effects of the Assault Doctrine, add 2 to the Attacks and Strength characteristics of the bearer’s melee weapons instead.",
+        "cost": "",
+        "army": "Space Marines",
+        "id": "18"
+    },
+    {
+        "name": "Adept of the Codex",
+        "description": "Captain model only. At the start of your Command phase, if the bearer is on the battlefield, instead of selecting a Combat Doctrine to be active for your army, you can select the Tactical Doctrine. If you do, until the start of your next Command phase, that doctrine is active for the bearer’s unit only, even if you have already selected that doctrine to be active for your army this battle.",
+        "cost": "",
+        "army": "Space Marines",
+        "id": "19"
+    },
+    {
+        "name": "Bolter Discipline",
+        "description": "Adeptus Astartes model only. While the bearer is leading a unit, ranged weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability. In addition, while the bearer’s unit is under the effects of the Devastator Doctrine, each time a model in that unit makes a ranged attack, a successful unmodified Hit roll of 5+ scores a Critical Hit. ",
+        "cost": "",
+        "army": "Space Marines",
+        "id": "20"
+    },
+    {
+        "name": "Living Plague",
+        "description": "Death Guard model only. Add 3\" to the range of the bearer’s Aura abilities (including Nurgle’s Gift).",
+        "cost": "",
+        "army": "Death Guard",
+        "id": "21"
+    },
+    {
+        "name": "The Droning (Aura)",
+        "description": "Death Guard model only. While an enemy unit is within Contagion Range of the bearer, each time that unit fails a Battle-shock test, roll one D6: on a 2-5, that unit suffers 1 mortal wound; on a 6, that unit suffers D3 mortal wounds.",
+        "cost": "",
+        "army": "Death Guard",
+        "id": "22"
+    },
+    {
+        "name": "Deadly Pathogen",
+        "description": "Death Guard model only. Add 1 to the Strength and Attacks characteristics of the bearer’s melee weapons. While the bearer is within range of an Infected objective marker you control, add 2 to the Strength and Attacks characteristics of the bearer’s melee weapons instead.",
+        "cost": "",
+        "army": "Death Guard",
+        "id": "23"
+    },
+    {
+        "name": "Shamblerot",
+        "description": "Death Guard model only. Each time the bearer’s unit is selected as a target of an enemy unit’s charge, until the end of the phase, subtract 2 from Charge rolls made for that enemy unit.",
+        "cost": "",
+        "army": "Death Guard",
+        "id": "24"
+    },
+    {
+        "name": "Lord of Forbidden Lore",
+        "description": "Thousand Sons Psyker model only. The bearer can be selected to use a Ritual even if another Psyker from your army has already been selected to use that Ritual this phase.",
+        "cost": "",
+        "army": "Thousand Sons",
+        "id": "25"
+    },
+    {
+        "name": "Athenaen Scrolls",
+        "description": "Thousand Sons Psyker model only. In your Command phase, if the bearer is on the battlefield and is not Battle-shocked, it generates you 1 additional Cabal point this phase.",
+        "cost": "",
+        "army": "Thousand Sons",
+        "id": "26"
+    },
+    {
+        "name": "Umbralefic Crystal",
+        "description": "Thousand Sons model only. Once per battle, in your Command phase, you can remove the bearer’s unit from the battlefield. If you do, in the Reinforcements step of your next Movement phase, set that unit back up anywhere on the battlefield that is more than 9\" horizontally away from all enemy models.",
+        "cost": "",
+        "army": "Thousand Sons",
+        "id": "27"
+    },
+    {
+        "name": "Arcane Vortex",
+        "description": "Thousand Sons model only. Add 1 to the Strength and Damage characteristics of Psychic weapons equipped by the bearer.",
+        "cost": "",
+        "army": "Thousand Sons",
+        "id": "28"
+    },
+    {
+        "name": "Follow Me Ladz",
+        "description": "Orks model only. While the bearer is leading a unit, add 2\" to the Move characteristic of models in that unit.",
+        "cost": "",
+        "army": "Orks",
+        "id": "29"
+    },
+    {
+        "name": "Headwoppa's Killchoppa",
+        "description": "Orks model only. Melee weapons equipped by the bearer that do not have the [EXTRA ATTACKS] ability have the [DEVASTATING WOUNDS] ability.",
+        "cost": "",
+        "army": "Orks",
+        "id": "30"
+    },
+    {
+        "name": "Kunnin' But Brutal",
+        "description": "Orks model only. While the bearer is leading a unit, that unit is eligible to shoot and declare a charge in a turn in which it Fell Back.",
+        "cost": "",
+        "army": "Orks",
+        "id": "31"
+    },
+    {
+        "name": "Supa-Cybork Body",
+        "description": "Orks model only. The bearer has the Feel No Pain 4+ ability.",
+        "cost": "",
+        "army": "Orks",
+        "id": "32"
+    }
+]
