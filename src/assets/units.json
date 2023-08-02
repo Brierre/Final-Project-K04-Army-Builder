@@ -5105,6 +5105,7 @@
     {
         "name": "Aestred Thurga and Agathae Dolan",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 2,
         "points": 70,
@@ -5125,6 +5126,7 @@
     {
         "name": "Arco-Ragellants",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 3,
         "points": 45,
@@ -5145,6 +5147,7 @@
     {
         "name": "Arco-Ragellants",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 10,
         "points": 150,
@@ -5165,6 +5168,7 @@
     {
         "name": "Battle Sisters Squad",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 10,
         "points": 110,
@@ -5185,6 +5189,7 @@
     {
         "name": "Canoness",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 60,
@@ -5205,6 +5210,7 @@
     {
         "name": "Castigator",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 150,
@@ -5225,6 +5231,7 @@
     {
         "name": "Celestian Sacresants",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 5,
         "points": 65,
@@ -5245,6 +5252,7 @@
     {
         "name": "Celestian Sacresants",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 10,
         "points": 130,
@@ -5265,6 +5273,7 @@
     {
         "name": "Crusaders",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 2,
         "points": 20,
@@ -5285,6 +5294,7 @@
     {
         "name": "Crusaders",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 4,
         "points": 40,
@@ -5305,6 +5315,7 @@
     {
         "name": "Crusaders",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 6,
@@ -5325,6 +5336,7 @@
     {
         "name": "Daemonifuge",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 2,
         "points": 80,
@@ -5345,6 +5357,7 @@
     {
         "name": "Death Cult Assassins",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 2,
         "points": 35,
@@ -5365,6 +5378,7 @@
     {
         "name": "Death Cult Assassins",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 4,
         "points": 70,
@@ -5385,6 +5399,7 @@
     {
         "name": "Death Cult Assassins",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 6,
         "points": 105,
@@ -5405,6 +5420,7 @@
     {
         "name": "Dialogus",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 35,
@@ -5425,6 +5441,7 @@
     {
         "name": "Dogmata",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 50,
@@ -5445,6 +5462,7 @@
     {
         "name": "Dominion Squad",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 10,
         "points": 130,
@@ -5465,6 +5483,7 @@
     {
         "name": "Exorcist",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 140,
@@ -5485,6 +5504,7 @@
     {
         "name": "Hospitaller",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 40,
@@ -5505,6 +5525,7 @@
     {
         "name": "Imagifier",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 40,
@@ -5525,6 +5546,7 @@
     {
         "name": "Immolator",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 130,
@@ -5545,6 +5567,7 @@
     {
         "name": "Junith Eruita",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 100,
@@ -5565,6 +5588,7 @@
     {
         "name": "Missionary",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 35,
@@ -5585,6 +5609,7 @@
     {
         "name": "Mortifiers",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 60,
@@ -5605,6 +5630,7 @@
     {
         "name": "Mortifiers",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 2,
         "points": 120,
@@ -5625,6 +5651,7 @@
     {
         "name": "Morvenn Vahl",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 135,
@@ -5645,6 +5672,7 @@
     {
         "name": "Palatine",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 55,
@@ -5665,6 +5693,7 @@
     {
         "name": "Paragon Warsuits",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 3,
         "points": 240,
@@ -5685,6 +5714,7 @@
     {
         "name": "Penitent Engines",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 60,
@@ -5705,6 +5735,7 @@
     {
         "name": "Penitent Engines",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 2,
         "points": 120,
@@ -5725,6 +5756,7 @@
     {
         "name": "Preacher",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 45,
@@ -5745,6 +5777,7 @@
     {
         "name": "Repentia Squad",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 5,
         "points": 75,
@@ -5765,6 +5798,7 @@
     {
         "name": "Repentia Squad",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 10,
         "points": 150,
@@ -5785,6 +5819,7 @@
     {
         "name": "Retributor Squad",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 5,
         "points": 130,
@@ -5805,6 +5840,7 @@
     {
         "name": "Saint Celestine",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 3,
         "points": 150,
@@ -5825,6 +5861,7 @@
     {
         "name": "Seraphim Squad",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 5,
         "points": 70,
@@ -5845,6 +5882,7 @@
     {
         "name": "Seraphim Squad",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 10,
         "points": 140,
@@ -5865,6 +5903,7 @@
     {
         "name": "Sisters Novitiate Squad",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 10,
         "points": 90,
@@ -5885,6 +5924,7 @@
     {
         "name": "Sororitas Rhino",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 80,
@@ -5905,6 +5945,7 @@
     {
         "name": "Triumph of Saint Katherine",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 150,
@@ -5925,6 +5966,7 @@
     {
         "name": "Zephyrim Squad",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 5,
         "points": 70,
@@ -5945,6 +5987,7 @@
     {
         "name": "Zephyrim Squad",
         "army": "Adepta Sororitas",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 10,
         "points": 140,
@@ -5965,6 +6008,7 @@
     {
         "name": "Aleya",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 80,
@@ -5985,6 +6029,7 @@
     {
         "name": "Allarus Custodians",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 2,
         "points": 130,
@@ -6005,6 +6050,7 @@
     {
         "name": "Allarus Custodians",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 3,
         "points": 195,
@@ -6025,6 +6071,7 @@
     {
         "name": "Allarus Custodians",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 5,
         "points": 325,
@@ -6045,6 +6092,7 @@
     {
         "name": "Allarus Custodians",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 6,
         "points": 390,
@@ -6065,6 +6113,7 @@
     {
         "name": "Anathema Psykana Rhino",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 75,
@@ -6085,6 +6134,7 @@
     {
         "name": "Blade Champion",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 100,
@@ -6105,6 +6155,7 @@
     {
         "name": "Custodian Guard",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 4,
         "points": 180,
@@ -6125,6 +6176,7 @@
     {
         "name": "Custodian Guard",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 5,
         "points": 225,
@@ -6145,6 +6197,7 @@
     {
         "name": "Custodian Guard",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 9,
         "points": 405,
@@ -6165,6 +6218,7 @@
     {
         "name": "Custodian Guard",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 10,
         "points": 450,
@@ -6185,6 +6239,7 @@
     {
         "name": "Custodian Wardens",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 3,
         "points": 150,
@@ -6205,6 +6260,7 @@
     {
         "name": "Custodian Wardens",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 6,
         "points": 300,
@@ -6225,6 +6281,7 @@
     {
         "name": "Knight-Centura",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 75,
@@ -6245,6 +6302,7 @@
     {
         "name": "Prosecutors",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 4,
         "points": 40,
@@ -6265,6 +6323,7 @@
     {
         "name": "Prosecutors",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 5,
         "points": 50,
@@ -6285,6 +6344,7 @@
     {
         "name": "Prosecutors",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 9,
         "points": 90,
@@ -6305,6 +6365,7 @@
     {
         "name": "Prosecutors",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 10,
         "points": 100,
@@ -6325,6 +6386,7 @@
     {
         "name": "Shield-Captain",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 120,
@@ -6345,6 +6407,7 @@
     {
         "name": "Shield-Captain in Allarus Terminator Armour",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 120,
@@ -6365,6 +6428,7 @@
     {
         "name": "Shield-Captain on Dawneagle Jetbike",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 145,
@@ -6385,6 +6449,7 @@
     {
         "name": "Trajann Valoris",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 145,
@@ -6405,6 +6470,7 @@
     {
         "name": "Valerian",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 115,
@@ -6425,6 +6491,7 @@
     {
         "name": "Venerable Contemptor Dreadnought",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 185,
@@ -6445,6 +6512,7 @@
     {
         "name": "Venerable Land Raider",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 260,
@@ -6465,6 +6533,7 @@
     {
         "name": "Vertus Praetors",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 2,
         "points": 180,
@@ -6485,6 +6554,7 @@
     {
         "name": "Vertus Praetors",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 3,
         "points": 270,
@@ -6505,6 +6575,7 @@
     {
         "name": "Vertus Praetors",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 5,
         "points": 450,
@@ -6525,6 +6596,7 @@
     {
         "name": "Vertus Praetors",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 6,
         "points": 540,
@@ -6545,6 +6617,7 @@
     {
         "name": "Vigilators",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 4,
         "points": 60,
@@ -6565,6 +6638,7 @@
     {
         "name": "Vigilators",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 5,
         "points": 75,
@@ -6585,6 +6659,7 @@
     {
         "name": "Vigilators",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 9,
         "points": 135,
@@ -6605,6 +6680,7 @@
     {
         "name": "Vigilators",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 10,
         "points": 150,
@@ -6625,6 +6701,7 @@
     {
         "name": "Witchseekers",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 4,
         "points": 60,
@@ -6645,6 +6722,7 @@
     {
         "name": "Witchseekers",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 5,
         "points": 75,
@@ -6665,6 +6743,7 @@
     {
         "name": "Witchseekers",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 9,
         "points": 135,
@@ -6685,6 +6764,7 @@
     {
         "name": "Witchseekers",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 10,
         "points": 150,
@@ -6705,6 +6785,7 @@
     {
         "name": "Agamatus Custodians",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 3,
         "points": 280,
@@ -6725,6 +6806,7 @@
     {
         "name": "Agamatus Custodians",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 6,
         "points": 560,
@@ -6745,6 +6827,7 @@
     {
         "name": "Aquilon Custodians",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 3,
         "points": 230,
@@ -6765,6 +6848,7 @@
     {
         "name": "Aquilon Custodians",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 6,
         "points": 460,
@@ -6785,6 +6869,7 @@
     {
         "name": "Ares Gunship",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 580,
@@ -6805,6 +6890,7 @@
     {
         "name": "Caladius Grav-tank",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 215,
@@ -6825,6 +6911,7 @@
     {
         "name": "Contemptor-Achillus Dreadnought",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 155,
@@ -6845,6 +6932,7 @@
     {
         "name": "Contemptor Galatus Dreadnought",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 175,
@@ -6865,6 +6953,7 @@
     {
         "name": "Coronus Grav-carrier",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 200,
@@ -6885,6 +6974,7 @@
     {
         "name": "Custodian Guard with Adrasite and Pyrithite Spears",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 5,
         "points": 325,
@@ -6905,6 +6995,7 @@
     {
         "name": "Orion Assault Dropship",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 690,
@@ -6925,6 +7016,7 @@
     {
         "name": "Pallas Grav-attack",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 120,
@@ -6945,6 +7037,7 @@
     {
         "name": "Sagittarum Custodians",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 5,
         "points": 250,
@@ -6965,6 +7058,7 @@
     {
         "name": "Telemon Heavy Dreadnought",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 235,
@@ -6985,6 +7079,7 @@
     {
         "name": "Venatari Custodians",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 3,
         "points": 235,
@@ -7005,6 +7100,7 @@
     {
         "name": "Venatari Custodians",
         "army": "Adeptus Custodes",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 6,
         "points": 470,
@@ -7025,6 +7121,7 @@
     {
         "name": "Archaeopter Fusilave",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 160,
@@ -7045,6 +7142,7 @@
     {
         "name": "Archaopter Stratoraptor",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 165,
@@ -7065,6 +7163,7 @@
     {
         "name": "Archaeopter Transvector",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 155,
@@ -7085,6 +7184,7 @@
     {
         "name": "Belisarius Cawl",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 185,
@@ -7105,6 +7205,7 @@
     {
         "name": "Corpuscarii Electro-Priests",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 5,
         "points": 65,
@@ -7125,6 +7226,7 @@
     {
         "name": "Corpuscarii Electro-Priests",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 10,
         "points": 130,
@@ -7145,6 +7247,7 @@
     {
         "name": "Cybernetica Datasmith",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 35,
@@ -7165,6 +7268,7 @@
     {
         "name": "Fulgurite Electro-Priests",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 5,
         "points": 80,
@@ -7185,6 +7289,7 @@
     {
         "name": "Fulgurite Electro-Priests",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 10,
         "points": 160,
@@ -7205,6 +7310,7 @@
     {
         "name": "Ironstrider Ballistarii",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 50,
@@ -7225,6 +7331,7 @@
     {
         "name": "Ironstrider Ballistarii",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 2,
         "points": 100,
@@ -7245,6 +7352,7 @@
     {
         "name": "Ironstrider Ballistarii",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 3,
         "points": 150,
@@ -7265,6 +7373,7 @@
     {
         "name": "Kastelan Robots",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 2,
         "points": 215,
@@ -7285,6 +7394,7 @@
     {
         "name": "Kastelan Robots",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 4,
         "points": 430,
@@ -7305,6 +7415,7 @@
     {
         "name": "Kataphron Breachers",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 3,
         "points": 150,
@@ -7325,6 +7436,7 @@
     {
         "name": "Kataphron Breachers",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 6,
         "points": 300,
@@ -7345,6 +7457,7 @@
     {
         "name": "Kataphron Destroyers",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 3,
         "points": 120,
@@ -7365,6 +7478,7 @@
     {
         "name": "Kataphron Destroyers",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 6,
         "points": 240,
@@ -7385,6 +7499,7 @@
     {
         "name": "Onager Dunecrawler",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 140,
@@ -7405,6 +7520,7 @@
     {
         "name": "Pteraxii Skystalkers",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 5,
         "points": 70,
@@ -7425,6 +7541,7 @@
     {
         "name": "Pteraxii Skystalkers",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 10,
         "points": 140,
@@ -7445,6 +7562,7 @@
     {
         "name": "Pteraxii Sterylizors",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 5,
         "points": 75,
@@ -7465,6 +7583,7 @@
     {
         "name": "Pteraxii Sterylizors",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 10,
         "points": 150,
@@ -7485,6 +7604,7 @@
     {
         "name": "Serberys Raiders",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 3,
         "points": 75,
@@ -7505,6 +7625,7 @@
     {
         "name": "Serberys Raiders",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 6,
         "points": 150,
@@ -7525,6 +7646,7 @@
     {
         "name": "Serberys Sulphurhounds",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 3,
         "points": 65,
@@ -7545,6 +7667,7 @@
     {
         "name": "Serberys Sulphurhounds",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 6,
         "points": 130,
@@ -7565,6 +7688,7 @@
     {
         "name": "Servitors",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 4,
         "points": 50,
@@ -7585,6 +7709,7 @@
     {
         "name": "Sicarian Infiltrators",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 5,
         "points": 80,
@@ -7605,6 +7730,7 @@
     {
         "name": "Sicarian Infiltrators",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 10,
         "points": 160,
@@ -7625,6 +7751,7 @@
     {
         "name": "Sicarian Ruststalkers",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 5,
         "points": 75,
@@ -7645,6 +7772,7 @@
     {
         "name": "Sicarian Ruststalkers",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 10,
         "points": 150,
@@ -7665,6 +7793,7 @@
     {
         "name": "Skitarii Marshal",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 45,
@@ -7685,6 +7814,7 @@
     {
         "name": "Skitarii Rangers",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 10,
         "points": 125,
@@ -7705,6 +7835,7 @@
     {
         "name": "Skitarii Vanguard",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 10,
         "points": 100,
@@ -7725,6 +7856,7 @@
     {
         "name": "Skorpius Disintegrator",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 195,
@@ -7745,6 +7877,7 @@
     {
         "name": "Skorpius Dunerider",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 80,
@@ -7765,6 +7898,7 @@
     {
         "name": "Sydonian Dragoons",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 75,
@@ -7785,6 +7919,7 @@
     {
         "name": "Sydonian Dragoons",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 2,
         "points": 150,
@@ -7805,6 +7940,7 @@
     {
         "name": "Sydonian Dragoons",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 3,
         "points": 225,
@@ -7825,6 +7961,7 @@
     {
         "name": "Tech-Priest Dominus",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 75,
@@ -7845,6 +7982,7 @@
     {
         "name": "Tech-Priest Enginseer",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 45,
@@ -7865,6 +8003,7 @@
     {
         "name": "Tech-Prist Manipulus",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 60,
@@ -7885,6 +8024,7 @@
     {
         "name": "Technoarchaeologist",
         "army": "Adeptus Mechanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 45,
@@ -7905,6 +8045,7 @@
     {
         "name": "Reaver Titan",
         "army": "Adeptus Titanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 2200,
@@ -7925,6 +8066,7 @@
     {
         "name": "Warbringer Nemesis Titan",
         "army": "Adeptus Titanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 2600,
@@ -7945,6 +8087,7 @@
     {
         "name": "Warhound Titan",
         "army": "Adeptus Titanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 1100,
@@ -7965,6 +8108,7 @@
     {
         "name": "Warlord Titan",
         "army": "Adeptus Titanicus",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 3500,
@@ -7985,6 +8129,7 @@
     {
         "name": "",
         "army": "Aeldari",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": null,
@@ -8005,6 +8150,7 @@
     {
         "name": "",
         "army": "Agents of the Imperium",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": null,
@@ -8025,6 +8171,7 @@
     {
         "name": "",
         "army": "Astra Militarum",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": null,
@@ -8045,6 +8192,7 @@
     {
         "name": "",
         "army": "Black Templars",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": null,
@@ -8065,6 +8213,7 @@
     {
         "name": "",
         "army": "Blood Angels",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": null,
@@ -8085,6 +8234,7 @@
     {
         "name": "",
         "army": "Chaos Daemons",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": null,
@@ -8105,6 +8255,7 @@
     {
         "name": "Chaos Knights",
         "army": "",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": null,
@@ -8125,6 +8276,7 @@
     {
         "name": "",
         "army": "Chaos Space Marines",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": null,
@@ -8145,6 +8297,7 @@
     {
         "name": "",
         "army": "Dark Angels",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": null,
@@ -8165,6 +8318,7 @@
     {
         "name": "",
         "army": "Death Guard",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": null,
@@ -8205,6 +8359,7 @@
     {
         "name": "",
         "army": "Drukhari",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": null,
@@ -8225,6 +8380,7 @@
     {
         "name": "",
         "army": "Genestealer Cults",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": null,
@@ -8245,6 +8401,7 @@
     {
         "name": "",
         "army": "Grey Knights",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": null,
@@ -8265,6 +8422,7 @@
     {
         "name": "",
         "army": "Imperial Knights",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": null,
@@ -8285,6 +8443,7 @@
     {
         "name": "",
         "army": "Leagues of Votann",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": null,
@@ -8305,6 +8464,7 @@
     {
         "name": "",
         "army": "Necrons",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": null,
@@ -8325,6 +8485,7 @@
     {
         "name": "",
         "army": "Space Wolves",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": null,
@@ -8345,6 +8506,7 @@
     {
         "name": "",
         "army": "T'au Empire",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": null,
@@ -8365,6 +8527,7 @@
     {
         "name": "",
         "army": "Thousand Sons",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": null,
@@ -8385,6 +8548,7 @@
     {
         "name": "",
         "army": "Tyranids",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": null,
@@ -8405,6 +8569,7 @@
     {
         "name": "Angron",
         "army": "World Eaters",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 415,
@@ -8425,6 +8590,7 @@
     {
         "name": "Eightbound",
         "army": "World Eaters",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 3,
         "points": 155,
@@ -8445,6 +8611,7 @@
     {
         "name": "Eightbound",
         "army": "World Eaters",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 6,
         "points": 310,
@@ -8465,6 +8632,7 @@
     {
         "name": "Exalted Eightbound",
         "army": "World Eaters",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 3,
         "points": 180,
@@ -8485,6 +8653,7 @@
     {
         "name": "Exalted Eightbound",
         "army": "World Eaters",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 6,
         "points": 360,
@@ -8505,6 +8674,7 @@
     {
         "name": "Jakhals",
         "army": "World Eaters",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 10,
         "points": 75,
@@ -8525,6 +8695,7 @@
     {
         "name": "Jakhals",
         "army": "World Eaters",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 20,
         "points": 150,
@@ -8545,6 +8716,7 @@
     {
         "name": "Khorne Berzerkers",
         "army": "World Eaters",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 5,
         "points": 115,
@@ -8565,6 +8737,7 @@
     {
         "name": "Khorne Berzerkers",
         "army": "World Eaters",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 10,
         "points": 230,
@@ -8585,6 +8758,7 @@
     {
         "name": "Khorne Lord of Skulls",
         "army": "World Eaters",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 420,
@@ -8605,6 +8779,7 @@
     {
         "name": "Kharn the Betrayer",
         "army": "World Eaters",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 95,
@@ -8625,6 +8800,7 @@
     {
         "name": "Lord Invocatus",
         "army": "World Eaters",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 155,
@@ -8645,6 +8821,7 @@
     {
         "name": "World Eaters Chaos Spawn",
         "army": "World Eaters",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 2,
         "points": 65,
@@ -8665,6 +8842,7 @@
     {
         "name": "World Eaters Daemon Prince",
         "army": "World Eaters",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 220,
@@ -8685,6 +8863,7 @@
     {
         "name": "World Eaters Daemon Prince with Wings",
         "army": "World Eaters",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 215,
@@ -8705,6 +8884,7 @@
     {
         "name": "World Eaters Defiler",
         "army": "World Eaters",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 210,
@@ -8725,6 +8905,7 @@
     {
         "name": "World Eaters Forgefiend",
         "army": "World Eaters",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 150,
@@ -8745,6 +8926,7 @@
     {
         "name": "World Eaters Helbrute",
         "army": "World Eaters",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 150,
@@ -8765,6 +8947,7 @@
     {
         "name": "World Eater Heldrake",
         "army": "World Eaters",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 215,
@@ -8785,6 +8968,7 @@
     {
         "name": "World Eaters Land Raider",
         "army": "World Eaters",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 255,
@@ -8805,6 +8989,7 @@
     {
         "name": "World Eaters Lord on Juggernaut",
         "army": "World Eaters",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 120,
@@ -8825,6 +9010,7 @@
     {
         "name": "World Eaters Master of Executions",
         "army": "World Eaters",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 80,
@@ -8845,6 +9031,7 @@
     {
         "name": "World Eaters Maulerfiend",
         "army": "World Eaters",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 175,
@@ -8865,6 +9052,7 @@
     {
         "name": "World Eaters Predator Annihilator",
         "army": "World Eaters",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 130,
@@ -8885,6 +9073,7 @@
     {
         "name": "World Eaters Predator Destructor",
         "army": "World Eaters",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 130,
@@ -8905,6 +9094,7 @@
     {
         "name": "World Eaters Rhino",
         "army": "World Eaters",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 1,
         "points": 85,
@@ -8925,6 +9115,7 @@
     {
         "name": "World Eaters Terminator Squad",
         "army": "World Eaters",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 5,
         "points": 195,
@@ -8945,6 +9136,7 @@
     {
         "name": "World Eaters Terminator Squad",
         "army": "World Eaters",
+        "category": "INFANTRY",
         "canBeHero": false,
         "numModels": 10,
         "points": 390,

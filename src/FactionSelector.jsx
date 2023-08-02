@@ -1,55 +1,41 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import PointsSelector from './PointsSelector';
 import FactionCardList from './FactionCardList';
+import CardModal from './CardModal';
 
+const FactionSelector = ({ onSelectFaction }) => {
+    const [showModal, setShowModal] = useState(false);
+    const [selectedCard, setSelectedCard] = useState(null);
 
-const FactionSelector = () => {
-    const [selectedFaction, setSelectedFaction] = useState(null);
-    const [selectedDetachment, setSelectedDetachment] = useState(null);
-    const [selectedPoints, setSelectedPoints] = useState('');
-
-    const handleSelectFaction = (factionData) => {
-        setSelectedFaction(factionData);
+    const handleShowModal = (cardData) => {
+        setSelectedCard(cardData);
+        setShowModal(true);
     };
 
-    const handleSelectDetachment = (detachmentData) => {
-        setSelectedDetachment(detachmentData);
+    const handleCloseModal = () => {
+        setShowModal(false);
     };
 
-    const handleSelectPoints = (points) => {
-        setSelectedPoints(points);
+    const handleSelectCard = (cardData) => {
+        if (cardData.type === 'faction') {
+            onSelectFaction(cardData);
+        }
+        handleCloseModal();
     };
-    console.log(selectedPoints);
+
+    const handleSelectFactionInternal = (factionsData) => {
+        onSelectFaction(factionsData);
+        console.log('Selected Faction: ', factionsData);
+    };
+
     return (
         <>
-            {selectedPoints === '' ? (
-                // Render PointsSelector if points are not selected yet
-                <PointsSelector onSelectPoints={handleSelectPoints} />
-            ) : selectedFaction && selectedDetachment ? (
-                <FactionCardList
-                    selectedFaction={selectedFaction}
-                    selectedDetachment={selectedDetachment}
-                    selectedPoints={selectedPoints}
-                />
-            ) : (
-                <FactionCardList
-                    onSelectFaction={handleSelectFaction}
-                    onSelectDetachment={handleSelectDetachment}
-                />
+            <FactionCardList
+                onSelectFaction={handleSelectFactionInternal}
+            />
+            {showModal && (
+                <CardModal cardData={selectedCard} onClose={handleCloseModal} onSelectCard={handleSelectCard} />
             )}
-            <div>
-                {selectedPoints !== '' && (
-                    <>
-                        <Link to="/points-selector">
-                            <button>Start Over</button>
-                        </Link>
-                        <Link to="/unit-selector">
-                            <button>Confirm Selection</button>
-                        </Link>
-                    </>
-                )}
-            </div>
         </>
     );
 };

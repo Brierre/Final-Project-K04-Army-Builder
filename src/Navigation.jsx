@@ -1,14 +1,15 @@
 import React from "react";
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { PersonCircle, PersonHeart } from 'react-bootstrap-icons';
+import { Link } from "react-router-dom";
 
-function Navigation() {
+function Navigation({ isLoggedIn, onLogin, onLogout }) {
     return (
-        <Navbar expand="lg" className="bg-body-tertiary nav-stuff">
+        <Navbar expand="sm" className="bg-body-tertiary nav-stuff">
             <Container fluid>
                 <Navbar.Brand href="#">K04 Army Builder</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
@@ -18,36 +19,23 @@ function Navigation() {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link href="#action1">Home</Nav.Link>
-                        <Nav.Link href="#action2">My Army</Nav.Link>
+                        <Nav.Link as={Link} to="/">Home</Nav.Link>
+                        <Nav.Link href="#action2">My Army Page</Nav.Link>
                         <NavDropdown title="Link" id="navbarScrollingDropdown">
-                            <NavDropdown.Item href="#action3">View Factions</NavDropdown.Item>
-                            <NavDropdown.Item href="#action4">
-                                View Faction Rules
-                            </NavDropdown.Item>
-                            <NavDropdown.Item href="#action5">
-                                View Detachments
-                            </NavDropdown.Item>
-                            <NavDropdown.Item href="#action6">
-                                View Detachment Rules
-                            </NavDropdown.Item>
-                            <NavDropdown.Item href="#action7">
-                                View Emhancements
-                            </NavDropdown.Item>
-                            <NavDropdown.Item href="#action8">
-                                View Stratagems
-                            </NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/faction-rules">View Faction Rules</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/detachment-rules">View Detachment Rules</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/enhancements">View Enhancements</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/stratagems">View Stratagems</NavDropdown.Item>
                         </NavDropdown>
+                        {isLoggedIn ? (
+                            <Link to="/user"><PersonHeart /></Link>
+                        ) : (
+                            <Link to="/login"><PersonCircle /></Link>
+                        )}
+                        <Button onClick={isLoggedIn ? onLogout : onLogin}>
+                            {isLoggedIn ? 'Logout' : 'Login'}
+                        </Button>
                     </Nav>
-                    <Form className="d-flex">
-                        <Form.Control
-                            type="search"
-                            placeholder="Search"
-                            className="me-2"
-                            aria-label="Search"
-                        />
-                        <Button variant="outline-success">Search</Button>
-                    </Form>
                 </Navbar.Collapse>
             </Container>
         </Navbar>

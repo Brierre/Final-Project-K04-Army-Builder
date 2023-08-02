@@ -1,14 +1,38 @@
-import React from 'react';
+import React from "react";
 import UnitCard from './UnitCard';
-import unitsData from './units.json';
 
-const UnitCardList = () => {
+const UnitCardList = ({ unitCards }) => {
     return (
-        <>
-            {unitsData.map((unit) => (
-                <UnitCard key={unit.id} unit={unit} />
-            ))}
-        </>
+        <div>
+            <div className="unit-cards">
+                {Array.isArray(unitCards) ? (
+                    unitCards.map((unit) => (
+                        <UnitCard
+                            key={unit.id}
+                            name={unit.name}
+                            faction={unit.army}
+                            imageSrc={unit.image}
+                            category={unit.category}
+                            canBeHero={unit.canBeHero}
+                            numModels={unit.numModels}
+                            points={unit.points}
+                            movement={unit.movement}
+                            toughness={unit.toughness}
+                            save={unit.save}
+                            wounds={unit.wounds}
+                            leadership={unit.leadership}
+                            abilityList={unit.abilityList}
+                            wargearOptions={unit.wargearOptions}
+                            defaultWeapon={unit.defaultWeapon}
+                            notes={unit.notes}
+                            additionalPoints={unit.additionalPoints}
+                        />
+                    ))
+                ) : (
+                    <p>Loading units data...</p>
+                )}
+            </div>
+        </div>
     );
 };
 

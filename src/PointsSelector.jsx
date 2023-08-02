@@ -26,7 +26,11 @@ const PointsSelector = ({ onSelectPoints }) => {
 
     const handleSavePoints = () => {
         const numericValue = parseInt(inputValue, 10);
-        onSelectPoints(numericValue);
+        if (!isNaN(numericValue) && numericValue >= 500 && numericValue <= 5000 && numericValue % 5 === 0) {
+            onSelectPoints(numericValue);
+        } else {
+            console.log('Please enter a valid number between 500 and 5000, multiple of 5.');
+        }
     };
 
     

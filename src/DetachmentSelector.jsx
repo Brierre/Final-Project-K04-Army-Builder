@@ -1,20 +1,44 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import DetachmentCardList from './DetachmentCardList';
+import React, { useEffect, useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import { getDetachments } from './rest/api.js';
 
-const DetachmentSelector = () => {
+const DetachmentCard = ({ detachment, onSelectDetachment }) => {
+    const handleSelectDetachment = () => {
+        onSelectDetachment(detachment);
+    };
+
+    return (
+        <Button onClick={handleSelectDetachment}>
+            <div>
+                <h4>{detachment.name}</h4>
+            </div>
+        </Button>
+    );
+};
+
+const DetachmentCardList = ({ detachments, onSelectDetachment }) => {
+    return (
+        <>
+            {detachments.length > 0 ? (
+                detachments.map((detachment) => (
+                    <DetachmentCard
+                        key={detachment.id}
+                        detachment={detachment}
+                        onSelectDetachment={onSelectDetachment}
+                    />
+                ))
+            ) : (
+                <p>Loading detachments...</p>
+            )}
+        </>
+    );
+};
+
+const DetachmentSelector = ({ detachments, onSelectDetachment }) => {
     return (
         <>
             <h3>Choose a detachment:</h3>
-            <DetachmentCardList />
-            <div>
-                <Link to="/faction-selector">
-                    <button>Redo Selection</button>
-                </Link>
-                <Link to="/unit-selector">
-                    <button>Confirm Selection</button>
-                </Link>
-            </div>
+            <DetachmentCardList detachments={detachments} onSelectDetachment={onSelectDetachment} />
         </>
     );
 };

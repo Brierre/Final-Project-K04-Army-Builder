@@ -13,12 +13,12 @@ function BuilderInfoBlurb() {
                 <ul>
                     <li>Time constraints</li>
                     <li>Which models you have</li>
-                    <li>How much transport space you need for your army</li>
+                    <li>How you want to transport your army</li>
                     <li>Personal preference</li>
                 </ul>
 
             <div>
-                <Link to="/faction-selector">
+                <Link to="/army-builder">
                     <Button variant="primary" size="lg" active>
                         Build Army
                     </Button>
