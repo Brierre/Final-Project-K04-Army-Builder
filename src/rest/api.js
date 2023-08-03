@@ -1,9 +1,9 @@
 import axios from "axios";
 
 
-const armyRulesApiUrl = 'https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/army-rules';
+const factionRulesApiUrl = 'https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/army-rules';
 const detachmentsApiUrl = 'https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/detachments';
-const detachmentRulesApiUrl = 'https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/army-rules';
+const detachmentRulesApiUrl = 'https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/detachment-rules';
 const enhancementsApiUrl = 'https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/enhancements';
 const factionsApiUrl = 'https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/factions';
 const playerArmyListApiUrl = 'https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/player-army-list';
@@ -12,7 +12,7 @@ const mockapiUnitsJson = 'https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilde
 const usersApiUrl = 'https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/users';
 
 
-
+//******* operations to fetch data for army selection *******//
 
 export const getFactions = async () => {
     try {
@@ -24,14 +24,6 @@ export const getFactions = async () => {
         throw e;
     }
 };
-
-
-
-
-
-
-
-
 
 export const getUnitsData = async () => {
     try {
@@ -51,7 +43,7 @@ export const getUnitsData = async () => {
     }
 };
 
-//******* CRUD operations: get, add, update, delete player armies to mockapi *******//
+//******* CRUD operations: get, add, update, delete PLAYER ARMIES to mockapi *******//
 
 export const getPlayerArmy = async () => {
     try {
@@ -134,7 +126,7 @@ export const createPlayerArmy = async (selectedFaction, selectedPoints, userId) 
 
 
 
-//********* CRUD operations to add, edit, delete user information *********//
+//********* CRUD operations to add, edit, delete USER information *********//
 //****************** not fully implemented at this time *******************//
 
 export const createNewUser = async (username, password) => {
@@ -184,16 +176,17 @@ export const deleteUser = async (id) => {
 
 
 
-//********* informational data only, to be used in navbar links as tables *********//
+//********* INFORMATIONAL data only, to be used in navbar links as TABLES *********//
+//******** Not implemented using these/data not fetching in component file ********//
 
-export const getArmyRules = async () => {
+export const getFactionRules = async () => {
     try {
-        const resp = await fetch(`${armyRulesApiUrl}`);
+        const resp = await fetch(`${factionRulesApiUrl}`);
         const data = await resp.json();
         console.log("Faction rules data:", data);
         return data;
     } catch (e) {
-        console.log("Error fetching army rules: ", e);
+        console.log("Error fetching faction rules: ", e);
         throw e;
     }
 };

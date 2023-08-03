@@ -15,7 +15,7 @@
         "abilityList": [],
         "wargearOptions": [],
         "defaultWeapon": "",
-        "image": "",
+        "image": "./assets/images/cards/adrax.jpg",
         "notes": [],
         "additionalPoints": [],
         "id": "1"
@@ -36,7 +36,7 @@
         "abilityList": [],
         "wargearOptions": [],
         "defaultWeapon": "",
-        "image": "",
+        "image": "./assets/images/cards/aggressor.jpg",
         "notes": [],
         "additionalPoints": [],
         "id": "2"
@@ -57,7 +57,7 @@
         "abilityList": [],
         "wargearOptions": [],
         "defaultWeapon": "",
-        "image": "",
+        "image": "./assets/images/cards/aggressorx3.jpg",
         "notes": [],
         "additionalPoints": [],
         "id": "3"
@@ -78,7 +78,7 @@
         "abilityList": [],
         "wargearOptions": [],
         "defaultWeapon": "",
-        "image": "",
+        "image": "src/assets/images/cards/ancient in term.jpg",
         "notes": [],
         "additionalPoints": [],
         "id": "4"
@@ -99,7 +99,7 @@
         "abilityList": [],
         "wargearOptions": [],
         "defaultWeapon": "",
-        "image": "",
+        "image": "src/assets/images/cards/adrax.jpg",
         "notes": [],
         "additionalPoints": [],
         "id": "5"
@@ -120,7 +120,7 @@
         "abilityList": [],
         "wargearOptions": [],
         "defaultWeapon": "",
-        "image": "",
+        "image": "src/assets/images/cards/assaultintercessor.jpg",
         "notes": [],
         "additionalPoints": [],
         "id": "6"
@@ -141,7 +141,7 @@
         "abilityList": [],
         "wargearOptions": [],
         "defaultWeapon": "",
-        "image": "",
+        "image": "src/assets/images/cards/assaultintercessor.jpg",
         "notes": [],
         "additionalPoints": [],
         "id": "7"
@@ -162,7 +162,7 @@
         "abilityList": [],
         "wargearOptions": [],
         "defaultWeapon": "",
-        "image": "",
+        "image": "src/assets/images/cards/aggressor.jpg",
         "notes": [],
         "additionalPoints": [],
         "id": "8"
@@ -183,7 +183,7 @@
         "abilityList": [],
         "wargearOptions": [],
         "defaultWeapon": "",
-        "image": "",
+        "image": "src/assets/images/cards/aggressor.jpg",
         "notes": [],
         "additionalPoints": [],
         "id": "9"
@@ -204,7 +204,7 @@
         "abilityList": [],
         "wargearOptions": [],
         "defaultWeapon": "",
-        "image": "",
+        "image": "src/assets/images/cards/aggressor.jpg",
         "notes": [],
         "additionalPoints": [],
         "id": "10"
@@ -225,7 +225,7 @@
         "abilityList": [],
         "wargearOptions": [],
         "defaultWeapon": "",
-        "image": "",
+        "image": "src/assets/images/cards/aggressor.jpg",
         "notes": [],
         "additionalPoints": [],
         "id": "11"
@@ -246,7 +246,7 @@
         "abilityList": [],
         "wargearOptions": [],
         "defaultWeapon": "",
-        "image": "",
+        "image": "src/assets/images/cards/aggressor.jpg",
         "notes": [],
         "additionalPoints": [],
         "id": "12"
@@ -267,7 +267,7 @@
         "abilityList": [],
         "wargearOptions": [],
         "defaultWeapon": "",
-        "image": "",
+        "image": "src/assets/images/cards/aggressor.jpg",
         "notes": [],
         "additionalPoints": [],
         "id": "13"
@@ -288,7 +288,7 @@
         "abilityList": [],
         "wargearOptions": [],
         "defaultWeapon": "",
-        "image": "",
+        "image": "src/assets/images/cards/aggressor.jpg",
         "notes": [],
         "additionalPoints": [],
         "id": "14"
@@ -309,7 +309,7 @@
         "abilityList": [],
         "wargearOptions": [],
         "defaultWeapon": "",
-        "image": "",
+        "image": "src/assets/images/cards/aggressor.jpg",
         "notes": [],
         "additionalPoints": [],
         "id": "15"
@@ -330,7 +330,7 @@
         "abilityList": [],
         "wargearOptions": [],
         "defaultWeapon": "",
-        "image": "",
+        "image": "src/assets/images/cards/aggressor.jpg",
         "notes": [],
         "additionalPoints": [],
         "id": "16"
@@ -351,7 +351,7 @@
         "abilityList": "",
         "wargearOptions": "",
         "defaultWeapon": "",
-        "image": "",
+        "image": "src/assets/images/cards/aggressor.jpg",
         "notes": "Attack Bike +55 points, 12,5,3,5,6,2",
         "additionalPoints": "55",
         "id": "17"
@@ -372,7 +372,7 @@
         "abilityList": "",
         "wargearOptions": "",
         "defaultWeapon": "",
-        "image": "",
+        "image": "src/assets/images/cards/aggressor.jpg",
         "notes": "Attack Bike +55 points",
         "additionalPoints": "55",
         "id": "18"
@@ -393,7 +393,7 @@
         "abilityList": [],
         "wargearOptions": [],
         "defaultWeapon": "",
-        "image": "",
+        "image": "src/assets/images/cards/aggressor.jpg",
         "notes": [],
         "additionalPoints": [],
         "id": "19"
@@ -414,7 +414,7 @@
         "abilityList": [],
         "wargearOptions": [],
         "defaultWeapon": "",
-        "image": "",
+        "image": "src/assets/images/cards/aggressor.jpg",
         "notes": [],
         "additionalPoints": [],
         "id": "20"

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { getEnhancements } from "./rest/api";
 import Table from 'react-bootstrap/Table';
 
 const Enhancements = () => {
@@ -7,35 +6,48 @@ const Enhancements = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    const enhancementsApiUrl = 'https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/enhancements';
+
     useEffect(() => {
-        const fetchEnhancements = async () => {
-            try {
-                const response = await getEnhancements();
-                setEnhancements(response.data);
-                setIsLoading(false);
-                console.log(response.data);
-            } catch (e) {
-                console.log("Error fetching enhancements:", e);
-                setError("Error fetching enhancements");
-                setIsLoading(false);
-            }
+        const fetchEnhancements = () => {
+            fetch(enhancementsApiUrl)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    setEnhancements(data);
+                    setIsLoading(false);
+                })
+                .catch((error) => {
+                    console.log("Error fetching enhancements: ", error);
+                    setError("Error fetching enhancements");
+                    setIsLoading(false);
+                });
         };
 
         fetchEnhancements();
     }, []);
-    
+
     if (isLoading) {
         return <p>Loading...</p>;
+    }
+
+    if (error) {
+        return <p>Error: {error}</p>;
     }
 
     if (!enhancements || enhancements.length === 0) {
         return <p>No enhancements found</p>;
     }
 
+
     return (
         <>
 
-            <Table striped bordered hover variant="dark">
+            <Table striped bordered hover variant="dark" className="info-table">
                 <thead>
                     <tr>
                         <th>#</th>

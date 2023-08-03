@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { getArmyRules } from "./rest/api";
 import Table from 'react-bootstrap/Table';
 
 const FactionRules = () => {
@@ -7,18 +6,26 @@ const FactionRules = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    const factionRulesApiUrl = "https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/army-rules"; // Replace YOUR_API_ID with your actual API ID
+
     useEffect(() => {
-        const fetchFactionRules = async () => {
-            try {
-                const response = await getArmyRules();
-                setFactionRules(response.data);
-                setIsLoading(false);
-                console.log(response.data);
-            } catch (e) {
-                console.log("Error fetching factionRules:", e);
-                setError("Error fetching faction rules");
-                setIsLoading(false);
-            }
+        const fetchFactionRules = () => {
+            fetch(factionRulesApiUrl)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    setFactionRules(data);
+                    setIsLoading(false);
+                })
+                .catch((error) => {
+                    console.log("Error fetching faction rules:", error);
+                    setError("Error fetching faction rules");
+                    setIsLoading(false);
+                });
         };
 
         fetchFactionRules();
@@ -28,14 +35,19 @@ const FactionRules = () => {
         return <p>Loading...</p>;
     }
 
+    if (error) {
+        return <p>Error: {error}</p>;
+    }
+
     if (!factionRules || factionRules.length === 0) {
         return <p>No faction rules found</p>;
     }
 
+
     return (
         <>
 
-            <Table striped bordered hover variant="dark">
+            <Table striped bordered hover variant="dark" className="info-table">
                 <thead>
                     <tr>
                         <th>#</th>

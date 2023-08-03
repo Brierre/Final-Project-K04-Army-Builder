@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-// import UserInformationForm from './UserInformationForm';
 
 const PointsSelector = ({ onSelectPoints }) => {
     const [inputValue, setInputValue] = useState('');
-    
+
     const handleChange = (event) => {
         const value = event.target.value;
         // Check if the value is a valid number and within the specified range and multiple of 5
@@ -15,12 +14,29 @@ const PointsSelector = ({ onSelectPoints }) => {
         }
     };
 
-    const handleScroll = (e) => {
-        const delta = Math.sign(e.deltaY);
+    const handleScroll = (event) => {
+        const delta = Math.sign(event.deltaY);
         const numericValue = parseInt(inputValue, 10);
         const newValue = isNaN(numericValue) ? 0 : numericValue + delta * 5;
         if (newValue >= 500 && newValue <= 5000) {
             setInputValue(newValue.toString());
+        }
+    };
+
+    const handleKeyDown = (event) => {
+        const arrowUpKey = 38;
+        const arrowDownKey = 40;
+
+        if (event.keyCode === arrowUpKey || event.keyCode === arrowDownKey) {
+            event.preventDefault();
+
+            const delta = event.keyCode === arrowUpKey ? 5 : -5;
+            const numericValue = parseInt(inputValue, 10);
+            const newValue = isNaN(numericValue) ? 0 : numericValue + delta;
+
+            if (newValue >= 500 && newValue <= 5000) {
+                setInputValue(newValue.toString());
+            }
         }
     };
 
@@ -33,9 +49,8 @@ const PointsSelector = ({ onSelectPoints }) => {
         }
     };
 
-    
     return (
-        <div>
+        <div onKeyDown={handleKeyDown} tabIndex="0">
             {/* <UserInformationForm /> */}
             <h3>Choose how many points for your army.</h3>
             <input
@@ -49,8 +64,8 @@ const PointsSelector = ({ onSelectPoints }) => {
                 step={5}
                 placeholder="points"
             />
-            <button 
-                className='btn-submit' 
+            <button
+                className='btn-submit'
                 type='submit'
                 onClick={handleSavePoints}>Save Points
             </button>

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { getStratagems } from "./rest/api";
 import Table from 'react-bootstrap/Table';
 
 const Stratagems = () => {
@@ -7,18 +6,26 @@ const Stratagems = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    const stratagemsApiUrl = 'https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/stratagems';
+
     useEffect(() => {
-        const fetchStratagems = async () => {
-            try {
-                const response = await getStratagems();
-                setStratagems(response.data);
-                setIsLoading(false);
-                console.log(response.data);
-            } catch (e) {
-                console.log("Error fetching stratagems:", e);
-                setError("Error fetching stratagems");
-                setIsLoading(false);
-            }
+        const fetchStratagems = () => {
+            fetch(stratagemsApiUrl)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    setStratagems(data);
+                    setIsLoading(false);
+                })
+                .catch((error) => {
+                    console.log("Error fetching stratagems: ", error);
+                    setError("Error fetching stratagems");
+                    setIsLoading(false);
+                });
         };
 
         fetchStratagems();
@@ -28,6 +35,10 @@ const Stratagems = () => {
         return <p>Loading...</p>;
     }
 
+    if (error) {
+        return <p>Error: {error}</p>;
+    }
+
     if (!stratagems || stratagems.length === 0) {
         return <p>No stratagems found</p>;
     }
@@ -35,7 +46,7 @@ const Stratagems = () => {
     return (
         <>
 
-            <Table striped bordered hover variant="dark">
+            <Table striped bordered hover variant="dark" className="info-table">
                 <thead>
                     <tr>
                         <th>#</th>

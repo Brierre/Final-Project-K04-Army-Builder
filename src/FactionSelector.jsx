@@ -4,16 +4,16 @@ import FactionCardList from './FactionCardList';
 import CardModal from './CardModal';
 
 const FactionSelector = ({ onSelectFaction }) => {
-    const [showModal, setShowModal] = useState(false);
+    const [modalShow, setModalShow] = useState(false);
     const [selectedCard, setSelectedCard] = useState(null);
 
     const handleShowModal = (cardData) => {
         setSelectedCard(cardData);
-        setShowModal(true);
+        setModalShow(true);
     };
 
     const handleCloseModal = () => {
-        setShowModal(false);
+        setModalShow(false);
     };
 
     const handleSelectCard = (cardData) => {
@@ -33,7 +33,7 @@ const FactionSelector = ({ onSelectFaction }) => {
             <FactionCardList
                 onSelectFaction={handleSelectFactionInternal}
             />
-            {showModal && (
+            {modalShow && (
                 <CardModal cardData={selectedCard} onClose={handleCloseModal} onSelectCard={handleSelectCard} />
             )}
         </>

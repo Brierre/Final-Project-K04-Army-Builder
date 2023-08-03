@@ -67,11 +67,8 @@ const UnitSelector = ({ selectedFaction }) => {
 
                 <UnitCardList unitCards={units} />
             <div>
-                <Link to="/detachment-selector">
-                    <button>Back to Select Detachment</button>
-                </Link>
                 <Link to="/my-army">
-                    <button>Confirm Selection</button>
+                    <button>Go to My Army!</button>
                 </Link>
             </div>
         </>

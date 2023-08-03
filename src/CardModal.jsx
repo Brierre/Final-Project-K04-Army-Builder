@@ -1,8 +1,8 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
-const CardModal = ({ cardData, onClose, onSelectCard }) => {
-    const { name, description } = cardData;
+const CardModal = ({ cardData, show, onClose, onSelectCard }) => {
+    const { title, properties } = cardData;
 
     const handleSelectCard = () => {
         onSelectCard(cardData);
@@ -10,12 +10,16 @@ const CardModal = ({ cardData, onClose, onSelectCard }) => {
     };
 
     return (
-        <Modal show={true} onHide={onClose}>
+        <Modal show={show} onHide={onClose}>
             <Modal.Header closeButton>
-                <Modal.Title>{name}</Modal.Title>
+                <Modal.Title>{title}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <p>{description}</p>
+                {Object.entries(properties).map(([key, value]) => (
+                    <p key={key}>
+                        {key}: {value}
+                    </p>
+                ))}
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={onClose}>

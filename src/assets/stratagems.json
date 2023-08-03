@@ -588,7 +588,7 @@
         "army": "Death Guard",
         "detachment": "Plague Company",
         "sheetsColor": "green",
-        "id": "42"
+        "id": "43"
     },
     {
         "name": "Sanguous Flux",
@@ -602,7 +602,7 @@
         "army": "Death Guard",
         "detachment": "Plague Company",
         "sheetsColor": "green",
-        "id": "42"
+        "id": "44"
     },
     {
         "name": "Gifts of Decay",
@@ -616,7 +616,7 @@
         "army": "Death Guard",
         "detachment": "Plague Company",
         "sheetsColor": "blue",
-        "id": "42"
+        "id": "45"
     },
     {
         "name": "Boilblight",
@@ -630,7 +630,7 @@
         "army": "Death Guard",
         "detachment": "Plague Company",
         "sheetsColor": "blue",
-        "id": "42"
+        "id": "46"
     },
     {
         "name": "Cloud of Flies",
@@ -644,7 +644,7 @@
         "army": "Death Guard",
         "detachment": "Plague Company",
         "sheetsColor": "green",
-        "id": "42"
+        "id": "47"
     },
     {
         "name": "Psychic Dominion",
@@ -658,7 +658,7 @@
         "army": "Thousand Sons",
         "detachment": "Cult of Magic",
         "sheetsColor": "green",
-        "id": "42"
+        "id": "48"
     },
     {
         "name": "Destined by Fate",
@@ -672,7 +672,7 @@
         "army": "Thousand Sons",
         "detachment": "Cult of Magic",
         "sheetsColor": "green",
-        "id": "43"
+        "id": "49"
     },
     {
         "name": "Devastating Sorcery",
@@ -686,7 +686,7 @@
         "army": "Thousand Sons",
         "detachment": "Cult of Magic",
         "sheetsColor": "blue",
-        "id": "44"
+        "id": "50"
     },
     {
         "name": "Ensorcelled Infusion",
@@ -700,7 +700,7 @@
         "army": "Thousand Sons",
         "detachment": "Cult of Magic",
         "sheetsColor": "blue",
-        "id": "45"
+        "id": "51"
     },
     {
         "name": "Sorcerous Might",
@@ -714,7 +714,7 @@
         "army": "Thousand Sons",
         "detachment": "Cult of Magic",
         "sheetsColor": "blue",
-        "id": "46"
+        "id": "52"
     },
     {
         "name": "Warp Sight",
@@ -728,7 +728,7 @@
         "army": "Thousand Sons",
         "detachment": "Cult of Magic",
         "sheetsColor": "blue",
-        "id": "47"
+        "id": "53"
     },
     {
         "name": "Careen!",
@@ -742,7 +742,7 @@
         "army": "Orks",
         "detachment": "Waaaagh! Tribe",
         "sheetsColor": "green",
-        "id": "48"
+        "id": "54"
     },
     {
         "name": "Orks is Never Beaten",
@@ -756,7 +756,7 @@
         "army": "Orks",
         "detachment": "Waaaagh! Tribe",
         "sheetsColor": "green",
-        "id": "49"
+        "id": "55"
     },
     {
         "name": "Unbridled Carnage",
@@ -770,7 +770,7 @@
         "army": "Orks",
         "detachment": "Waaaagh! Tribe",
         "sheetsColor": "green",
-        "id": "50"
+        "id": "56"
     },
     {
         "name": "Ard as Nails",
@@ -784,7 +784,7 @@
         "army": "Orks",
         "detachment": "Waaaagh! Tribe",
         "sheetsColor": "green",
-        "id": "51"
+        "id": "57"
     },
     {
         "name": "Mob Rule",
@@ -798,7 +798,7 @@
         "army": "Orks",
         "detachment": "Waaaagh! Tribe",
         "sheetsColor": "blue",
-        "id": "52"
+        "id": "58"
     },
     {
         "name": "Ere We Go",
@@ -812,286 +812,6 @@
         "army": "Orks",
         "detachment": "Waaaagh! Tribe",
         "sheetsColor": "blue",
-        "id": "53"
-    },
-    {
-        "name": "",
-        "stratagemType": "BATTLE TACTIC STRATAGEM",
-        "CP": "1",
-        "whenToUse": "",
-        "target": "",
-        "friendly": "true",
-        "effect": "",
-        "restrictions": "",
-        "army": "",
-        "detachment": "",
-        "sheetsColor": "",
-        "id": "54"
-    },
-    {
-        "name": "",
-        "stratagemType": "",
-        "CP": "1",
-        "whenToUse": "",
-        "target": "",
-        "friendly": "true",
-        "effect": "",
-        "restrictions": "",
-        "army": "",
-        "detachment": "",
-        "sheetsColor": "",
-        "id": "55"
-    },
-    {
-        "name": "",
-        "stratagemType": "",
-        "CP": "1",
-        "whenToUse": "",
-        "target": "",
-        "friendly": "true",
-        "effect": "",
-        "restrictions": "",
-        "army": "",
-        "detachment": "",
-        "sheetsColor": "",
-        "id": "56"
-    },
-    {
-        "name": "Bulwark Imperative",
-        "stratagemType": "BATTLE TACTIC STRATAGEM",
-        "CP": "1",
-        "whenToUse": "",
-        "target": "",
-        "friendly": "true",
-        "effect": "",
-        "restrictions": "",
-        "army": "Space Marines",
-        "detachment": "Gladius Task Force",
-        "sheetsColor": "red",
-        "id": "57"
-    },
-    {
-        "name": "Bulwark Imperative",
-        "stratagemType": "BATTLE TACTIC STRATAGEM",
-        "CP": "1",
-        "whenToUse": "",
-        "target": "",
-        "friendly": "true",
-        "effect": "",
-        "restrictions": "",
-        "army": "Space Marines",
-        "detachment": "Gladius Task Force",
-        "sheetsColor": "red",
-        "id": "58"
-    },
-    {
-        "name": "Bulwark Imperative",
-        "stratagemType": "BATTLE TACTIC STRATAGEM",
-        "CP": "1",
-        "whenToUse": "",
-        "target": "",
-        "friendly": "true",
-        "effect": "",
-        "restrictions": "",
-        "army": "Space Marines",
-        "detachment": "Gladius Task Force",
-        "sheetsColor": "red",
         "id": "59"
-    },
-    {
-        "name": "Bulwark Imperative",
-        "stratagemType": "BATTLE TACTIC STRATAGEM",
-        "CP": "1",
-        "whenToUse": "",
-        "target": "",
-        "friendly": "true",
-        "effect": "",
-        "restrictions": "",
-        "army": "Space Marines",
-        "detachment": "Gladius Task Force",
-        "sheetsColor": "red",
-        "id": "60"
-    },
-    {
-        "name": "Bulwark Imperative",
-        "stratagemType": "BATTLE TACTIC STRATAGEM",
-        "CP": "1",
-        "whenToUse": "",
-        "target": "",
-        "friendly": "true",
-        "effect": "",
-        "restrictions": "",
-        "army": "Space Marines",
-        "detachment": "Gladius Task Force",
-        "sheetsColor": "red",
-        "id": "61"
-    },
-    {
-        "name": "Bulwark Imperative",
-        "stratagemType": "BATTLE TACTIC STRATAGEM",
-        "CP": "1",
-        "whenToUse": "",
-        "target": "",
-        "friendly": "true",
-        "effect": "",
-        "restrictions": "",
-        "army": "Space Marines",
-        "detachment": "Gladius Task Force",
-        "sheetsColor": "red",
-        "id": "62"
-    },
-    {
-        "name": "Bulwark Imperative",
-        "stratagemType": "BATTLE TACTIC STRATAGEM",
-        "CP": "1",
-        "whenToUse": "",
-        "target": "",
-        "friendly": "true",
-        "effect": "",
-        "restrictions": "",
-        "army": "Space Marines",
-        "detachment": "Gladius Task Force",
-        "sheetsColor": "red",
-        "id": "63"
-    },
-    {
-        "name": "Bulwark Imperative",
-        "stratagemType": "BATTLE TACTIC STRATAGEM",
-        "CP": "1",
-        "whenToUse": "",
-        "target": "",
-        "friendly": "true",
-        "effect": "",
-        "restrictions": "",
-        "army": "Space Marines",
-        "detachment": "Gladius Task Force",
-        "sheetsColor": "red",
-        "id": "64"
-    },
-    {
-        "name": "Bulwark Imperative",
-        "stratagemType": "BATTLE TACTIC STRATAGEM",
-        "CP": "1",
-        "whenToUse": "",
-        "target": "",
-        "friendly": "true",
-        "effect": "",
-        "restrictions": "",
-        "army": "Space Marines",
-        "detachment": "Gladius Task Force",
-        "sheetsColor": "red",
-        "id": "65"
-    },
-    {
-        "name": "Bulwark Imperative",
-        "stratagemType": "BATTLE TACTIC STRATAGEM",
-        "CP": "1",
-        "whenToUse": "",
-        "target": "",
-        "friendly": "true",
-        "effect": "",
-        "restrictions": "",
-        "army": "Space Marines",
-        "detachment": "Gladius Task Force",
-        "sheetsColor": "red",
-        "id": "66"
-    },
-    {
-        "name": "Bulwark Imperative",
-        "stratagemType": "BATTLE TACTIC STRATAGEM",
-        "CP": "1",
-        "whenToUse": "",
-        "target": "",
-        "friendly": "true",
-        "effect": "",
-        "restrictions": "",
-        "army": "Space Marines",
-        "detachment": "Gladius Task Force",
-        "sheetsColor": "red",
-        "id": "67"
-    },
-    {
-        "name": "Bulwark Imperative",
-        "stratagemType": "BATTLE TACTIC STRATAGEM",
-        "CP": "1",
-        "whenToUse": "",
-        "target": "",
-        "friendly": "true",
-        "effect": "",
-        "restrictions": "",
-        "army": "Space Marines",
-        "detachment": "Gladius Task Force",
-        "sheetsColor": "red",
-        "id": "68"
-    },
-    {
-        "name": "Bulwark Imperative",
-        "stratagemType": "BATTLE TACTIC STRATAGEM",
-        "CP": "1",
-        "whenToUse": "",
-        "target": "",
-        "friendly": "true",
-        "effect": "",
-        "restrictions": "",
-        "army": "Space Marines",
-        "detachment": "Gladius Task Force",
-        "sheetsColor": "red",
-        "id": "69"
-    },
-    {
-        "name": "Bulwark Imperative",
-        "stratagemType": "BATTLE TACTIC STRATAGEM",
-        "CP": "1",
-        "whenToUse": "",
-        "target": "",
-        "friendly": "true",
-        "effect": "",
-        "restrictions": "",
-        "army": "Space Marines",
-        "detachment": "Gladius Task Force",
-        "sheetsColor": "red",
-        "id": "70"
-    },
-    {
-        "name": "Bulwark Imperative",
-        "stratagemType": "BATTLE TACTIC STRATAGEM",
-        "CP": "1",
-        "whenToUse": "",
-        "target": "",
-        "friendly": "true",
-        "effect": "",
-        "restrictions": "",
-        "army": "Space Marines",
-        "detachment": "Gladius Task Force",
-        "sheetsColor": "red",
-        "id": "71"
-    },
-    {
-        "name": "Bulwark Imperative",
-        "stratagemType": "BATTLE TACTIC STRATAGEM",
-        "CP": "1",
-        "whenToUse": "",
-        "target": "",
-        "friendly": "true",
-        "effect": "",
-        "restrictions": "",
-        "army": "Space Marines",
-        "detachment": "Gladius Task Force",
-        "sheetsColor": "red",
-        "id": "72"
-    },
-    {
-        "name": "Bulwark Imperative",
-        "stratagemType": "BATTLE TACTIC STRATAGEM",
-        "CP": "1",
-        "whenToUse": "",
-        "target": "",
-        "friendly": "true",
-        "effect": "",
-        "restrictions": "",
-        "army": "Space Marines",
-        "detachment": "Gladius Task Force",
-        "sheetsColor": "red",
-        "id": "73"
     }
 ]

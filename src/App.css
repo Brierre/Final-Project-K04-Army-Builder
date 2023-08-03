@@ -22,14 +22,14 @@ ul {
   background-color: grey;
 }
 
-/* .hidden-faction {
-  display: none;
-} */
-
 .card-font {
   font-size: 10px;
 }
 
 .unit-cards {
   display: flex;
+}
+
+.info-table {
+font-size: 12px;
 }

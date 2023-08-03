@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import PointsSelector from './PointsSelector';
 import FactionCardList from './FactionCardList';
-import FactionSelector from './FactionSelector';
 import UnitSelector from './UnitSelector';
 import { getFactions, createPlayerArmy } from './rest/api';
+import { Link } from 'react-router-dom';
 
 const ArmyBuilder = ({ isLoggedIn, onLogin, onLogout }) => {
     const [selectedPoints, setSelectedPoints] = useState(null);
     const [selectedFaction, setSelectedFaction] = useState(null);
     const [factionsData, setFactionsData] = useState([]);
-    const [showModal, setShowModal] = useState(false);
+    const [modalShow, setModalShow] = useState(false);
     const [selectedCard, setSelectedCard] = useState(null);
 
     // get factions data for creating faction cards, list, and selecting a faction
@@ -32,17 +32,17 @@ const ArmyBuilder = ({ isLoggedIn, onLogin, onLogout }) => {
 
     const handleSelectFaction = (factionsData) => {
         setSelectedFaction(factionsData);
-        setShowModal(false);
+        setModalShow(false);
         console.log('Selected faction: ', factionsData);
     };
 
     const handleShowModal = (cardData) => {
         setSelectedCard(cardData);
-        setShowModal(true);
+        setModalShow(true);
     };
 
     const handleCloseModal = () => {
-        setShowModal(false);
+        setModalShow(false);
     };
 
     const handleSelectCard = (cardData) => {
@@ -69,6 +69,7 @@ const ArmyBuilder = ({ isLoggedIn, onLogin, onLogout }) => {
         };
     };
 
+    
     return (
         <div>
             {selectedPoints === null ? (
@@ -80,7 +81,7 @@ const ArmyBuilder = ({ isLoggedIn, onLogin, onLogout }) => {
                     <h3>Faction: {selectedFaction.name}</h3>
 
                     {/* Add a button to create the player army */}
-                    <button onClick={handleCreatePlayerArmy}>Create Army</button>
+                    <Link to="/unit-selector"><button onClick={handleCreatePlayerArmy}>Create Army</button></Link>
                 </>
             ) : (
                 <FactionCardList

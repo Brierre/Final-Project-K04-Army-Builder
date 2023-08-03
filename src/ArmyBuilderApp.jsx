@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Home';
 import ArmyBuilder from './ArmyBuilder';
-import FactionSelector from './FactionSelector';
-import DetachmentSelector from './DetachmentSelector';
 import UnitSelector from './UnitSelector';
 import MyArmyPage from './MyArmyPage';
 import LoginUser from './LoginUser';
@@ -42,8 +40,6 @@ function ArmyBuilderApp() {
                             onLogout={handleLogout}
                         />
                     } />
-                <Route path="/faction-selector" element={<FactionSelector />} />
-                <Route path="/detachment-selector" element={<DetachmentSelector />} />
                 <Route path="/unit-selector" element={<UnitSelector />} />
                 <Route path="/my-army" element={<MyArmyPage />} />
                 <Route path="/login" element={<LoginUser />} />
