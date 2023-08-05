@@ -1,17 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import CardModal from "./CardModal";
-
-const Detachment = {
-    INFANTRY: 1,
-    MOUNTED: 2,
-    VEHICLE: 3,
-    FORTIFICATION: 4,
-    ARTILLERY: 5,
-    MONSTER: 6
-}
+import { getPlayerArmy, updatePlayerArmy } from "./rest/api";
+import AddArmyUnit from "./AddArmyUnit";
 
 function UnitCard({
     name,
@@ -31,18 +23,19 @@ function UnitCard({
     image,
     notes,
     additionalPoints,
+    selectedPoints,
+    username,
+    armyId,
 }) {
 
     const [modalShow, setModalShow] = useState(false);
 
-    const handleAddToArmy = (selectedCardData) => {
-        //updatePlayerArmy(selectedCardData); add the card to army using whatever method you use
-        setModalShow(false);
-    };
-
     const cardData = {
         title: name,
         properties: {
+            army,
+            canBeHero,
+            numModels,
             points,
             movement,
             toughness,
@@ -58,6 +51,7 @@ function UnitCard({
             additionalPoints,
         },
     };
+
 
     return (
         <div className="row">
@@ -78,20 +72,19 @@ function UnitCard({
                         </div>
                         {/* replace with checkbox for Hero status */}
                         <Card.Text>Warlord?: {canBeHero}</Card.Text>
+                        <AddArmyUnit username={username} armyId={armyId} cardData={cardData} />
                     </Card.Body>
-                    <ListGroup className="list-group-flush">
-                        <ListGroup.Item>{name}</ListGroup.Item>
-                        {/* Add more unit details here */}
-                    </ListGroup>
                     <Button onClick={() => setModalShow(true)}>View Details</Button>
+
+
                 </Card>
             </div>
             <CardModal
                 cardData={cardData}
                 show={modalShow}
                 onClose={() => setModalShow(false)}
-                onSelectCard={handleAddToArmy}
             />
+
         </div>
     );
 }

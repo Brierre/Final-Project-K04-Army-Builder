@@ -1,3 +1,7 @@
+body {
+  padding-top: 40px;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -16,10 +20,6 @@ ul {
 
 .read-the-docs {
   color: #888;
-}
-
-.nav-stuff {
-  background-color: grey;
 }
 
 .card-font {

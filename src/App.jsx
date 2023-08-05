@@ -5,9 +5,11 @@ import ArmyBuilderApp from './ArmyBuilderApp';
 
 function App() {
   return (
-    <>
-      <ArmyBuilderApp />
-    </>
+    <div className="bg-light container-fluid App">
+      <div className='row'>
+        <ArmyBuilderApp />
+      </div>
+    </div>
   );
 }
 

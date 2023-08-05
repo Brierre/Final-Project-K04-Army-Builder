@@ -1,15 +1,20 @@
-import axios from "axios";
+//ACCESSING MOCKAPI DATA
+//https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/users/1/player-army-list/2/army-units
+//units within a player army are at player-army-list/army-units
+//units for filtering and selection are mockApiUnitsJson
 
+import { v4 as uuidv4 } from 'uuid';
 
 const factionRulesApiUrl = 'https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/army-rules';
 const detachmentsApiUrl = 'https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/detachments';
 const detachmentRulesApiUrl = 'https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/detachment-rules';
 const enhancementsApiUrl = 'https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/enhancements';
 const factionsApiUrl = 'https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/factions';
-const playerArmyListApiUrl = 'https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/player-army-list';
 const stratagemsApiUrl = 'https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/stratagems';
-const mockapiUnitsJson = 'https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/units';
+const mockapiUnitsJson = 'https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/units-data';
 const usersApiUrl = 'https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/users';
+// https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/users/1/player-army-list/2/army-units
+// https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/users/1/player-army-list/3/army-units/5/additionalPoints
 
 
 //******* operations to fetch data for army selection *******//
@@ -36,7 +41,12 @@ export const getUnitsData = async () => {
         }
 
         const data = await resp.json();
-        return data;
+        if (Array.isArray(data) && data.length > 0) {
+            return data;
+        } else {
+            console.log('No units data found or data is not in the expected format.');
+            return [];
+        }
     } catch (error) {
         console.error('Error fetching units data:', error);
         return [];
@@ -45,21 +55,33 @@ export const getUnitsData = async () => {
 
 //******* CRUD operations: get, add, update, delete PLAYER ARMIES to mockapi *******//
 
-export const getPlayerArmy = async () => {
+export const getPlayerArmy = async (username, armyId) => {
     try {
-        const resp = await fetch(`${playerArmyListApiUrl}`);
+        const resp = await fetch(`${usersApiUrl}?username=${username}`);
         const data = await resp.json();
-        return data;
+
+        if (armyId) {
+            // If the armyId is provided, find and return the specific army data
+            const armyData = data["player-army-list"].find((army) => army.id === armyId);
+            return armyData || null; // Return null if the army is not found
+        } else {
+            // If no armyId is provided, return the entire array of armies for the user
+            return data["player-army-list"];
+        }
     } catch (e) {
         console.log("Error fetching player army: ", e);
         throw e;
     }
 };
 
-export const deletePlayerArmy = async (id) => {
+export const deletePlayerArmy = async (username, id) => {
     try {
-        const resp = await fetch(`${playerArmyListApiUrl}/${id}`, {
+        const resp = await fetch(`${usersApiUrl}?username=${username}`, {
             method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id: id })
         });
         return await resp.json();
     } catch (e) {
@@ -67,23 +89,64 @@ export const deletePlayerArmy = async (id) => {
         throw e;
     }
 };
-
-export const updatePlayerArmy = async (armyId, dataToUpdate) => {
+export const updatePlayerArmy = async (username, armyId, dataToUpdate) => {
     try {
-        const resp = await fetch(`${playerArmyListApiUrl}/${armyId}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(dataToUpdate)
-        });
-        return await resp.json();
-    } catch (e) {
-        console.log('could not update army: ', e);
-        throw e;
-    }
-}
+        // Fetch the player's existing data
+        const resp = await fetch(`${usersApiUrl}?username=${username}`);
+        if (!resp.ok) {
+            throw new Error("Failed to fetch player data.");
+        }
+        const playerData = await resp.json();
 
+        // Find the correct user object based on the username and get the userId
+        const user = playerData.find((user) => user.username === username);
+
+        if (!user) {
+            throw new Error("User not found.");
+        }
+
+        // Find the correct army object based on the armyId
+        const armyToUpdate = user["player-army-list"].find((army) => army.id === armyId);
+
+        if (!armyToUpdate) {
+            throw new Error("Army not found.");
+        }
+
+        // Update the units array of the army with the new data
+        const updatedArmy = { ...armyToUpdate, units: [...armyToUpdate.units, dataToUpdate] };
+
+        // Update the "player-army-list" array with the updated army
+        const updatedPlayerData = playerData.map((user) =>
+            user.id === user.id
+                ? {
+                    ...user,
+                    "player-army-list": user["player-army-list"].map((army) =>
+                        army.id === armyId ? updatedArmy : army
+                    ),
+                }
+                : user
+        );
+
+        // Update the player's data with the modified "player-army-list" array
+        const updateResp = await fetch(`${usersApiUrl}/${user.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(updatedPlayerData), // Serialize the updated data to JSON
+        });
+
+        if (!updateResp.ok) {
+            throw new Error("Failed to update player data.");
+        }
+
+        const updatedData = await updateResp.json();
+        return updatedData;
+    } catch (error) {
+        console.error("Error updating player army:", error);
+        throw error;
+    }
+};
 
 const factionDetachmentMap = {
     "DetachmentA": "Space Marines",
@@ -92,39 +155,55 @@ const factionDetachmentMap = {
     "DetachmentD": "Necrons",
 };
 
-export const createPlayerArmy = async (selectedFaction, selectedPoints, userId) => {
-    const detachmentName = factionDetachmentMap[selectedFaction.name] || '';
-
+export const createPlayerArmy = async (selectedFaction, selectedPoints, username) => {
     const userArmyData = {
-        factionName: selectedFaction.name,
-        detachmentName,
-        startingPointsValue: selectedPoints,
+        id: uuidv4(), // Generate a unique ID for the army
+        selectedFaction: selectedFaction.name,
+        selectedPoints: selectedPoints,
         units: [],
-        userId,
     };
 
     try {
-        const resp = await fetch(playerArmyListApiUrl, {
-            method: "POST",
+        // Fetch the player's existing data
+        const resp = await fetch(`${usersApiUrl}?username=${username}`);
+        if (!resp.ok) {
+            throw new Error("Failed to fetch player data.");
+        }
+        const playerData = await resp.json();
+
+        // Find the correct user object based on the username and get the userId
+        const user = playerData.find((user) => user.username === username);
+
+        if (!user) {
+            throw new Error("User not found.");
+        }
+
+        // Update the "player-army-list" array with the new userArmyData
+        const updatedUser = {
+            ...user,
+            "player-army-list": [...user["player-army-list"], userArmyData],
+        };
+
+        // Update the player's data with the modified "player-army-list" array
+        const updateResp = await fetch(`${usersApiUrl}/${user.id}`, {
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(userArmyData),
+            body: JSON.stringify(updatedUser), // Serialize the updated data to JSON
         });
 
-        if (!resp.ok) {
-            throw new Error("Failed to post user army.");
+        if (!updateResp.ok) {
+            throw new Error("Failed to update player data.");
         }
 
-        const data = await resp.json();
-        return data;
+        const updatedData = await updateResp.json();
+        return updatedData;
     } catch (error) {
         console.error("Error creating player army:", error);
         throw error;
     }
 };
-
-
 
 //********* CRUD operations to add, edit, delete USER information *********//
 //****************** not fully implemented at this time *******************//
@@ -146,33 +225,33 @@ export const createNewUser = async (username, password) => {
     }
 };
 
-export const updateUser = async (userId, dataToUpdate) => {
-    try {
-        const resp = await fetch(`${usersApiUrl}/${userId}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(dataToUpdate)
-        });
-        return await resp.json();
-    } catch (e) {
-        console.log('could not update army: ', e);
-        throw e;
-    }
-}
+// export const updateUser = async (username, dataToUpdate) => {
+//     try {
+//         const resp = await fetch(`${usersApiUrl}/${username}`, {
+//             method: 'PUT',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify(dataToUpdate)
+//         });
+//         return await resp.json();
+//     } catch (e) {
+//         console.log('could not update army: ', e);
+//         throw e;
+//     }
+// }
 
-export const deleteUser = async (id) => {
-    try {
-        const resp = await fetch(`${usersApiUrl}/${id}`, {
-            method: 'DELETE',
-        });
-        return await resp.json();
-    } catch (e) {
-        console.log('could not delete user: ', e);
-        throw e;
-    }
-};
+// export const deleteUser = async (id) => {
+//     try {
+//         const resp = await fetch(`${usersApiUrl}/${id}`, {
+//             method: 'DELETE',
+//         });
+//         return await resp.json();
+//     } catch (e) {
+//         console.log('could not delete user: ', e);
+//         throw e;
+//     }
+// };
 
 
 

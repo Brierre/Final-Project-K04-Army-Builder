@@ -1,23 +1,40 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import Navigation from './Navigation';
 
-const LoginUser = () => {
+const LoginUser = ({ onLogin }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const history = useNavigate();
+    const navigate = useNavigate();
 
     const handleLogin = () => {
-        // Implement user validation and login logic here
-        // Make API call to validate user and log them in
-        // Redirect to the user account page after successful login
-        history.push('/user');
+        fetch(
+            `https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/users?username=${username}&password=${password}`
+        )
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Failed to login');
+                }
+                return response.json();
+            })
+            .then((data) => {
+                if (data.length === 1) {
+                    // Successful login, update the isLoggedIn state in the parent component
+                    onLogin(username);
+                    // Redirect the user to the army builder page after successful login
+                    navigate('/');
+                } else {
+                    alert('Invalid username or password.');
+                }
+            })
+            .catch((error) => {
+                console.error('Error logging in:', error);
+                alert('Error logging in. Please try again.');
+            });
     };
 
     return (
         <div>
-            <Navigation />
             <h2>Login</h2>
             <form>
                 <label>

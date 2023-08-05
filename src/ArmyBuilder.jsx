@@ -1,16 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import PointsSelector from './PointsSelector';
 import FactionCardList from './FactionCardList';
-import UnitSelector from './UnitSelector';
 import { getFactions, createPlayerArmy } from './rest/api';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import RunningTotal from './RunningTotal';
+import UnitSelector from './UnitSelector';
+import UnitCard from './UnitCard';
 
-const ArmyBuilder = ({ isLoggedIn, onLogin, onLogout }) => {
+
+const ArmyBuilder = ({ isLoggedIn, onLogin, onLogout, username }) => {
     const [selectedPoints, setSelectedPoints] = useState(null);
     const [selectedFaction, setSelectedFaction] = useState(null);
     const [factionsData, setFactionsData] = useState([]);
     const [modalShow, setModalShow] = useState(false);
     const [selectedCard, setSelectedCard] = useState(null);
+    const [armyId, setArmyId] = useState(null);
+    const [isArmyCreated, setIsArmyCreated] = useState(false);
+    const navigate = useNavigate();
+    const isInitialRender = useRef(true);
+
+    //console.log("ArmyBuilder rendered!");
 
     // get factions data for creating faction cards, list, and selecting a faction
     useEffect(() => {
@@ -25,6 +34,17 @@ const ArmyBuilder = ({ isLoggedIn, onLogin, onLogout }) => {
 
         fetchFactionsData();
     }, []);
+
+    useEffect(() => {
+        // Check if it's the first rendering
+        if (isInitialRender.current) {
+            // Set the ref to false for subsequent renders
+            isInitialRender.current = false;
+        } else {
+            // It's not the first rendering, so log the value of isArmyCreated
+            console.log("isArmyCreated changed:", isArmyCreated);
+        }
+    }, [isArmyCreated]);
 
     const handleSelectPoints = (points) => {
         setSelectedPoints(points);
@@ -53,25 +73,36 @@ const ArmyBuilder = ({ isLoggedIn, onLogin, onLogout }) => {
     };
 
     const handleCreatePlayerArmy = async () => {
+        console.log("selectedFaction ", selectedFaction);
+
         try {
             if (isLoggedIn && selectedPoints && selectedFaction) {
-                const userId = 'user123';
                 console.log('Selected Faction: ', selectedFaction);
-                const userArmyData = await createPlayerArmy(selectedFaction, selectedPoints, userId);
+                const userArmyData = await createPlayerArmy(selectedFaction, selectedPoints, username);
+                const armyId = userArmyData.id;
+                console.log('Player army created successfully!', userArmyData, isArmyCreated);
+                setIsArmyCreated(true);
+                console.log("is army ACTUALLY created?? ", isArmyCreated);
+                const stateProps = {
+                    selectedFaction,
+                    username,
+                    armyId,
+                };
+                navigate(`/unit-selector?selectedFaction=${encodeURIComponent(JSON.stringify(selectedFaction))}&username=${encodeURIComponent(username)}&armyId=${encodeURIComponent(armyId)}`);
 
-                console.log('Player army created successfully!', userArmyData);
             } else {
                 console.log('Please log in to select points and faction before creating the army.');
             }
-        }
-        catch (error) {
+        } catch (error) {
             console.error('Error creating player army: ', error);
-        };
+        }
     };
 
-    
+
     return (
         <div>
+            {selectedPoints !== null && <RunningTotal selectedPoints={selectedPoints} />}
+
             {selectedPoints === null ? (
                 <PointsSelector onSelectPoints={handleSelectPoints} />
             ) : selectedFaction ? (
@@ -81,7 +112,12 @@ const ArmyBuilder = ({ isLoggedIn, onLogin, onLogout }) => {
                     <h3>Faction: {selectedFaction.name}</h3>
 
                     {/* Add a button to create the player army */}
-                    <Link to="/unit-selector"><button onClick={handleCreatePlayerArmy}>Create Army</button></Link>
+                    <Link to="/unit-selector">
+                        <button onClick={handleCreatePlayerArmy}>Create Army</button>
+                    </Link>
+                    {isArmyCreated ? (
+                        <UnitSelector selectedFaction={selectedFaction} username={username} armyId={armyId} isArmyCreated={isArmyCreated} />
+                    ) : null}
                 </>
             ) : (
                 <FactionCardList

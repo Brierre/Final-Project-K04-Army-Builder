@@ -1,13 +1,8 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
-const CardModal = ({ cardData, show, onClose, onSelectCard }) => {
+const CardModal = ({ cardData, show, onClose }) => {
     const { title, properties } = cardData;
-
-    const handleSelectCard = () => {
-        onSelectCard(cardData);
-        onClose();
-    };
 
     return (
         <Modal show={show} onHide={onClose}>
@@ -25,15 +20,12 @@ const CardModal = ({ cardData, show, onClose, onSelectCard }) => {
                 <Button variant="secondary" onClick={onClose}>
                     Go Back to List
                 </Button>
-                <Button variant="primary" onClick={handleSelectCard}>
+                {/* <Button variant="primary" onClick={handleSelectCard}>
                     Select This Card
-                </Button>
+                </Button> */}
             </Modal.Footer>
         </Modal>
     );
 };
 
 export default CardModal;
-
-
-

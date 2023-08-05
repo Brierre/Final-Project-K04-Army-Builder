@@ -7,39 +7,49 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { PersonCircle, PersonHeart } from 'react-bootstrap-icons';
 import { Link } from "react-router-dom";
 
-function Navigation({ isLoggedIn, onLogin, onLogout }) {
+function Navigation({ isLoggedIn, username, onLogout }) {
+    const handleLogout = () => {
+        onLogout();
+    };
+
     return (
-        <Navbar expand="sm" className="bg-body-tertiary nav-stuff">
-            <Container fluid className="nav-stuff">
-                <Navbar.Brand className="nav-stuff" href="#">K04 Army Builder</Navbar.Brand>
-                <Navbar.Toggle aria-controls="navbarScroll" />
-                <Navbar.Collapse id="navbarScroll">
-                    <Nav
-                        className="me-auto my-2 my-lg-0 nav-stuff"
-                        style={{ maxHeight: '100px' }}
-                        navbarScroll
-                    >
+        <>
+            <Navbar bg="dark" data-bs-theme="dark">
+                <Container>
+                    <Navbar.Brand href="#home">K04 Army Builder</Navbar.Brand>
+                    <Nav className="me-auto" style={{ maxHeight: '100px' }} >
                         <Nav.Link as={Link} to="/">Home</Nav.Link>
-                        <Nav.Link href="#action2">My Army Page</Nav.Link>
+                        <Nav.Link as={Link} to="/my-army-page">My Armies</Nav.Link>
                         <NavDropdown title="Link" id="navbarScrollingDropdown">
                             <NavDropdown.Item as={Link} to="/faction-rules">View Faction Rules</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/detachment-rules">View Detachment Rules</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/enhancements">View Enhancements</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/stratagems">View Stratagems</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/army-options">Army Options</NavDropdown.Item>
                         </NavDropdown>
                         {isLoggedIn ? (
-                            <Link to="/user"><PersonHeart /></Link>
+                            <div style={{ display: 'flex', alignItems: 'center', color: 'white' }}>
+                                <PersonHeart style={{ marginRight: '5px' }} />
+                                Welcome, {username}
+                                <Button variant="outline-light" onClick={handleLogout}>
+                                    Logout
+                                </Button>
+                            </div>
                         ) : (
-                            <Link to="/login"><PersonCircle /></Link>
+                            <Link to="/login">
+                                <PersonCircle /> Login to do fun stuff!
+                            </Link>
                         )}
-                        <Button onClick={isLoggedIn ? onLogout : onLogin}>
+                        {/* <Button onClick={isLoggedIn ? onLogout : onLogin}>
                             {isLoggedIn ? 'Logout' : 'Login'}
-                        </Button>
+                        </Button> */}
                     </Nav>
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
+                </Container>
+            </Navbar>
+        </>
     );
 }
+
+
 
 export default Navigation;

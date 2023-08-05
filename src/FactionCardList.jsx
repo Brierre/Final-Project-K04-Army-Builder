@@ -23,9 +23,9 @@ const FactionCardList = ({ factionsData, onSelectFaction, selectedPoints }) => {
                         selected={true} 
                     />
                     <div>
-                        <button onClick={handleStartOver}>Start Over?</button>
+                        <button onClick={handleStartOver}>Choose a different faction</button>
                 
-                        <button onClick={() => onSelectFaction(selectedFaction)}>Confirm Selection</button>
+                        <button onClick={() => onSelectFaction(selectedFaction)}>Confirm selection</button>
                     </div>
 
                 </>

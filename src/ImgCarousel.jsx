@@ -10,13 +10,13 @@ import CarouselImage7 from './assets/images/carousels/AC2PdM.jpg';
 import CarouselImage8 from './assets/images/carousels/C6D90M.jpg';
 import CarouselImage9 from './assets/images/carousels/DbzYEX.jpg';
 import CarouselImage10 from './assets/images/carousels/drf3Kt.jpg';
-import CarouselImage11 from './assets/images/carousels/drukhari.jpg';
+import CarouselImage11 from './assets/images/carousels/P4MXW5.jpg';
 import CarouselImage12 from './assets/images/carousels/DudT69.jpg';
 import CarouselImage13 from './assets/images/carousels/EFx1Ic.jpg';
 import CarouselImage14 from './assets/images/carousels/FDESmA.jpg';
 import CarouselImage15 from './assets/images/carousels/GeEMtO.png';
 import CarouselImage16 from './assets/images/carousels/GYDTNK.jpg';
-import CarouselImage17 from './assets/images/carousels/imperial-knight.jpg';
+import CarouselImage17 from './assets/images/carousels/LQK1ou.jpg';
 import CarouselImage18 from './assets/images/carousels/JcYNgr.jpg';
 import CarouselImage19 from './assets/images/carousels/LDpt8n.jpg';
 
