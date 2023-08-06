@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { getPlayerArmy, updatePlayerArmy } from "./rest/api";
+import { updatePlayerArmy } from "./rest/api";
 import { Button } from "react-bootstrap";
 
 const AddArmyUnit = ({ username, armyId, cardData, onAddUnit }) => {
     const handleAddCardToArmy = async () => {
         try {
-            await updatePlayerArmy(username, armyId, cardData);
-            console.log('Unit added to army successfully!', cardData);
+            const clonedCardData = { ...cardData };
+            await updatePlayerArmy(username, armyId, { units: [clonedCardData] });
+            console.log('Unit added to army successfully!', clonedCardData);
             onAddUnit();
         } catch (error) {
             console.log('card data: ', cardData);

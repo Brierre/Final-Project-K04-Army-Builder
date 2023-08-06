@@ -41,22 +41,6 @@ const ArmyBuilder = ({ isLoggedIn, onLogin, onLogout, username }) => {
         }
     }, [isArmyCreated]);
 
-    // useEffect(() => {
-    //     const fetchMostRecentArmyId = async () => {
-    //         try {
-    //             const mostRecentArmyId = await getMostRecentArmyId(username);
-    //             setArmyId(mostRecentArmyId);
-    //             console.log('most recent army id: ', mostRecentArmyId);
-    //         } catch (error) {
-    //             console.error("Error fetching most recent army ID:", error);
-    //         }
-    //     };
-    
-    //     if (isLoggedIn && username) {
-    //         fetchMostRecentArmyId();
-    //     }
-    // }, [isLoggedIn, username]);
-
     const handleCreatePlayerArmy = async () => {
         console.log("selectedFaction ", selectedFaction);
 

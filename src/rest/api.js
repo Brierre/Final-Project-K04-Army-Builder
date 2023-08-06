@@ -32,9 +32,6 @@ export const getFactions = async () => {
 
 export const getUnitsData = async () => {
     try {
-        // const data = [
-        //     {id: 1, name: "Adrax Agatone", army: "Space Marines", category: "INFANTRY",canBeHero: true,numModels: 1,points: 100,movement: 6,toughness: 4,save: 2,wounds: 5,leadership: 6,objectiveControl: 1,abilityList: [],wargearOptions: [],defaultWeapon: "",image: "",notes: [],additionalPoints: []},
-        // ]
         const resp = await fetch(mockapiUnitsJson);
         if (!resp.ok) {
             throw new Error('Failed to fetch units data');
@@ -79,21 +76,52 @@ export const getPlayerArmy = async (username, armyId) => {
     }
 };
 
-export const deletePlayerArmy = async (username, id) => {
+export const deleteUnitFromArmy = async (username, armyId, unitId) => {
     try {
-        const resp = await fetch(`${usersApiUrl}?username=${username}`, {
-            method: 'DELETE',
+        const resp = await fetch(`${usersApiUrl}?username=${username}`);
+        if (!resp.ok) {
+            throw new Error("Failed to fetch player data");
+        }
+
+        const playerData = await resp.json();
+        const user = playerData.find((user) => user.username === username);
+
+        if (!user) {
+            throw new Error("User not found.");
+        }
+
+        // Find the specific army in the player data using the given armyId
+        const armyToUpdate = user["player-army-list"].find((army) => army.id === armyId);
+
+        if (!armyToUpdate) {
+            throw new Error("Army not found.");
+        }
+
+        // Filter out the unit with the provided unitId from the army units array
+        armyToUpdate.units = armyToUpdate.units.filter((unit) => unit.id !== unitId);
+
+        // Send a PUT request to update the player data on the server
+        const updateResp = await fetch(`${usersApiUrl}/${user.id}`, {
+            method: "PUT",
             headers: {
-                'Content-Type': 'application/json'
+                "Content-Type": "application/json",
             },
-            body: JSON.stringify({ id: id })
+            body: JSON.stringify(playerData),
         });
-        return await resp.json();
-    } catch (e) {
-        console.log('could not delete army: ', e);
-        throw e;
+
+        if (!updateResp.ok) {
+            throw new Error("Failed to update player data.");
+        }
+
+        // Parse the response data from the server
+        const updatedData = await updateResp.json();
+        return updatedData;
+    } catch (error) {
+        console.error("Error deleting unit from army:", error);
+        throw error;
     }
 };
+
 
 const getUsersData = async () => {
     try {
@@ -147,27 +175,30 @@ export const updatePlayerArmy = async (username, armyId, updatedArmyData) => {
         }
 
         const playerData = await resp.json();
-        const user = playerData.find((user) => user.username === username);
+        const userIndex = playerData.findIndex((user) => user.username === username);
 
-        if (!user) {
+        if (userIndex === -1) {
             throw new Error("User not found.");
         }
 
         // Find the specific army in the player data using the given armyId
-        const armyToUpdate = user["player-army-list"].find((army) => army.id === armyId);
+        const playerArmyList = playerData[userIndex]["player-army-list"];
+        const army = playerArmyList.find((army) => army.id === armyId);
 
-        if (!armyToUpdate) {
+        if (!army) {
             throw new Error("Army not found.");
         }
 
-        // Here, we're directly updating the units array of the specific army
-        armyToUpdate.units = [...armyToUpdate.units, ...updatedArmyData?.units];
+        // Ensure that updatedArmyData and updatedArmyData.units are valid
+        if (!updatedArmyData || !Array.isArray(updatedArmyData.units)) {
+            throw new Error("Invalid data provided to update the army.");
+        }
 
-        console.log('updatedArmyData:', updatedArmyData);
-        console.log('updatedArmyData.units:', updatedArmyData.units);
+        // Updating the units array of the specific army
+        army.units.push(...updatedArmyData.units);
 
         // Send a PUT request to update the player data on the server
-        const updateResp = await fetch(`${usersApiUrl}/${user.id}`, {
+        const updateResp = await fetch(`${usersApiUrl}/${playerData[userIndex].id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -179,7 +210,6 @@ export const updatePlayerArmy = async (username, armyId, updatedArmyData) => {
             throw new Error("Failed to update player data.");
         }
 
-        // Parse the response data from the server
         const updatedData = await updateResp.json();
         return updatedData;
     } catch (error) {
@@ -187,6 +217,7 @@ export const updatePlayerArmy = async (username, armyId, updatedArmyData) => {
         throw error;
     }
 };
+
 
 const factionDetachmentMap = {
     "DetachmentA": "Space Marines",
@@ -231,7 +262,7 @@ export const createPlayerArmy = async (selectedFaction, selectedPoints, username
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(updatedUser), // Serialize the updated data to JSON
+            body: JSON.stringify(updatedUser),
         });
 
         if (!updateResp.ok) {
