@@ -183,9 +183,9 @@ export const updatePlayerArmy = async (username, armyId, updatedArmyData) => {
 
         // Find the specific army in the player data using the given armyId
         const playerArmyList = playerData[userIndex]["player-army-list"];
-        const army = playerArmyList.find((army) => army.id === armyId);
+        const armyIndex = playerArmyList.findIndex((army) => army.id === armyId);
 
-        if (!army) {
+        if (!armyIndex === -1) {
             throw new Error("Army not found.");
         }
 
@@ -194,8 +194,8 @@ export const updatePlayerArmy = async (username, armyId, updatedArmyData) => {
             throw new Error("Invalid data provided to update the army.");
         }
 
-        // Updating the units array of the specific army
-        army.units.push(...updatedArmyData.units);
+        // Update the units array of the specific army with the new units
+        playerArmyList[armyIndex].units.push(...updatedArmyData.units);
 
         // Send a PUT request to update the player data on the server
         const updateResp = await fetch(`${usersApiUrl}/${playerData[userIndex].id}`, {
@@ -203,7 +203,7 @@ export const updatePlayerArmy = async (username, armyId, updatedArmyData) => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(playerData),
+            body: JSON.stringify(playerData[userIndex]),
         });
 
         if (!updateResp.ok) {
