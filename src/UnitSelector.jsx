@@ -6,7 +6,6 @@ import UnitCard from "./UnitCard";
 import { getUnitsData } from './rest/api';
 import RunningTotal from './RunningTotal';
 import { useLocation } from "react-router-dom";
-import AddArmyUnit from "./AddArmyUnit";
 
 //const mockapiUnitsJson = 'https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/units';
 
@@ -22,7 +21,6 @@ const UnitSelector = () => {
 
     //selectedFaction = "Space Marines";
     console.log('selectedFaction in UnitSelector:', selectedFaction);
-    console.log('Army ID: ', armyId);
     useEffect(() => {
         getUnitsData().then((data) => {
             setUnits(data);

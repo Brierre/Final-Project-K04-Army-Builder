@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import CardModal from "./CardModal";
-import { getPlayerArmy, updatePlayerArmy } from "./rest/api";
 import AddArmyUnit from "./AddArmyUnit";
 
 function UnitCard({
@@ -29,6 +28,7 @@ function UnitCard({
 }) {
 
     const [modalShow, setModalShow] = useState(false);
+    const [units, setUnits] = useState([]);
 
     const cardData = {
         title: name,
@@ -52,6 +52,9 @@ function UnitCard({
         },
     };
 
+const handleAddUnit = () => {
+    setUnits((prevUnits) => [...prevUnits, cardData]);
+};
 
     return (
         <div className="row">
@@ -72,11 +75,9 @@ function UnitCard({
                         </div>
                         {/* replace with checkbox for Hero status */}
                         <Card.Text>Warlord?: {canBeHero}</Card.Text>
-                        <AddArmyUnit username={username} armyId={armyId} cardData={cardData} />
+                        <AddArmyUnit username={username} armyId={armyId} cardData={cardData} onAddUnit={handleAddUnit} />
                     </Card.Body>
                     <Button onClick={() => setModalShow(true)}>View Details</Button>
-
-
                 </Card>
             </div>
             <CardModal

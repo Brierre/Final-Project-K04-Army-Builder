@@ -95,11 +95,55 @@ export const deletePlayerArmy = async (username, id) => {
     }
 };
 
+const getUsersData = async () => {
+    try {
+        const response = await fetch(usersApiUrl);
+        if (!response.ok) {
+            throw new Error('Failed to fetch users data');
+        }
+        const users = await response.json();
+        return users;
+    } catch (error) {
+        console.error('Error fetching users data:', error);
+        return [];
+    }
+};
+
+export const getMostRecentArmyId = async (username) => {
+    try {
+        // Fetch all users data
+        const usersData = await getUsersData();
+
+        // Find the user data by username
+        const user = usersData.find((user) => user.username === username);
+
+        // Check if the user exists and has "player-army-list" data
+        if (user && user["player-army-list"] && user["player-army-list"].length > 0) {
+            // Sort the "player-army-list" array by createdAt timestamp in descending order
+            const sortedArmies = user["player-army-list"].sort(
+                (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+            );
+
+            // Return the armyId of the most recent army
+            return sortedArmies[0].id;
+        }
+
+        // Return null if no army found
+        return null;
+    } catch (error) {
+        console.error('Error getting most recent army ID:', error);
+        return null;
+    }
+};
+
+
+
 export const updatePlayerArmy = async (username, armyId, updatedArmyData) => {
     try {
+        // Fetch the player data based on the username
         const resp = await fetch(`${usersApiUrl}?username=${username}`);
         if (!resp.ok) {
-            throw new Error('Failed to fetch player data');
+            throw new Error("Failed to fetch player data");
         }
 
         const playerData = await resp.json();
@@ -109,29 +153,33 @@ export const updatePlayerArmy = async (username, armyId, updatedArmyData) => {
             throw new Error("User not found.");
         }
 
-        const updatedPlayerData = playerData.map((user) =>
-            user.id === user.id
-                ? {
-                    ...user,
-                    "player-army-list": user["player-army-list"].map((army) =>
-                        army.id === armyId ? { ...army, units: updatedArmyData.units } : army
-                    ),
-                }
-                : user
-        );
+        // Find the specific army in the player data using the given armyId
+        const armyToUpdate = user["player-army-list"].find((army) => army.id === armyId);
 
+        if (!armyToUpdate) {
+            throw new Error("Army not found.");
+        }
+
+        // Here, we're directly updating the units array of the specific army
+        armyToUpdate.units = [...armyToUpdate.units, ...updatedArmyData?.units];
+
+        console.log('updatedArmyData:', updatedArmyData);
+        console.log('updatedArmyData.units:', updatedArmyData.units);
+
+        // Send a PUT request to update the player data on the server
         const updateResp = await fetch(`${usersApiUrl}/${user.id}`, {
-            method: 'PUT',
+            method: "PUT",
             headers: {
-                'Content-Type': 'application/json',
+                "Content-Type": "application/json",
             },
-            body: JSON.stringify(updatedPlayerData),
+            body: JSON.stringify(playerData),
         });
 
         if (!updateResp.ok) {
             throw new Error("Failed to update player data.");
         }
 
+        // Parse the response data from the server
         const updatedData = await updateResp.json();
         return updatedData;
     } catch (error) {
@@ -139,7 +187,6 @@ export const updatePlayerArmy = async (username, armyId, updatedArmyData) => {
         throw error;
     }
 };
-
 
 const factionDetachmentMap = {
     "DetachmentA": "Space Marines",
@@ -154,6 +201,7 @@ export const createPlayerArmy = async (selectedFaction, selectedPoints, username
         selectedFaction: selectedFaction.name,
         selectedPoints: selectedPoints,
         units: [],
+        createdAt: new Date().toISOString(),
     };
 
     try {

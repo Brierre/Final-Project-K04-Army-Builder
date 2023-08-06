@@ -1,11 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react';
 import PointsSelector from './PointsSelector';
 import FactionCardList from './FactionCardList';
-import { getFactions, createPlayerArmy } from './rest/api';
+import { getFactions, createPlayerArmy, getMostRecentArmyId } from './rest/api';
 import { Link, useNavigate } from 'react-router-dom';
 import RunningTotal from './RunningTotal';
 import UnitSelector from './UnitSelector';
-import UnitCard from './UnitCard';
 
 
 const ArmyBuilder = ({ isLoggedIn, onLogin, onLogout, username }) => {
@@ -13,12 +12,10 @@ const ArmyBuilder = ({ isLoggedIn, onLogin, onLogout, username }) => {
     const [selectedFaction, setSelectedFaction] = useState(null);
     const [factionsData, setFactionsData] = useState([]);
     const [modalShow, setModalShow] = useState(false);
-    const [selectedCard, setSelectedCard] = useState(null);
     const [armyId, setArmyId] = useState(null);
     const [isArmyCreated, setIsArmyCreated] = useState(false);
     const navigate = useNavigate();
     const isInitialRender = useRef(true);
-
     //console.log("ArmyBuilder rendered!");
 
     // get factions data for creating faction cards, list, and selecting a faction
@@ -36,15 +33,56 @@ const ArmyBuilder = ({ isLoggedIn, onLogin, onLogout, username }) => {
     }, []);
 
     useEffect(() => {
-        // Check if it's the first rendering
         if (isInitialRender.current) {
-            // Set the ref to false for subsequent renders
             isInitialRender.current = false;
         } else {
             // It's not the first rendering, so log the value of isArmyCreated
             console.log("isArmyCreated changed:", isArmyCreated);
         }
     }, [isArmyCreated]);
+
+    // useEffect(() => {
+    //     const fetchMostRecentArmyId = async () => {
+    //         try {
+    //             const mostRecentArmyId = await getMostRecentArmyId(username);
+    //             setArmyId(mostRecentArmyId);
+    //             console.log('most recent army id: ', mostRecentArmyId);
+    //         } catch (error) {
+    //             console.error("Error fetching most recent army ID:", error);
+    //         }
+    //     };
+    
+    //     if (isLoggedIn && username) {
+    //         fetchMostRecentArmyId();
+    //     }
+    // }, [isLoggedIn, username]);
+
+    const handleCreatePlayerArmy = async () => {
+        console.log("selectedFaction ", selectedFaction);
+
+        try {
+            if (isLoggedIn && selectedPoints && selectedFaction) {
+                console.log('Selected Faction: ', selectedFaction);
+                const userArmyData = await createPlayerArmy(selectedFaction, selectedPoints, username);
+                const armyId = await getMostRecentArmyId(username);
+                setArmyId(armyId);
+                console.log('Player army created successfully!', userArmyData, isArmyCreated, armyId);
+                setIsArmyCreated(true);
+                console.log("is army ACTUALLY created?? ", isArmyCreated);
+                const stateProps = {
+                    selectedFaction,
+                    username,
+                    armyId,
+                };
+                navigate(`/unit-selector?selectedFaction=${encodeURIComponent(JSON.stringify(selectedFaction))}&username=${encodeURIComponent(username)}&armyId=${encodeURIComponent(armyId)}`);
+
+            } else {
+                console.log('Please log in to select points and faction before creating the army.');
+            }
+        } catch (error) {
+            console.error('Error creating player army: ', error);
+        }
+    };
 
     const handleSelectPoints = (points) => {
         setSelectedPoints(points);
@@ -71,33 +109,6 @@ const ArmyBuilder = ({ isLoggedIn, onLogin, onLogout, username }) => {
             handleCloseModal();
         }
     };
-
-    const handleCreatePlayerArmy = async () => {
-        console.log("selectedFaction ", selectedFaction);
-
-        try {
-            if (isLoggedIn && selectedPoints && selectedFaction) {
-                console.log('Selected Faction: ', selectedFaction);
-                const userArmyData = await createPlayerArmy(selectedFaction, selectedPoints, username);
-                const armyId = userArmyData.id;
-                console.log('Player army created successfully!', userArmyData, isArmyCreated);
-                setIsArmyCreated(true);
-                console.log("is army ACTUALLY created?? ", isArmyCreated);
-                const stateProps = {
-                    selectedFaction,
-                    username,
-                    armyId,
-                };
-                navigate(`/unit-selector?selectedFaction=${encodeURIComponent(JSON.stringify(selectedFaction))}&username=${encodeURIComponent(username)}&armyId=${encodeURIComponent(armyId)}`);
-
-            } else {
-                console.log('Please log in to select points and faction before creating the army.');
-            }
-        } catch (error) {
-            console.error('Error creating player army: ', error);
-        }
-    };
-
 
     return (
         <div>
