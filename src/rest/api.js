@@ -62,11 +62,16 @@ export const getPlayerArmy = async (username, armyId) => {
 
         if (armyId) {
             // If the armyId is provided, find and return the specific army data
-            const armyData = data["player-army-list"].find((army) => army.id === armyId);
+            const user = data.find((user) => user.username === username);
+            if (!user) {
+                throw new Error("User not found.");
+            }
+
+            const armyData = user["player-army-list"].find((army) => army.id === armyId);
             return armyData || null; // Return null if the army is not found
         } else {
             // If no armyId is provided, return the entire array of armies for the user
-            return data["player-army-list"];
+            return data.find((user) => user.username === username)["player-army-list"];
         }
     } catch (e) {
         console.log("Error fetching player army: ", e);
@@ -89,51 +94,38 @@ export const deletePlayerArmy = async (username, id) => {
         throw e;
     }
 };
-export const updatePlayerArmy = async (username, armyId, dataToUpdate) => {
+
+export const updatePlayerArmy = async (username, armyId, updatedArmyData) => {
     try {
-        // Fetch the player's existing data
         const resp = await fetch(`${usersApiUrl}?username=${username}`);
         if (!resp.ok) {
-            throw new Error("Failed to fetch player data.");
+            throw new Error('Failed to fetch player data');
         }
-        const playerData = await resp.json();
 
-        // Find the correct user object based on the username and get the userId
+        const playerData = await resp.json();
         const user = playerData.find((user) => user.username === username);
 
         if (!user) {
             throw new Error("User not found.");
         }
 
-        // Find the correct army object based on the armyId
-        const armyToUpdate = user["player-army-list"].find((army) => army.id === armyId);
-
-        if (!armyToUpdate) {
-            throw new Error("Army not found.");
-        }
-
-        // Update the units array of the army with the new data
-        const updatedArmy = { ...armyToUpdate, units: [...armyToUpdate.units, dataToUpdate] };
-
-        // Update the "player-army-list" array with the updated army
         const updatedPlayerData = playerData.map((user) =>
             user.id === user.id
                 ? {
                     ...user,
                     "player-army-list": user["player-army-list"].map((army) =>
-                        army.id === armyId ? updatedArmy : army
+                        army.id === armyId ? { ...army, units: updatedArmyData.units } : army
                     ),
                 }
                 : user
         );
 
-        // Update the player's data with the modified "player-army-list" array
         const updateResp = await fetch(`${usersApiUrl}/${user.id}`, {
-            method: "PUT",
+            method: 'PUT',
             headers: {
-                "Content-Type": "application/json",
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify(updatedPlayerData), // Serialize the updated data to JSON
+            body: JSON.stringify(updatedPlayerData),
         });
 
         if (!updateResp.ok) {
@@ -147,6 +139,7 @@ export const updatePlayerArmy = async (username, armyId, dataToUpdate) => {
         throw error;
     }
 };
+
 
 const factionDetachmentMap = {
     "DetachmentA": "Space Marines",

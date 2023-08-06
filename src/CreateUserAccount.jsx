@@ -22,35 +22,48 @@ const CreateUserAccount = () => {
             return;
         }
 
-        const user = {
-            name,
-            username,
-            password,
-            avatar: avatar && avatar.name,
-        }
-    
+        // Check if the username already exists
+        fetch(`${userEndpoint}?username=${encodeURIComponent(username)}`)
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.length > 0) {
+                    alert('Username is already taken. Please choose a different username.');
+                } else {
 
-    fetch(userEndpoint, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(user),
-    })
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error('Failed to create user account');
-            }
-            alert('Account created successfully!');
-            resetForm();
-            history('/login');
+                    const user = {
+                        name,
+                        username,
+                        password,
+                        avatar: avatar && avatar.name,
+                    };
 
-        })
-        .catch((error) => {
-            console.error('Error creating user account:', error);
-            alert('Error creating account. Please try again.');
-        });
-    };
+                    fetch(userEndpoint, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(user),
+                    })
+                        .then((response) => {
+                            if (!response.ok) {
+                                throw new Error('Failed to create user account');
+                            }
+                            alert('Account created successfully!');
+                            resetForm();
+                            history('/login');
+
+                        })
+                        .catch((error) => {
+                            console.error('Error creating user account:', error);
+                            alert('Error creating account. Please try again.');
+                        });
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error checking username availability:', error);
+                    alert('Error checking username availability. Please try again.');
+                });
+    };   
 
     const resetForm = () => {
         setName('');
@@ -58,7 +71,7 @@ const CreateUserAccount = () => {
         setPassword('');
         setVerifyPassword('');
         setAvatar('');
-      };
+    };
 
 return (
     <div>

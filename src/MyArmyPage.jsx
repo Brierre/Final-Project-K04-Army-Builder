@@ -21,10 +21,11 @@ const MyArmyPage = ({ selectedUnits, username, onRemoveFromArmy }) => {
 
     return (
         <>
+        <h3>My armies</h3>
             {playerData !== null && (
                 <>
                     <RunningTotal selectedPoints={calculateTotalPoints(playerData.units)} />
-                    <h3>My Army</h3>
+
                     {selectedUnits.map((unit) => (
                         <UnitCard
                             key={unit.id}

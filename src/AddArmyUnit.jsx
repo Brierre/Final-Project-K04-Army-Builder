@@ -5,17 +5,7 @@ import { Button } from "react-bootstrap";
 const AddArmyUnit = ({ username, armyId, cardData }) => {
     const handleAddCardToArmy = async () => {
         try {
-            const userArmyData = await getPlayerArmy(username, armyId);
-            console.log(`Username:  ${username}  ArmyId:  ${armyId}  Data: ${userArmyData}`);
-            if (!userArmyData || !Array.isArray(userArmyData.units)) {
-                console.log(`Invalid army data or units not found for user: ${username}`);
-                return;
-            }
-
-            const updatedUnits = [...userArmyData.units, cardData];
-            const updatedArmyData = { ...userArmyData, units: updatedUnits };
-
-            await updatePlayerArmy(username, armyId, updatedArmyData);
+            await updatePlayerArmy(username, armyId, cardData);
             console.log('Unit added to army successfully!', cardData);
         } catch (error) {
             console.log('Error adding unit to army:', error);

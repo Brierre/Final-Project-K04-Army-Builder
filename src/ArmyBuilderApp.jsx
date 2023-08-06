@@ -19,13 +19,11 @@ function ArmyBuilderApp() {
     const [username, setUsername] = useState('');
 
     const handleLogin = (username) => {
-
         setIsLoggedIn(true);
         setUsername(username);
     };
 
     const handleLogout = () => {
-
         setIsLoggedIn(false);
         setUsername('');
     };
