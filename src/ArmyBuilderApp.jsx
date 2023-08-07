@@ -13,7 +13,6 @@ import Enhancements from './Enhancements';
 import Stratagems from './Stratagems';
 import ArmyOptionsPage from './ArmyOptionsPage';
 
-
 function ArmyBuilderApp() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [username, setUsername] = useState('');
@@ -44,8 +43,8 @@ function ArmyBuilderApp() {
                             username={username}
                         />
                     } />
-                <Route path="/unit-selector" element={<UnitSelector />} />
-                <Route path="/my-army-page" element={<MyArmyPage />} />
+                <Route path="/unit-selector" element={<UnitSelector isLoggedIn={isLoggedIn} username={username}/>} />
+                <Route path="/my-army-page" element={<MyArmyPage isLoggedIn={isLoggedIn} username={username}/>} />
                 <Route path="/login" element={<LoginUser onLogin={handleLogin} />} />
                 <Route path="/create-account" element={<CreateUserAccount />} />
                 <Route path="/faction-rules" element={<FactionRules />} />

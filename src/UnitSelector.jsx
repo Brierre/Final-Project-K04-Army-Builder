@@ -59,6 +59,7 @@ return (
                         selectedFaction={selectedFaction}
                         username={username}
                         armyId={armyId}
+                        showAddButton={true}
                     />
                 ))}
             </Tab>
@@ -73,6 +74,7 @@ return (
                         selectedFaction={selectedFaction}
                         username={username}
                         armyId={armyId}
+                        showAddButton={true}
                     />
                 ))}               
                 </Tab>
@@ -87,6 +89,7 @@ return (
                         selectedFaction={selectedFaction}
                         username={username}
                         armyId={armyId}
+                        showAddButton={true}
                     />
                 ))}               
                 </Tab>
@@ -101,6 +104,7 @@ return (
                         selectedFaction={selectedFaction}
                         username={username}
                         armyId={armyId}
+                        showAddButton={true}
                     />
                 ))}                
                 </Tab>
@@ -115,6 +119,7 @@ return (
                         selectedFaction={selectedFaction}
                         username={username}
                         armyId={armyId}
+                        showAddButton={true}
                     />
                 ))}
             </Tab>

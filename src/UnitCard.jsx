@@ -25,10 +25,10 @@ function UnitCard({
     selectedPoints,
     username,
     armyId,
+    showAddButton = true,
 }) {
 
     const [modalShow, setModalShow] = useState(false);
-    const [units, setUnits] = useState([]);
 
     const cardData = {
         title: name,
@@ -52,13 +52,6 @@ function UnitCard({
         },
     };
 
-    const handleAddUnit = () => {
-        const updatedCardData = {
-            ...cardData,
-        };
-        setUnits((prevUnits) => [...prevUnits, updatedCardData]);
-    };
-
     return (
         <div className="row">
             <div className="col-sm-6">
@@ -78,7 +71,9 @@ function UnitCard({
                         </div>
                         {/* replace with checkbox for Hero status */}
                         <Card.Text>Warlord?: {canBeHero}</Card.Text>
-                        <AddArmyUnit username={username} armyId={armyId} cardData={cardData} selectedPoints={selectedPoints} onAddUnit={handleAddUnit} />
+                        {showAddButton && (
+                        <AddArmyUnit username={username} armyId={armyId} cardData={cardData} selectedPoints={selectedPoints} showAddButton={showAddButton} />
+                        )}
                     </Card.Body>
                     <Button onClick={() => setModalShow(true)}>View Details</Button>
                 </Card>

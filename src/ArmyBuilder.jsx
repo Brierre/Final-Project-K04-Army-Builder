@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import PointsSelector from './PointsSelector';
 import FactionCardList from './FactionCardList';
-import { getFactions, createPlayerArmy, getMostRecentArmyId } from './rest/api';
+import { getFactions, createArmy, getMostRecentArmyId } from './rest/api';
 import { Link, useNavigate } from 'react-router-dom';
 import RunningTotal from './RunningTotal';
 import UnitSelector from './UnitSelector';
@@ -41,13 +41,13 @@ const ArmyBuilder = ({ isLoggedIn, onLogin, onLogout, username }) => {
         }
     }, [isArmyCreated]);
 
-    const handleCreatePlayerArmy = async () => {
+    const handleCreateArmy = async () => {
         console.log("selectedFaction ", selectedFaction);
 
         try {
             if (isLoggedIn && selectedPoints && selectedFaction) {
                 console.log('Selected Faction: ', selectedFaction);
-                const userArmyData = await createPlayerArmy(selectedFaction, selectedPoints, username);
+                const userArmyData = await createArmy(selectedFaction, selectedPoints, username);
                 const armyId = await getMostRecentArmyId(username);
                 setArmyId(armyId);
                 console.log('Player army created successfully!', userArmyData, isArmyCreated, armyId);
@@ -101,7 +101,7 @@ const ArmyBuilder = ({ isLoggedIn, onLogin, onLogout, username }) => {
 
                     {/* Add a button to create the player army */}
                     <Link to="/unit-selector">
-                        <button onClick={handleCreatePlayerArmy}>Create Army</button>
+                        <button onClick={handleCreateArmy}>Create Army</button>
                     </Link>
                     {isArmyCreated ? (
                         <UnitSelector selectedFaction={selectedFaction} username={username} armyId={armyId} isArmyCreated={isArmyCreated} />

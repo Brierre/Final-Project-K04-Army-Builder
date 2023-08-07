@@ -1,54 +1,65 @@
 import React, { useEffect, useState } from 'react';
+import { getArmyList, deleteArmy } from './rest/api';
+import ArmyDetails from './ArmyDetails';
+import UnitCardList from './UnitCardList';
+import Button from 'react-bootstrap/Button';
 
-const MyArmyPage = () => {
-    const [playerData, setPlayerData] = useState(null);
+function MyArmyPage({ username }) {
+    const [armies, setArmies] = useState([]);
+    const [selectedArmy, setSelectedArmy] = useState(null);
 
-
-    const getUsersData = async () => {
-        try {
-            const response = await fetch('https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/users?username=heather');
-            if (!response.ok) {
-                throw new Error('Failed to fetch users data');
+    useEffect(() => {
+        // Fetch all armies for the given username
+        const fetchArmies = async () => {
+            try {
+                const playerArmies = await getArmyList(username);
+                setArmies(playerArmies);
+                console.log('player armies: ', playerArmies);
+            } catch (error) {
+                console.error('Error fetching player armies:', error);
             }
-            const users = await response.json();
-            console.log(users);
-            return users;
+        };
+
+        fetchArmies();
+    }, [username]);
+
+
+    const handleDeleteArmyClick = async () => {
+        try {
+            await deleteArmy(username, selectedArmy.id);
+            console.log('Successful deletion of army');
+            setSelectedArmy(null);
         } catch (error) {
-            console.error('Error fetching users data:', error);
-            return [];
+            console.log('Error deleting army: ', error);
         }
     };
 
-    useEffect(() => {
-        getUsersData()
-            .then((data) => {
-                console.log("API Response:", data);
-                setPlayerData(data)})
-            .catch((error) => console.error('Error fetching player data:', error));
-    }, []);
-
-    if (playerData === null) {
-        return <div>Loading...</div>; // or any other loading indicator
-    }
-
-    // Assuming 'player-army-list' is an array in playerData
-    const playerArmyList = playerData['player-army-list'];
+    const handleArmyClick = (army) => {
+        setSelectedArmy(army);
+        console.log('selectedarmy: ', selectedArmy);
+    };
 
     return (
         <div>
-            <h1>My Army Page</h1>
-            {playerData && playerData["player-army-list"] && (
+            <h2>My Army Page</h2>
+            <p>Welcome, {username}!</p>
+
+            {armies.map((army) => (
+                <button key={army.id} onClick={() => handleArmyClick(army)}>
+                    Faction: {army.selectedFaction}
+                    <br />
+                    Points: {army.selectedPoints}
+                </button>
+            ))}
+
+            {selectedArmy && (
                 <div>
-                    <h2>My Armies</h2>
-                    <ul>
-                        {playerData["player-army-list"].map((army) => (
-                            <li key={army.id}>{army.name}</li>
-                        ))}
-                    </ul>
+                    <ArmyDetails army={selectedArmy} showAddButton={false} />
+                    <Button onClick={() => handleDeleteArmyClick()}>Delete Army</Button>
                 </div>
             )}
         </div>
-    );
-};
+    )
+}
 
 export default MyArmyPage;
