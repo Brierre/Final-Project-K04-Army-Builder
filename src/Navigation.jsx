@@ -40,9 +40,6 @@ function Navigation({ isLoggedIn, username, onLogout }) {
                                 <PersonCircle /> Login to do fun stuff!
                             </Link>
                         )}
-                        {/* <Button onClick={isLoggedIn ? onLogout : onLogin}>
-                            {isLoggedIn ? 'Logout' : 'Login'}
-                        </Button> */}
                     </Nav>
                 </Container>
             </Navbar>

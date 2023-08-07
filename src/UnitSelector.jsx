@@ -40,7 +40,7 @@ const UnitSelector = () => {
 return (
     <>
         {selectedFaction?.points !== undefined && <RunningTotal selectedPoints={selectedFaction.points} />}
-
+        
         <h3> Select Units </h3>
         <Tabs
             defaultActiveKey="INFANTRY"
@@ -119,7 +119,7 @@ return (
                 ))}
             </Tab>
         </Tabs>
-        <div>
+        <div className="go-to-army">
             <Link to="/my-army-page">
                 <button>I am finished. Go to My Army!</button>
             </Link>

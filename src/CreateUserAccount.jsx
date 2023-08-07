@@ -9,7 +9,7 @@ const CreateUserAccount = () => {
     const [avatar, setAvatar] = useState('');
 
     const userEndpoint = 'https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/users';
-    const history = useNavigate();
+    const navigate = useNavigate();
 
     const handleCreateAccount = () => {
         if (!name || !username || !password || !verifyPassword) {
@@ -50,7 +50,7 @@ const CreateUserAccount = () => {
                             }
                             alert('Account created successfully!');
                             resetForm();
-                            history('/login');
+                            navigate('/login');
 
                         })
                         .catch((error) => {

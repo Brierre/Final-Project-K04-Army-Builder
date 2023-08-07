@@ -2,6 +2,17 @@ body {
   padding-top: 40px;
 }
 
+footer {
+  position: fixed;
+  bottom: 0px;
+}
+
+.navbar {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -33,3 +44,13 @@ ul {
 .info-table {
 font-size: 12px;
 }
+
+.go-to-army {
+  flex: 1;
+  display: flex;
+  position: fixed;
+  bottom: 40px;
+  justify-content: center;
+  align-items: flex-end;
+}
+

@@ -3,12 +3,12 @@ import ImgCarousel from './ImgCarousel';
 import BuilderInfoBlurb from './BuilderInfoBlurb';
 import Footer from './Footer';
 
-function Home() {
+function Home({ isLoggedIn }) {
 
     return (
         <>
             <ImgCarousel />
-            <BuilderInfoBlurb />
+            <BuilderInfoBlurb isLoggedIn={isLoggedIn}/>
             <Footer />
         </>
     )

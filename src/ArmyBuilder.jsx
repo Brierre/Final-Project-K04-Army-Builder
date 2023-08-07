@@ -87,13 +87,6 @@ const ArmyBuilder = ({ isLoggedIn, onLogin, onLogout, username }) => {
         setModalShow(false);
     };
 
-    const handleSelectCard = (cardData) => {
-        if (cardData.type === 'faction') {
-            setSelectedFaction(cardData);
-            handleCloseModal();
-        }
-    };
-
     return (
         <div>
             {selectedPoints !== null && <RunningTotal selectedPoints={selectedPoints} />}
