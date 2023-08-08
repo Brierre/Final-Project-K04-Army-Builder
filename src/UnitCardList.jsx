@@ -1,7 +1,7 @@
 import React from "react";
 import UnitCard from './UnitCard';
 
-const UnitCardList = ({ unitCards, showAddButton }) => {
+const UnitCardList = ({ unitCards, showAddButton, unitsData }) => {
     return (
         <div>
             <div className="unit-cards">
@@ -21,12 +21,14 @@ const UnitCardList = ({ unitCards, showAddButton }) => {
                             save={unit.save}
                             wounds={unit.wounds}
                             leadership={unit.leadership}
-                            abilityList={unit.abilityList}
-                            wargearOptions={unit.wargearOptions}
+                            objectiveControl={unit.objectiveControl}
                             defaultWeapon={unit.defaultWeapon}
-                            notes={unit.notes}
-                            additionalPoints={unit.additionalPoints}
                             showAddButton={showAddButton}
+                            unitsData={unitsData}
+                        // abilityList={unit.abilityList}
+                        // wargearOptions={unit.wargearOptions}
+                        // notes={unit.notes}
+                        // additionalPoints={unit.additionalPoints}
                         />
                     ))
                 ) : (

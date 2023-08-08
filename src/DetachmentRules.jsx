@@ -7,7 +7,7 @@ const DetachmentRules = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const detachmentRulesApiUrl = 'https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/detachment-rules';
+    const detachmentRulesApiUrl = 'https://64d11527ff953154bb79f408.mockapi.io/K04Builder/v1/detachment-rules';
 
     useEffect(() => {
         const fetchDetachmentRules = () => {

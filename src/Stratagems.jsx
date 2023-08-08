@@ -6,7 +6,7 @@ const Stratagems = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const stratagemsApiUrl = 'https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/stratagems';
+    const stratagemsApiUrl = '`https://64d11527ff953154bb79f408.mockapi.io/K04Builder/v1/stratagems';
 
     useEffect(() => {
         const fetchStratagems = () => {

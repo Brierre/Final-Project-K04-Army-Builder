@@ -6,7 +6,7 @@ const FactionRules = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const factionRulesApiUrl = "https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/army-rules"; // Replace YOUR_API_ID with your actual API ID
+    const factionRulesApiUrl = "https://64d11527ff953154bb79f408.mockapi.io/K04Builder/v1/army-rules"; // Replace YOUR_API_ID with your actual API ID
 
     useEffect(() => {
         const fetchFactionRules = () => {

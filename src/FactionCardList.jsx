@@ -1,36 +1,16 @@
 import React, { useState } from 'react';
 import FactionCard from './FactionCard';
 
-const FactionCardList = ({ factionsData, onSelectFaction, selectedPoints }) => {
-    const [selectedFaction, setSelectedFaction] = useState(null);
+const FactionCardList = ({ factionsData, onSelectFaction }) => {
 
     const handleSelectFaction = (faction) => {
-        setSelectedFaction(faction);
-    };
-
-    const handleStartOver = () => {
-        setSelectedFaction(null);
+        onSelectFaction(faction);
     };
     
     return (
         <div>
             <h3>Choose a Faction</h3>
-            {selectedFaction ? (
-                <>
-                    <FactionCard
-                        faction={selectedFaction}
-                        onSelectFaction={onSelectFaction}
-                        selected={true} 
-                    />
-                    <div>
-                        <button onClick={handleStartOver}>Choose a different faction</button>
-                
-                        <button onClick={() => onSelectFaction(selectedFaction)}>Confirm selection</button>
-                    </div>
-
-                </>
-            ) : (
-                factionsData && factionsData.length > 0 ? (
+                {factionsData && factionsData.length > 0 ? (
                     factionsData.map((faction) => (
                         <FactionCard
                             key={faction.id}
@@ -40,7 +20,6 @@ const FactionCardList = ({ factionsData, onSelectFaction, selectedPoints }) => {
                     ))
                 ) : (
                     <p>Loading factions...</p>
-                )
             )}
         </div>
     );

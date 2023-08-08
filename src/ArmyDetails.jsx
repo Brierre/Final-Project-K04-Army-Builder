@@ -25,11 +25,12 @@ function ArmyDetails({ army, showAddButton }) {
                     save={unit.properties.save}
                     wounds={unit.properties.wounds}
                     leadership={unit.properties.leadership}
-                    abilityList={unit.properties.abilityList}
-                    wargearOptions={unit.properties.wargearOptions}
+                    objectiveControl={unit.objectiveControl}
+                    // abilityList={unit.properties.abilityList}
+                    // wargearOptions={unit.properties.wargearOptions}
                     defaultWeapon={unit.properties.defaultWeapon}
-                    notes={unit.properties.notes}
-                    additionalPoints={unit.properties.additionalPoints}
+                    // notes={unit.properties.notes}
+                    // additionalPoints={unit.properties.additionalPoints}
                     showAddButton={showAddButton}
                 />
             ))}

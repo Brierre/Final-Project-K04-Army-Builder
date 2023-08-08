@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+const baseUrl = 'https://64d11527ff953154bb79f408.mockapi.io/K04Builder/v1';
+
 const CreateUserAccount = () => {
     const [name, setName] = useState('');
     const [username, setUsername] = useState('');
@@ -8,7 +10,7 @@ const CreateUserAccount = () => {
     const [verifyPassword, setVerifyPassword] = useState('');
     const [avatar, setAvatar] = useState('');
 
-    const userEndpoint = 'https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/users';
+    const usersApiUrl = `${baseUrl}/users`;    
     const navigate = useNavigate();
 
     const handleCreateAccount = () => {
@@ -23,7 +25,7 @@ const CreateUserAccount = () => {
         }
 
         // Check if the username already exists
-        fetch(`${userEndpoint}?username=${encodeURIComponent(username)}`)
+        fetch(`${usersApiUrl}?username=${encodeURIComponent(username)}`)
             .then((response) => response.json())
             .then((data) => {
                 if (data.length > 0) {
@@ -37,7 +39,7 @@ const CreateUserAccount = () => {
                         avatar: avatar && avatar.name,
                     };
 
-                    fetch(userEndpoint, {
+                    fetch(usersApiUrl, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',

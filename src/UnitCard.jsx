@@ -7,6 +7,7 @@ import AddArmyUnit from "./AddArmyUnit";
 function UnitCard({
     name,
     army,
+    category,
     canBeHero,
     numModels,
     points,
@@ -16,16 +17,18 @@ function UnitCard({
     wounds,
     leadership,
     objectiveControl,
-    abilityList,
-    wargearOptions,
     defaultWeapon,
     image,
-    notes,
-    additionalPoints,
     selectedPoints,
     username,
     armyId,
+    id,
     showAddButton = true,
+    unitsData,
+    // abilityList,
+    // wargearOptions,                
+    // notes,
+    // additionalPoints,
 }) {
 
     const [modalShow, setModalShow] = useState(false);
@@ -35,6 +38,7 @@ function UnitCard({
         properties: {
             army,
             canBeHero,
+            category,
             numModels,
             points,
             movement,
@@ -43,12 +47,12 @@ function UnitCard({
             wounds,
             leadership,
             objectiveControl,
-            abilityList,
-            wargearOptions,
             defaultWeapon,
             image,
-            notes,
-            additionalPoints,
+            // abilityList,
+            // wargearOptions,                
+            // notes,
+            // additionalPoints,
         },
     };
 
@@ -63,11 +67,11 @@ function UnitCard({
                             <Card.Text>Points Cost: {points} for {numModels} model(s)</Card.Text>
                             <Card.Text>Mvt: {movement} Tough: {toughness} Save: {save} Wound: {wounds}</Card.Text>
                             <Card.Text>Leadership: {leadership} OC: {objectiveControl}</Card.Text>
-                            <Card.Text>Abilities: {abilityList}</Card.Text>
-                            <Card.Text>Wargear Options: {wargearOptions}</Card.Text>
+                            {/* <Card.Text>Abilities: {abilityList}</Card.Text>
+                            <Card.Text>Wargear Options: {wargearOptions}</Card.Text> */}
                             <Card.Text>Default Weapon: {defaultWeapon}</Card.Text>
-                            <Card.Text>Notes: {notes}</Card.Text>
-                            <Card.Text>Add'l Points: {additionalPoints}</Card.Text>
+                            {/* <Card.Text>Notes: {notes}</Card.Text>
+                            <Card.Text>Add'l Points: {additionalPoints}</Card.Text> */}
                         </div>
                         {/* replace with checkbox for Hero status */}
                         <Card.Text>Warlord?: {canBeHero}</Card.Text>

@@ -9,7 +9,7 @@ const LoginUser = ({ onLogin }) => {
 
     const handleLogin = () => {
         fetch(
-            `https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/users?username=${username}&password=${password}`
+            `https://64d11527ff953154bb79f408.mockapi.io/K04Builder/v1/users?username=${username}&password=${password}`
         )
             .then((response) => {
                 if (!response.ok) {

@@ -6,7 +6,7 @@ const Enhancements = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const enhancementsApiUrl = 'https://64c3e13d67cfdca3b66067d3.mockapi.io/armybuilder/v1/enhancements';
+    const enhancementsApiUrl = 'https://64d11527ff953154bb79f408.mockapi.io/K04Builder/v1/enhancements';
 
     useEffect(() => {
         const fetchEnhancements = () => {

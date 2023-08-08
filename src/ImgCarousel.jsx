@@ -22,6 +22,7 @@ import CarouselImage19 from './assets/images/carousels/LDpt8n.jpg';
 
 function ImgCarousel() {
     return (
+        <div>
         <Carousel>
             <Carousel.Item>
             <img src={CarouselImage1} alt="First slide" height="400px" />                <Carousel.Caption>
@@ -123,6 +124,7 @@ function ImgCarousel() {
                 </Carousel.Caption>
             </Carousel.Item>
         </Carousel>
+        </div>
     );
 }
 

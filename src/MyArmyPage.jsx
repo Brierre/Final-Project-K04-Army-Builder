@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getArmyList, deleteArmy } from './rest/api';
+import { getArmyListHandler, deleteArmyHandler } from './rest/api';
 import ArmyDetails from './ArmyDetails';
 import UnitCardList from './UnitCardList';
 import Button from 'react-bootstrap/Button';
@@ -12,7 +12,7 @@ function MyArmyPage({ username }) {
         // Fetch all armies for the given username
         const fetchArmies = async () => {
             try {
-                const playerArmies = await getArmyList(username);
+                const playerArmies = await getArmyListHandler(username);
                 setArmies(playerArmies);
                 console.log('player armies: ', playerArmies);
             } catch (error) {
@@ -26,7 +26,7 @@ function MyArmyPage({ username }) {
 
     const handleDeleteArmyClick = async () => {
         try {
-            await deleteArmy(username, selectedArmy.id);
+            await deleteArmyHandler(username, selectedArmy.id);
             console.log('Successful deletion of army');
             setSelectedArmy(null);
         } catch (error) {

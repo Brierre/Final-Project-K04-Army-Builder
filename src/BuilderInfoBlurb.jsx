@@ -15,7 +15,7 @@ function BuilderInfoBlurb({ isLoggedIn }) {
     };
 
     return (
-        <>
+        <div>
             <p>Welcome to K04 Army Builder, an application that may or
                 may not have anything to do with Warhammer 40K. With
                 this app, you will be able to view and choose a 40K
@@ -52,7 +52,7 @@ function BuilderInfoBlurb({ isLoggedIn }) {
                     </Button>
                 </Link>
             </div>
-        </>
+        </div>
     );
 }
 
