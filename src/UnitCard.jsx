@@ -25,6 +25,7 @@ function UnitCard({
     id,
     showAddButton = true,
     unitsData,
+    onAddUnit,
     // abilityList,
     // wargearOptions,                
     // notes,
@@ -76,7 +77,7 @@ function UnitCard({
                         {/* replace with checkbox for Hero status */}
                         <Card.Text>Warlord?: {canBeHero}</Card.Text>
                         {showAddButton && (
-                        <AddArmyUnit username={username} armyId={armyId} cardData={cardData} selectedPoints={selectedPoints} showAddButton={showAddButton} />
+                        <AddArmyUnit username={username} armyId={armyId} cardData={cardData} selectedPoints={selectedPoints} onAddUnit={onAddUnit} showAddButton={showAddButton} />
                         )}
                     </Card.Body>
                     <Button onClick={() => setModalShow(true)}>View Details</Button>

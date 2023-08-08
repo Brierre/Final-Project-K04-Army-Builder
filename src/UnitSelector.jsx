@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import UnitCard from "./UnitCard";
 import RunningTotal from './RunningTotal';
+import UnitCardList from "./UnitCardList";
 
 
 const UnitSelector = ({ armyId, selectedFaction, selectedPoints, username, unitsData }) => {
     const [loading, setLoading] = useState(true);
     const [units, setUnits] = useState([]);
+    const [armyUnits, setArmyUnits] = useState([]);
 
     useEffect(() => {
         setUnits(unitsData);
@@ -20,6 +21,15 @@ const UnitSelector = ({ armyId, selectedFaction, selectedPoints, username, units
         return <p>Loading...</p>;
     }
 
+    const handleAddUnit = async (cardData) => {
+        try {
+            await handleAddCardToArmy(cardData);
+            // Update the armyUnits state or any other necessary logic
+        } catch (error) {
+            console.log('Error adding unit:', error);
+        }
+    };
+
     const filteredUnitsByFaction = selectedFaction
         ? units.filter((unit) => unit.army === selectedFaction.name)
         : units;
@@ -29,7 +39,12 @@ const UnitSelector = ({ armyId, selectedFaction, selectedPoints, username, units
     return (
         <>
             {selectedPoints !== undefined && <RunningTotal selectedPoints={selectedPoints} />}
-
+    <UnitCardList
+        unitCards={filteredUnitsByFaction}
+        showAddButton={true}
+        unitsData={unitsData}
+        onAddUnit={handleAddUnit} // Pass the function here
+    />
             <h3> Select Units </h3>
             <Tabs
                 defaultActiveKey="INFANTRY"
@@ -39,78 +54,53 @@ const UnitSelector = ({ armyId, selectedFaction, selectedPoints, username, units
             >
                 <Tab eventKey="INFANTRY" title="Infantry">
                     Choose a unit: Infantry Units
-                    {filteredUnitsByFaction
-                        .filter((unit) => unit.category === 'INFANTRY')
-                        .map((unit) => (
-                            <UnitCard
-                                key={unit.id}
-                                {...unit}
-                                selectedFaction={selectedFaction}
-                                username={username}
-                                armyId={armyId}
-                                showAddButton={true}
-                            />
-                        ))}
+                            <UnitCardList
+                            unitCards={filteredUnitsByFaction.filter((unit) => unit.category === 'INFANTRY')}
+                            showAddButton={true}
+                            unitsData={unitsData}
+                            onAddUnit={handleAddUnit}
+                        />
+
                 </Tab>
                 <Tab eventKey="MOUNTED" title="Mounted">
                     Choose a unit: Mounted Units
-                    {filteredUnitsByFaction
-                        .filter((unit) => unit.category === 'MOUNTED')
-                        .map((unit) => (
-                            <UnitCard
-                                key={unit.id}
-                                {...unit}
-                                selectedFaction={selectedFaction}
-                                username={username}
-                                armyId={armyId}
-                                showAddButton={true}
-                            />
-                        ))}
+                            <UnitCardList
+                            unitCards={filteredUnitsByFaction.filter((unit) => unit.category === 'MOUNTED')}
+                            showAddButton={true}
+                            unitsData={unitsData}
+                            onAddUnit={handleAddUnit}
+                        />
+
                 </Tab>
                 <Tab eventKey="VEHICLE" title="Vehicles">
                     Choose a unit: Vehicles
-                    {filteredUnitsByFaction
-                        .filter((unit) => unit.category === 'VEHICLE')
-                        .map((unit) => (
-                            <UnitCard
-                                key={unit.id}
-                                {...unit}
-                                selectedFaction={selectedFaction}
-                                username={username}
-                                armyId={armyId}
-                                showAddButton={true}
-                            />
-                        ))}
+                            <UnitCardList
+                            unitCards={filteredUnitsByFaction.filter((unit) => unit.category === 'VEHICLE')}
+                            showAddButton={true}
+                            unitsData={unitsData}
+                            onAddUnit={handleAddUnit}
+                        />
+
                 </Tab>
                 <Tab eventKey="MONSTERS" title="Monsters">
                     Choose a unit: Monsters
-                    {filteredUnitsByFaction
-                        .filter((unit) => unit.category === 'MONSTERS')
-                        .map((unit) => (
-                            <UnitCard
-                                key={unit.id}
-                                {...unit}
-                                selectedFaction={selectedFaction}
-                                username={username}
-                                armyId={armyId}
-                                showAddButton={true}
-                            />
-                        ))}
+                            <UnitCardList
+                            unitCards={filteredUnitsByFaction.filter((unit) => unit.category === 'MONSTERS')}
+                            showAddButton={true}
+                            unitsData={unitsData}
+                            onAddUnit={handleAddUnit}
+                        />
+
                 </Tab>
                 <Tab eventKey="FORTIFICATION" title="Fortifications">
                     Choose a unit: Fortifications
-                    {filteredUnitsByFaction
-                        .filter((unit) => unit.category === 'FORTIFICATION')
-                        .map((unit) => (
-                            <UnitCard
-                                key={unit.id}
-                                {...unit}
-                                selectedFaction={selectedFaction}
-                                username={username}
-                                armyId={armyId}
-                                showAddButton={true}
-                            />
-                        ))}
+                            <UnitCardList
+                            unitCards={filteredUnitsByFaction.filter((unit) => unit.category === 'FORTIFICATION')}
+                            showAddButton={true}
+                            unitsData={unitsData}
+                            onAddUnit={handleAddUnit}
+                        />
+
                 </Tab>
             </Tabs>
             <div className="go-to-army">

@@ -3,6 +3,7 @@ import { updateArmyHandler } from "./rest/api";
 import { Button } from "react-bootstrap";
 
 const AddArmyUnit = ({ username, armyId, cardData, onAddUnit, showAddButton }) => {
+    
     const handleAddCardToArmy = async () => {
         try {
             const clonedCardData = { ...cardData };

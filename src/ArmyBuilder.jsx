@@ -2,10 +2,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import PointsSelector from './PointsSelector';
 import FactionCardList from './FactionCardList';
 import { getFactions, createArmyHandler, getUnitsData } from './rest/api';
-import { Link } from 'react-router-dom';
 import RunningTotal from './RunningTotal';
 import UnitSelector from './UnitSelector';
-import UnitCardList from './UnitCardList';
 
 
 const ArmyBuilder = ({ isLoggedIn, onLogin, onLogout, username }) => {

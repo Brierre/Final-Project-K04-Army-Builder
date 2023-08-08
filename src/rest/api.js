@@ -149,7 +149,7 @@ export const updateArmyHandler = async (username, armyId, updatedArmyData) => {
             console.log('User not found for the given username:', username);
             return;
         }
-
+getArmyListHandler(userId)
         // Call the createArmy function with the obtained userId
         const data = await updateArmy(userId, armyId, updatedArmyData);
 
@@ -157,6 +157,7 @@ export const updateArmyHandler = async (username, armyId, updatedArmyData) => {
         console.log('Created army:', data);
     } catch (error) {
         console.error('Error creating army:', error);
+        throw error;
     }
 };
 
