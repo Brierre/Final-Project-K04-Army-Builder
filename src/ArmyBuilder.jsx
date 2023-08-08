@@ -123,7 +123,7 @@ const ArmyBuilder = ({ isLoggedIn, onLogin, onLogout, username }) => {
                     selectedPoints={selectedPoints}
                 />
             )}
-            {selectedFaction && (
+            {selectedFaction && isArmyCreated && (
                 <UnitSelector
                     selectedFaction={selectedFaction}
                     selectedPoints={selectedPoints}
