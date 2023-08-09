@@ -8,18 +8,21 @@ const enhancementsApiUrl = `${baseUrl}/enhancements`;
 const factionsApiUrl = `${baseUrl}/factions`;
 const stratagemsApiUrl = `${baseUrl}/stratagems`;
 const mockapiUnitsJson = `${baseUrl}/units-data`;
-const usersApiUrl = `${baseUrl}/users`;
-const armyListApiUrl = (userId) => `${usersApiUrl}/${userId}/army-list`;
-const postUnitsApiUrl = (userId, armyId) => `${armyListApiUrl(userId)}/${armyId}/units`;
-const putUnitsApiUrl = (userId, armyId, unitId) => `${armyListApiUrl(userId)}/${armyId}/units/${unitId}`;
-const fetchUnitsFromArmyUrl = (userId, armyId) => `${armyListApiUrl(userId)}/${armyId}/units`;
-//post to army: 'https://64d11527ff953154bb79f408.mockapi.io/K04Builder/v1/users/1/army-list';
-//post to units: 'https://64d11527ff953154bb79f408.mockapi.io/K04Builder/v1/users/1/army-list/1/units';
-//post to additionalPoints, etc.: 'https://64d11527ff953154bb79f408.mockapi.io/K04Builder/v1/users/1/army-list/1/units/1/additional-points';
-
-//put to army: 'https://64d11527ff953154bb79f408.mockapi.io/K04Builder/v1/users/1/army-list/1';
-//put to units: 'https://64d11527ff953154bb79f408.mockapi.io/K04Builder/v1/users/1/army-list/1/units/1';
-//put to additionalPoints, etc.: 'https://64d11527ff953154bb79f408.mockapi.io/K04Builder/v1/users/1/army-list/1/units/1/additional-points/1';
+const usersApiUrl = `${baseUrl}/users`; // get list of users
+const getUserApiUrl = (userId) => `${usersApiUrl}/${userId}`; // get specific user
+const getArmyListApiUrl = (userId) => `${usersApiUrl}/${userId}/army-list`; // get list of armies for specific userId
+const getUnitsApiUrl = (userId, armyId) => `${getArmyListApiUrl(userId)}/${armyId}/units`; // get units list
+const postArmyListApiUrl = (userId) => `${usersApiUrl}/${userId}/army-list`; // create a new army
+const deleteArmyApiUrl = (userId, armyId) => `${getArmyListApiUrl(userId)}/${armyId}`; // delete a specific armyId
+const postUnitsApiUrl = (userId, armyId) => `${getArmyListApiUrl(userId)}/${armyId}/units`; // create first unit in army to establish array of units
+const putUnitsApiUrl = (userId, armyId, armyListId) => `${getArmyListApiUrl(userId)}/${armyId}/units/${armyListId}`; // add subsequent units to array
+const deleteArmyUnitsApiUrl = (userId, armyId, unitId, armyListId) => {
+    if (armyListId) {
+        return `${getArmyListApiUrl(userId)}/${armyId}/units/${armyListId}`;
+    } else {
+        return `${getArmyListApiUrl(userId)}/${armyId}/units?id=${unitId}`;
+    }
+};
 
 
 export const getArmyListHandler = async (username) => {
@@ -56,7 +59,7 @@ export const getArmyListHandler = async (username) => {
 
 export const getArmyList = async (userId) => {
     try {
-        const resp = await fetch(armyListApiUrl(userId));
+        const resp = await fetch(getArmyListApiUrl(userId));
         if (!resp.ok) {
             throw new Error('Failed to fetch army list.');
         }
@@ -68,8 +71,9 @@ export const getArmyList = async (userId) => {
 };
 
 export const getUnitsForArmy = async (userId, armyId, armyListId) => {
+    console.log('armylistid: ', armyListId);
     try {
-        const resp = await fetch(fetchUnitsFromArmyUrl(userId, armyId, armyListId));
+        const resp = await fetch(getUnitsApiUrl(userId, armyId, armyListId));
         if (!resp.ok) {
             throw new Error('Failed to fetch units for army.');
         }
@@ -122,9 +126,9 @@ export const createInitialUnit = async (userId, armyId, transformedCardData) => 
 };
 
 // Add a unit to an existing army's units array
-export const addUnitToArmy = async (userId, armyId, unitId, updatedArmyData) => {
+export const addUnitToArmy = async (userId, armyId, armyListId, updatedArmyData) => {
     try {
-        const response = await fetch(putUnitsApiUrl(userId, armyId, unitId), {
+        const response = await fetch(putUnitsApiUrl(userId, armyId, armyListId), {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -145,17 +149,44 @@ export const addUnitToArmy = async (userId, armyId, unitId, updatedArmyData) => 
 };
 
 
-export const deleteAllUnitsForArmyHandler = async (username, armyId) => {
+export const deleteAllUnitsForArmyHandler = async (username, armyId, armyListId) => {
     try {
-        const units = await getUnitsForArmy(username, armyId);
+        const userId = await getUserIdByUsername(username);
+
+        if (!userId) {
+            console.log('User not found for the given username:', username);
+            return;
+        }
+        const units = await getUnitsForArmy(userId, armyId, armyListId);
+
         await Promise.all(units.map(async (unit) => {
-            await deleteUnitHandler(username, armyId, unit.id);
+            await deleteUnitHandler(userId, armyId, unit.id);
         }));
-        console.log('All units for the army deleted successfully');
+
+        console.log('Chosen unit(s) for the army deleted successfully');
     } catch (error) {
         console.log('Error deleting all units for army:', error);
     }
 };
+
+export const deleteUnitHandler = async (userId, armyId, unitId) => {
+    try {
+        const apiUrl = deleteArmyUnitsApiUrl(userId, armyId, unitId);
+        const resp = await fetch(apiUrl, {
+            method: 'DELETE',
+        });
+
+        if (!resp.ok) {
+            throw new Error('Failed to delete unit');
+        }
+
+        console.log('Deleted unit successfully');
+    } catch (error) {
+        console.error('Error deleting unit:', error);
+        throw error;
+    }
+};
+
 
 export const deleteArmyHandler = async (username, armyId) => {
     try {
@@ -175,7 +206,7 @@ export const deleteArmyHandler = async (username, armyId) => {
 
 const deleteArmy = async (userId, armyId) => {
     try {
-        const apiUrl = unitsApiUrl(userId, armyId);
+        const apiUrl = deleteArmyApiUrl(userId, armyId);
         const resp = await fetch(apiUrl, {
             method: 'DELETE',
         });
@@ -246,7 +277,7 @@ const createArmy = async (userId, selectedFaction, selectedPoints) => {
         };
 
         try {
-            const resp = await fetch(armyListApiUrl(userId), {
+            const resp = await fetch(getArmyListApiUrl(userId), {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -287,7 +318,7 @@ const createArmy = async (userId, selectedFaction, selectedPoints) => {
 export const createNewUser = async (username, password) => {
     try {
         const user = { username, password };
-        const resp = await fetch(`${usersApiUrl}`, {
+        const resp = await fetch(usersApiUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -301,9 +332,9 @@ export const createNewUser = async (username, password) => {
     }
 };
 //testing
-export const updateUser = async (username, dataToUpdate) => {
+export const updateUser = async (userId, dataToUpdate) => {
     try {
-        const resp = await fetch(`${usersApiUrl}/${username}/test`, {
+        const resp = await fetch(`${usersApiUrl}/${userId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -367,7 +398,7 @@ export const getUserIdByUsername = async (username) => {
 
 export const getFactions = async () => {
     try {
-        const resp = await fetch(`${factionsApiUrl}`);
+        const resp = await fetch(factionsApiUrl);
         const data = await resp.json();
         return data;
     } catch (e) {
@@ -398,7 +429,7 @@ export const getUnitsData = async () => {
 
 export const getDetachments = async () => {
     try {
-        const resp = await fetch(`${detachmentsApiUrl}`);
+        const resp = await fetch(detachmentsApiUrl);
         const data = await resp.json();
         console.log("detachment data: ", data)
         return data;
@@ -413,7 +444,7 @@ export const getDetachments = async () => {
 
 export const getFactionRules = async () => {
     try {
-        const resp = await fetch(`${factionRulesApiUrl}`);
+        const resp = await fetch(factionRulesApiUrl);
         const data = await resp.json();
         console.log("Faction rules data:", data);
         return data;
@@ -425,7 +456,7 @@ export const getFactionRules = async () => {
 
 export const getDetachmentRules = async () => {
     try {
-        const resp = await fetch(`${detachmentRulesApiUrl}`);
+        const resp = await fetch(detachmentRulesApiUrl);
         const data = await resp.json();
         console.log("Detachment rules data:", data);
         return data;
@@ -437,7 +468,7 @@ export const getDetachmentRules = async () => {
 
 export const getEnhancements = async () => {
     try {
-        const resp = await fetch(`${enhancementsApiUrl}`);
+        const resp = await fetch(enhancementsApiUrl);
         const data = await resp.json();
         console.log("Enhancements data:", data);
         return data;
@@ -449,7 +480,7 @@ export const getEnhancements = async () => {
 
 export const getStratagems = async () => {
     try {
-        const resp = await fetch(`${stratagemsApiUrl}`);
+        const resp = await fetch(stratagemsApiUrl);
         const data = await resp.json();
         console.log("Stratagems data:", data);
         return data;
