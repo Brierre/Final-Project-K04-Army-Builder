@@ -32,6 +32,7 @@ function UnitCard({
     // additionalPoints,
 }) {
 
+
     const [modalShow, setModalShow] = useState(false);
 
     const cardData = {
@@ -56,6 +57,9 @@ function UnitCard({
             // additionalPoints,
         },
     };
+    // console.log('username:', username);
+    // console.log('armyId:', armyId);
+    // console.log('cardData:', cardData);
 
     return (
         <div className="row">
@@ -76,6 +80,10 @@ function UnitCard({
                         </div>
                         {/* replace with checkbox for Hero status */}
                         <Card.Text>Warlord?: {canBeHero}</Card.Text>
+                        {!showAddButton && (
+                    <Button variant="danger" onClick={() => onDeleteUnit(unit.id)}>
+                        Delete Unit from Army
+                    </Button>)}
                         {showAddButton && (
                         <AddArmyUnit username={username} armyId={armyId} cardData={cardData} selectedPoints={selectedPoints} onAddUnit={onAddUnit} showAddButton={showAddButton} />
                         )}

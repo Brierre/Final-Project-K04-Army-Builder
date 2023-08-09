@@ -43,8 +43,8 @@ function ArmyBuilderApp() {
                             username={username}
                         />
                     } />
-                <Route path="/unit-selector" element={<UnitSelector isLoggedIn={isLoggedIn} username={username}/>} />
-                <Route path="/my-army-page" element={<MyArmyPage isLoggedIn={isLoggedIn} username={username}/>} />
+                <Route path="/unit-selector" element={<UnitSelector isLoggedIn={isLoggedIn} username={isLoggedIn ? username : ''} />} />
+                <Route path="/my-army-page" element={<MyArmyPage isLoggedIn={isLoggedIn} username={username} />} />
                 <Route path="/login" element={<LoginUser onLogin={handleLogin} />} />
                 <Route path="/create-account" element={<CreateUserAccount />} />
                 <Route path="/faction-rules" element={<FactionRules />} />

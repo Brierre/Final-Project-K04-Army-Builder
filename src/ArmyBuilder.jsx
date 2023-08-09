@@ -2,8 +2,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import PointsSelector from './PointsSelector';
 import FactionCardList from './FactionCardList';
 import { getFactions, createArmyHandler, getUnitsData } from './rest/api';
-import RunningTotal from './RunningTotal';
 import UnitSelector from './UnitSelector';
+import { calculateTotalPoints } from './utils.js'; 
 
 
 const ArmyBuilder = ({ isLoggedIn, onLogin, onLogout, username }) => {
@@ -46,7 +46,7 @@ const ArmyBuilder = ({ isLoggedIn, onLogin, onLogout, username }) => {
             try {
                 const data = await getUnitsData();
                 setUnitsData(data);
-                console.log(data);
+                // console.log(data);
             } catch (e) {
                 console.log("Error fetching units data: ", e);
             }
@@ -83,7 +83,7 @@ const ArmyBuilder = ({ isLoggedIn, onLogin, onLogout, username }) => {
         if (!selectedFaction) {
             setSelectedFaction(faction);
             setModalShow(false);
-            console.log('Selected faction: ', faction);
+            // console.log('Selected faction: ', faction);
         };
     }
 
@@ -96,10 +96,10 @@ const ArmyBuilder = ({ isLoggedIn, onLogin, onLogout, username }) => {
         setModalShow(false);
     };
 
+    const totalPoints = calculateTotalPoints(unitsData);
+
     return (
         <div>
-            {selectedPoints !== null && <RunningTotal selectedPoints={selectedPoints} />}
-
             {selectedPoints === null ? (
                 <PointsSelector onSelectPoints={handleSelectPoints} />
             ) : selectedFaction ? (

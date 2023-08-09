@@ -4,8 +4,7 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import RunningTotal from './RunningTotal';
 import UnitCardList from "./UnitCardList";
-import AddArmyUnit from "./AddArmyUnit";
-
+// import { calculateTotalPoints } from "./utils";
 
 
 const UnitSelector = ({ armyId, selectedFaction, selectedPoints, username, unitsData }) => {
@@ -17,29 +16,42 @@ const UnitSelector = ({ armyId, selectedFaction, selectedPoints, username, units
         setUnits(unitsData);
         setLoading(false);
     }, [unitsData]);
-    console.log(unitsData);
+    // console.log(unitsData);
 
     if (loading) {
         return <p>Loading...</p>;
     }
 
-    const handleAddUnit = async (cardData) => {
-        try {
-            await handleAddCardToArmy(cardData);
-        } catch (error) {
-            console.log('Error adding unit:', error);
-        }
+    const onAddUnit = (addedUnit) => {
+        setArmyUnits(prevArmyUnits => [...prevArmyUnits, addedUnit]);
     };
 
+    const handleAddUnit = async (cardData) => {
+//         console.log('card data: ', cardData);
+//         const unitPoints = cardData.points;
+//         console.log('unit points: ', unitPoints);
+//         const remainingPoints = selectedPoints - calculateTotalPoints([...armyUnits, cardData]);
+// console.log('remaining points: ', remainingPoints);
+
+//         if (unitPoints > remainingPoints || remainingPoints < 0) {
+//             alert('You can\'t handle my strongest unit!');
+//         } else {
+            try {
+                onAddUnit(cardData);
+            } catch (error) {
+                console.log('Error adding unit:', error);
+            }
+//         };
+    };
     const filteredUnitsByFaction = selectedFaction
         ? units.filter((unit) => unit.army === selectedFaction.name)
         : units;
 
-    console.log(selectedFaction, selectedPoints, armyId, filteredUnitsByFaction);
+    // console.log(selectedFaction, selectedPoints, armyId, filteredUnitsByFaction);
 
     return (
         <>
-            {selectedPoints !== undefined && <RunningTotal selectedPoints={selectedPoints} />}
+            {/* <RunningTotal selectedPoints={selectedPoints} armyUnits={armyUnits} /> */}
 
             <h3> Select Units </h3>
             <Tabs
@@ -55,30 +67,52 @@ const UnitSelector = ({ armyId, selectedFaction, selectedPoints, username, units
                         showAddButton={true}
                         unitsData={unitsData}
                         onAddUnit={handleAddUnit}
+                        username={username}
+                        armyId={armyId}
                     />
                 </Tab>
                 <Tab eventKey="MOUNTED" title="Mounted">
                     Choose a unit: Mounted Units
                     <UnitCardList
                         unitCards={filteredUnitsByFaction.filter((unit) => unit.category === 'MOUNTED')}
+                        showAddButton={true}
+                        unitsData={unitsData}
+                        onAddUnit={handleAddUnit}
+                        username={username}
+                        armyId={armyId}
                     />
                 </Tab>
                 <Tab eventKey="VEHICLE" title="Vehicles">
                     Choose a unit: Vehicles
                     <UnitCardList
                         unitCards={filteredUnitsByFaction.filter((unit) => unit.category === 'VEHICLE')}
+                        showAddButton={true}
+                        unitsData={unitsData}
+                        onAddUnit={handleAddUnit}
+                        username={username}
+                        armyId={armyId}
                     />
                 </Tab>
                 <Tab eventKey="MONSTERS" title="Monsters">
                     Choose a unit: Monsters
                     <UnitCardList
                         unitCards={filteredUnitsByFaction.filter((unit) => unit.category === 'MONSTERS')}
+                        showAddButton={true}
+                        unitsData={unitsData}
+                        onAddUnit={handleAddUnit}
+                        username={username}
+                        armyId={armyId}
                     />
                 </Tab>
                 <Tab eventKey="FORTIFICATION" title="Fortifications">
                     Choose a unit: Fortifications
                     <UnitCardList
                         unitCards={filteredUnitsByFaction.filter((unit) => unit.category === 'FORTIFICATION')}
+                        showAddButton={true}
+                        unitsData={unitsData}
+                        onAddUnit={handleAddUnit}
+                        username={username}
+                        armyId={armyId}
                     />
                 </Tab>
             </Tabs>
