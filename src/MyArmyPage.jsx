@@ -60,7 +60,7 @@ function MyArmyPage({ username, isLoggedIn }) {
             await deleteAllUnitsForArmyHandler(username, selectedArmy.id, selectedArmy.id);
             // Delete the army after all units are deleted
             await deleteArmyHandler(username, selectedArmy.id);
-
+            setArmies((prevArmies) => prevArmies.filter(army => army.id !== selectedArmy.id));
             console.log('Successful deletion of army and its units');
             setSelectedArmy(null);
         } catch (error) {
