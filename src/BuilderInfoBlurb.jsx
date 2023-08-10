@@ -6,11 +6,12 @@ import { useNavigate } from "react-router-dom";
 function BuilderInfoBlurb({ isLoggedIn }) {
     const navigate = useNavigate();
 
-    const handleBuildArmyClick = () => {
-        if (isLoggedIn) {
-            navigate('/army-builder');
-        } else {
+    const handleBuildArmyClick = ({ isLoggedIn }) => {
+        console.log('is someone logged in? ', isLoggedIn);
+        if (!isLoggedIn) {
             alert('Please log in to create and save your army.');
+        } else {
+            navigate('/army-builder');
         }
     };
 

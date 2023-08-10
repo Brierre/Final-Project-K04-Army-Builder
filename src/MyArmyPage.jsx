@@ -57,7 +57,7 @@ function MyArmyPage({ username, isLoggedIn }) {
     const handleDeleteArmyClick = async () => {
         try {
             // Delete all units for the army
-            await deleteAllUnitsForArmyHandler(username, selectedArmy.id, selectedArmy.armyListId);
+            await deleteAllUnitsForArmyHandler(username, selectedArmy.id, selectedArmy.id);
             // Delete the army after all units are deleted
             await deleteArmyHandler(username, selectedArmy.id);
 
@@ -76,8 +76,8 @@ function MyArmyPage({ username, isLoggedIn }) {
 
         try {
             console.log('armyId:', army.id);
-            console.log('army-listId:', army['army-listId']);
-            const units = await getArmyListHandler(username, army.id, army['army-listId']);
+            console.log('army-listId:', army.id);
+            const units = await getArmyListHandler(username, army.id, army.id);
 
             console.log('Units for army: ', units);
             setSelectedUnits(units);
@@ -91,21 +91,27 @@ function MyArmyPage({ username, isLoggedIn }) {
 
     return (
         <div>
-            <h2>My Army Page</h2>
+            <p>Welcome, {username}!</p>
+            
+            <h2>Army List</h2>
+
             {isLoggedIn ? (
                 <>
-                    <p>Welcome, {username}!</p>
-
                     <div className="army-list">
                         {armies.length > 0 ? (
                             armies.map((army) => (
+                                <div>
                                 <Button
                                     key={army.id}
+                                    variant="primary"
                                     className={`army-button ${selectedArmy?.id === army.id ? 'active' : ''}`}
-                                    onClick={() => handleArmyClick(army)}
+                                    onClick={() => debouncedHandleArmyClick(army)}
                                 >
-                                    {army.name}
+                                    {army.selectedFaction}
+                                    <br/>
+                                    {army.selectedPoints}
                                 </Button>
+                                </div>
                             ))
                         ) : (
                             <p>No armies available</p>
@@ -114,7 +120,9 @@ function MyArmyPage({ username, isLoggedIn }) {
 
                     {selectedArmy && (
                         <div>
-                            <Button onClick={() => handleDeleteArmyClick()}>Delete Army</Button>
+                            <div>
+                                <Button onClick={() => handleDeleteArmyClick()}>Delete Army</Button>
+                            </div>
                             <ArmyDetails army={selectedArmy} unitCards={selectedUnits} showAddButton={false} />
                         </div>
                     )}
@@ -124,7 +132,9 @@ function MyArmyPage({ username, isLoggedIn }) {
                     </p>
                 </>
             ) : (
-                <p>You must be logged in to view army information.</p>
+                <div>
+                    <p>You must be logged in to view army information.</p>
+                    <Link to="/login"><Button>Log in</Button></Link></div>
             )}
         </div>
     )

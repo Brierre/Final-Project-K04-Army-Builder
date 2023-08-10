@@ -20,9 +20,10 @@ const deleteArmyUnitsApiUrl = (userId, armyId, unitId, armyListId) => {
     if (armyListId) {
         return `${getArmyListApiUrl(userId)}/${armyId}/units/${armyListId}`;
     } else {
-        return `${getArmyListApiUrl(userId)}/${armyId}/units?id=${unitId}`;
+        return `${getArmyListApiUrl(userId)}/${armyId}/units/${unitId}`;
     }
 };
+
 
 
 export const getArmyListHandler = async (username) => {
@@ -43,7 +44,7 @@ export const getArmyListHandler = async (username) => {
         const armiesWithUnits = [];
 
         for (const army of armies) {
-            const units = await getUnitsForArmy(userId, army.id, army['army-listId']);
+            const units = await getUnitsForArmy(userId, army.id, army.id);
             armiesWithUnits.push({ ...army, units });
         }
 
@@ -148,7 +149,6 @@ export const addUnitToArmy = async (userId, armyId, armyListId, updatedArmyData)
     }
 };
 
-
 export const deleteAllUnitsForArmyHandler = async (username, armyId, armyListId) => {
     try {
         const userId = await getUserIdByUsername(username);
@@ -226,24 +226,6 @@ const deleteArmy = async (userId, armyId) => {
 // //******* CRUD operations: get, add, update, delete ARMIES to mockapi *******//
 
 
-export const getUsersData = async () => {
-    try {
-        const response = await fetch(usersApiUrl);
-        if (!response.ok) {
-            throw new Error('Failed to fetch users data');
-        }
-        const users = await response.json();
-        console.log(users);
-        return users;
-    } catch (error) {
-        console.error('Error fetching users data:', error);
-        return [];
-    }
-};
-
-
-
-
 export const createArmyHandler = async (username, selectedFaction, selectedPoints) => {
     try {
         const userId = await getUserIdByUsername(username); // Get the userId first
@@ -304,6 +286,9 @@ const createArmy = async (userId, selectedFaction, selectedPoints) => {
 };
 
 
+//**** operations to fetch data for army selection and utility functions ****//
+
+
 // const factionDetachmentMap = {
 //     "DetachmentA": "Space Marines",
 //     "DetachmentB": "Orks",
@@ -311,6 +296,127 @@ const createArmy = async (userId, selectedFaction, selectedPoints) => {
 //     "DetachmentD": "Necrons",
 // };
 
+export const getFactions = async () => {
+    try {
+        const resp = await fetch(factionsApiUrl);
+        const data = await resp.json();
+        return data;
+    } catch (e) {
+        console.log("Error fetching factions: ", e);
+        throw e;
+    }
+};
+
+export const getUnitsData = async () => {
+    try {
+        const resp = await fetch(mockapiUnitsJson);
+        if (!resp.ok) {
+            throw new Error('Failed to fetch units data');
+        }
+
+        const data = await resp.json();
+        if (Array.isArray(data) && data.length > 0) {
+            return data;
+        } else {
+            console.log('No units data found or data is not in the expected format.');
+            return [];
+        }
+    } catch (error) {
+        console.error('Error fetching units data:', error);
+        return [];
+    }
+};
+
+
+
+//********* INFORMATIONAL data only, to be used in navbar links as TABLES *********//
+//******** Not implemented using these/data not fetching in component file ********//
+
+export const getDetachments = async () => {
+    try {
+        const resp = await fetch(detachmentsApiUrl);
+        const data = await resp.json();
+        console.log("detachment data: ", data)
+        return data;
+    } catch (e) {
+        console.log("Error fetching detachments: ", e);
+        throw e;
+    }
+};
+
+export const getFactionRules = async () => {
+    try {
+        const resp = await fetch(factionRulesApiUrl);
+        const data = await resp.json();
+        console.log("Faction rules data:", data);
+        return data;
+    } catch (e) {
+        console.log("Error fetching faction rules: ", e);
+        throw e;
+    }
+};
+
+export const getDetachmentRules = async () => {
+    try {
+        const resp = await fetch(detachmentRulesApiUrl);
+        const data = await resp.json();
+        console.log("Detachment rules data:", data);
+        return data;
+    } catch (e) {
+        console.log("Error fetching detachment rules: ", e);
+        throw e;
+    }
+};
+
+export const getEnhancements = async () => {
+    try {
+        const resp = await fetch(enhancementsApiUrl);
+        const data = await resp.json();
+        console.log("Enhancements data:", data);
+        return data;
+    } catch (e) {
+        console.log("Error fetching enhancements: ", e);
+        throw e;
+    }
+};
+
+export const getStratagems = async () => {
+    try {
+        const resp = await fetch(stratagemsApiUrl);
+        const data = await resp.json();
+        console.log("Stratagems data:", data);
+        return data;
+    } catch (e) {
+        console.log("Error fetching stratagems: ", e);
+        throw e;
+    }
+};
+
+export const getUserIdByUsername = async (username) => {
+    try {
+        const usersData = await getUsersData();
+        const user = usersData.find((user) => user.username === username);
+        return user ? user.id : null; // Return userId if user exists, otherwise null
+    } catch (error) {
+        console.error('Error getting user ID by username:', error);
+        return null;
+    }
+};
+
+export const getUsersData = async () => {
+    try {
+        const response = await fetch(usersApiUrl);
+        if (!response.ok) {
+            throw new Error('Failed to fetch users data');
+        }
+        const users = await response.json();
+        console.log(users);
+        return users;
+    } catch (error) {
+        console.error('Error fetching users data:', error);
+        return [];
+    }
+};
 
 //*********** operations to add, edit, delete USER information ************//
 //****************** not fully implemented at this time *******************//
@@ -380,112 +486,3 @@ export const updateUser = async (userId, dataToUpdate) => {
 // //         throw e;
 // //     }
 // // };
-
-
-
-//**** operations to fetch data for army selection and utility functions ****//
-
-export const getUserIdByUsername = async (username) => {
-    try {
-        const usersData = await getUsersData();
-        const user = usersData.find((user) => user.username === username);
-        return user ? user.id : null; // Return userId if user exists, otherwise null
-    } catch (error) {
-        console.error('Error getting user ID by username:', error);
-        return null;
-    }
-};
-
-export const getFactions = async () => {
-    try {
-        const resp = await fetch(factionsApiUrl);
-        const data = await resp.json();
-        return data;
-    } catch (e) {
-        console.log("Error fetching factions: ", e);
-        throw e;
-    }
-};
-
-export const getUnitsData = async () => {
-    try {
-        const resp = await fetch(mockapiUnitsJson);
-        if (!resp.ok) {
-            throw new Error('Failed to fetch units data');
-        }
-
-        const data = await resp.json();
-        if (Array.isArray(data) && data.length > 0) {
-            return data;
-        } else {
-            console.log('No units data found or data is not in the expected format.');
-            return [];
-        }
-    } catch (error) {
-        console.error('Error fetching units data:', error);
-        return [];
-    }
-};
-
-export const getDetachments = async () => {
-    try {
-        const resp = await fetch(detachmentsApiUrl);
-        const data = await resp.json();
-        console.log("detachment data: ", data)
-        return data;
-    } catch (e) {
-        console.log("Error fetching detachments: ", e);
-        throw e;
-    }
-};
-
-//********* INFORMATIONAL data only, to be used in navbar links as TABLES *********//
-//******** Not implemented using these/data not fetching in component file ********//
-
-export const getFactionRules = async () => {
-    try {
-        const resp = await fetch(factionRulesApiUrl);
-        const data = await resp.json();
-        console.log("Faction rules data:", data);
-        return data;
-    } catch (e) {
-        console.log("Error fetching faction rules: ", e);
-        throw e;
-    }
-};
-
-export const getDetachmentRules = async () => {
-    try {
-        const resp = await fetch(detachmentRulesApiUrl);
-        const data = await resp.json();
-        console.log("Detachment rules data:", data);
-        return data;
-    } catch (e) {
-        console.log("Error fetching detachment rules: ", e);
-        throw e;
-    }
-};
-
-export const getEnhancements = async () => {
-    try {
-        const resp = await fetch(enhancementsApiUrl);
-        const data = await resp.json();
-        console.log("Enhancements data:", data);
-        return data;
-    } catch (e) {
-        console.log("Error fetching enhancements: ", e);
-        throw e;
-    }
-};
-
-export const getStratagems = async () => {
-    try {
-        const resp = await fetch(stratagemsApiUrl);
-        const data = await resp.json();
-        console.log("Stratagems data:", data);
-        return data;
-    } catch (e) {
-        console.log("Error fetching stratagems: ", e);
-        throw e;
-    }
-};

@@ -7,7 +7,8 @@ function FactionCard({ faction, onSelectFaction, selected }) {
     };
 
     return (
-        <Button onClick={handleSelectFaction} className={selected ? '' : 'hidden-faction'}>
+        <Button onClick={handleSelectFaction} className={`card d-flex flex-column bg-secondary h-100 rounded border border-light ${selected ? '' : 'hidden-faction'}`}
+        style={{ width: '18rem' }}>
             <img src={faction.logo} alt={faction.name} />
             <div>
                 <h4>{faction.name}</h4>
