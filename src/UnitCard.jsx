@@ -26,12 +26,12 @@ function UnitCard({
     showAddButton = true,
     unitsData,
     onAddUnit,
+    armyListId,
     // abilityList,
     // wargearOptions,                
     // notes,
     // additionalPoints,
 }) {
-
 
     const [modalShow, setModalShow] = useState(false);
 

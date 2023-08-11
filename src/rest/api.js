@@ -11,7 +11,7 @@ const mockapiUnitsJson = `${baseUrl}/units-data`;
 const usersApiUrl = `${baseUrl}/users`; // get list of users
 const getUserApiUrl = (userId) => `${usersApiUrl}/${userId}`; // get specific user
 const getArmyListApiUrl = (userId) => `${usersApiUrl}/${userId}/army-list`; // get list of armies for specific userId
-const getUnitsApiUrl = (userId, armyId) => `${getArmyListApiUrl(userId)}/${armyId}/units`; // get units list
+const getUnitsApiUrl = (userId, armyId, armyListId) => `${getArmyListApiUrl(userId)}/${armyId}/units?army-ListId=${armyListId}`; // get units list
 const postArmyListApiUrl = (userId) => `${usersApiUrl}/${userId}/army-list`; // create a new army
 const deleteArmyApiUrl = (userId, armyId) => `${getArmyListApiUrl(userId)}/${armyId}`; // delete a specific armyId
 const postUnitsApiUrl = (userId, armyId) => `${getArmyListApiUrl(userId)}/${armyId}/units`; // create first unit in army to establish array of units
@@ -35,11 +35,11 @@ export const getArmyListHandler = async (username) => {
             return [];
         }
 
-        console.log('User ID:', userId);
+        // console.log('User ID:', userId);
 
         const armies = await getArmyList(userId);
 
-        console.log('Armies:', armies);
+        // console.log('Armies:', armies);
 
         const armiesWithUnits = [];
 
@@ -48,7 +48,7 @@ export const getArmyListHandler = async (username) => {
             armiesWithUnits.push({ ...army, units });
         }
 
-        console.log('Armies with Units:', armiesWithUnits);
+        // console.log('Armies with Units:', armiesWithUnits);
 
         return armiesWithUnits;
     } catch (error) {
@@ -72,13 +72,15 @@ export const getArmyList = async (userId) => {
 };
 
 export const getUnitsForArmy = async (userId, armyId, armyListId) => {
-    console.log('armylistid: ', armyListId);
+    // armyListId = armyId;
     try {
         const resp = await fetch(getUnitsApiUrl(userId, armyId, armyListId));
+        console.log('userId, armyId, armyListId', userId, armyId, armyListId);
         if (!resp.ok) {
             throw new Error('Failed to fetch units for army.');
         }
         const data = await resp.json();
+        console.log(data);
         return data || [];
     } catch (error) {
         throw new Error('Error fetching units for army: ' + error.message);

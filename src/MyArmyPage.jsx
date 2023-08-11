@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { debounce } from 'lodash';
-import { getArmyListHandler, getUnitsForArmy, deleteAllUnitsForArmyHandler, deleteArmyHandler } from './rest/api';
+import { getArmyListHandler, getUserIdByUsername, getUnitsForArmy, deleteAllUnitsForArmyHandler, deleteArmyHandler } from './rest/api';
 import ArmyDetails from './ArmyDetails';
-import UnitCardList from './UnitCardList';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 
@@ -41,10 +40,10 @@ function MyArmyPage({ username, isLoggedIn }) {
         if (userId && selectedArmy) {
             const fetchUnits = async () => {
                 try {
-                    const units = await getUnitsForArmy(selectedArmy.id, selectedArmy['army-listId']);
-                    const newData = { armies, units };
+                    const units = await getUnitsForArmy(username, selectedArmy.id, selectedArmy['army-listId']);
                     sessionStorage.setItem('myAppData', JSON.stringify(newData));
                     console.log('Units for army: ', units);
+                    setSelectedUnits(units);
                 } catch (error) {
                     console.error('Error fetching units for army: ', error);
                 }
@@ -75,16 +74,15 @@ function MyArmyPage({ username, isLoggedIn }) {
         console.log('Army: ', army);
 
         try {
-            console.log('armyId:', army.id);
-            console.log('army-listId:', army.id);
-            const units = await getArmyListHandler(username, army.id, army.id);
+            const userId = await getUserIdByUsername(username);
 
-            console.log('Units for army: ', units);
+            console.log('armyId:', army.id);
+            const units = await getUnitsForArmy(userId, army.id, army.id);
             setSelectedUnits(units);
+
         } catch (error) {
             console.error('Error fetching units for army: ', error);
         }
-
     };
 
     const debouncedHandleArmyClick = debounce(handleArmyClick, 500); // Adjust the debounce delay as needed
