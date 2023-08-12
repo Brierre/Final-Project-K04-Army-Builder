@@ -1,10 +1,32 @@
 body {
   padding-top: 40px;
+  background-color: black;
+  color: gray;
+}
+
+p {
+color: white;
+
+  margin: 5px;
+  padding: 5px;
+}
+
+button {
+margin: 5px;
+}
+
+.builder-paragraphs {
+  background-color: darkgray;
+  color: white;
 }
 
 footer {
   position: fixed;
   bottom: 0px;
+}
+
+.carousel {
+  margin-top: 15px;
 }
 
 .navbar {

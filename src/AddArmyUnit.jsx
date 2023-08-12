@@ -58,7 +58,7 @@ const AddArmyUnit = ({ username, armyId, cardData, onAddUnit, showAddButton }) =
 
     return (
         showAddButton && (
-            <Button onClick={() => {
+            <Button variant="secondary" onClick={() => {
                 // console.log('armyId before adding unit:', armyId, username);
                 handleAddCardToArmy()
             }}>Add unit to my army</Button>

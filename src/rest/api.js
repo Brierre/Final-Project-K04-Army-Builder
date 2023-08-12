@@ -396,8 +396,11 @@ export const getStratagems = async () => {
 
 export const getUserIdByUsername = async (username) => {
     try {
+        console.log('Fetching user ID for username:', username);
         const usersData = await getUsersData();
+        console.log('Users data:', usersData);
         const user = usersData.find((user) => user.username === username);
+        console.log('Found user:', user);
         return user ? user.id : null; // Return userId if user exists, otherwise null
     } catch (error) {
         console.error('Error getting user ID by username:', error);

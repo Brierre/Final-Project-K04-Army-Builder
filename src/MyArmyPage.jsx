@@ -67,7 +67,18 @@ function MyArmyPage({ username, isLoggedIn }) {
         }
     };
 
+    const handleDeleteUnit = async (unitId) => {
+        try {
+            const updatedUnits = selectedUnits.filter((unit) => unit.id !== unitId);
 
+            // Delete the unit using the API function
+            await deleteUnitHandler(userId, selectedArmy.id, unitId);
+
+            setSelectedUnits(updatedUnits);
+        } catch (error) {
+            console.error('Error deleting unit:', error);
+        }
+    }
 
     const handleArmyClick = async (army) => {
         setSelectedArmy(army);
@@ -98,7 +109,7 @@ function MyArmyPage({ username, isLoggedIn }) {
                     <div className="army-list">
                         {armies.length > 0 ? (
                             armies.map((army) => (
-                                <div>
+                                <div key={army.id}>
                                 <Button
                                     key={army.id}
                                     variant="primary"
@@ -121,7 +132,16 @@ function MyArmyPage({ username, isLoggedIn }) {
                             <div>
                                 <Button onClick={() => handleDeleteArmyClick()}>Delete Army</Button>
                             </div>
-                            <ArmyDetails army={selectedArmy} unitCards={selectedUnits} showAddButton={false} />
+                            <ArmyDetails
+  army={selectedArmy}
+  unitCards={selectedUnits}
+  showAddButton={false}
+  username={username}
+  selectedArmy={selectedArmy} // Pass selectedArmy here
+  selectedUnits={selectedUnits} // Pass selectedUnits here
+  onDeleteUnit={handleDeleteUnit}
+  setSelectedUnits={setSelectedUnits}
+/>
                         </div>
                     )}
 

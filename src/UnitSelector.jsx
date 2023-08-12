@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
+import Button from 'react-bootstrap/Button';
 import RunningTotal from './RunningTotal';
 import UnitCardList from "./UnitCardList";
 // import { calculateTotalPoints } from "./utils";
@@ -118,7 +119,7 @@ const UnitSelector = ({ armyId, selectedFaction, selectedPoints, username, units
             </Tabs>
             <div className="go-to-army">
                 <Link to="/my-army-page">
-                    <button>I am finished. Go to My Army!</button>
+                    <Button>I am finished. Go to My Army!</Button>
                 </Link>
             </div>
         </>

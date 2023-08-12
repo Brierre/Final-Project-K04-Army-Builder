@@ -31,7 +31,7 @@ function Navigation({ isLoggedIn, username, onLogout }) {
                             <div style={{ display: 'flex', alignItems: 'center', color: 'white' }}>
                                 <PersonHeart style={{ marginRight: '5px' }} />
                                 Welcome, {username}
-                                <Button variant="outline-light" onClick={handleLogout}>
+                                <Button variant="secondary" onClick={handleLogout}>
                                     Logout
                                 </Button>
                             </div>

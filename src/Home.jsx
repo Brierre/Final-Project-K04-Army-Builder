@@ -6,11 +6,11 @@ import Footer from './Footer';
 function Home({ isLoggedIn }) {
 
     return (
-        <>
+        <div className="home">
             <ImgCarousel />
             <BuilderInfoBlurb isLoggedIn={isLoggedIn}/>
             <Footer />
-        </>
+        </div>
     )
 }
 

@@ -3,8 +3,10 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import CardModal from "./CardModal";
 import AddArmyUnit from "./AddArmyUnit";
+import { getUserIdByUsername, deleteUnitHandler } from "./rest/api";
 
 function UnitCard({
+    unitCard,
     name,
     army,
     category,
@@ -27,6 +29,10 @@ function UnitCard({
     unitsData,
     onAddUnit,
     armyListId,
+    selectedArmy,
+    selectedUnits,
+    setSelectedUnits,
+    refreshCount,
     // abilityList,
     // wargearOptions,                
     // notes,
@@ -34,6 +40,29 @@ function UnitCard({
 }) {
 
     const [modalShow, setModalShow] = useState(false);
+    
+    const handleDeleteUnit = async (unitId) => {
+        try {
+            const userId = await getUserIdByUsername(username); // Fetch the userId first
+
+            if (!userId) {
+                console.error('User ID not found.');
+                return;
+            }
+
+            await deleteUnitHandler(userId, selectedArmy.id, unitId);
+            // After successful deletion, you can update the selected units state or perform any other necessary actions.
+
+            refreshList();
+        } catch (error) {
+            console.error('Error deleting unit:', error);
+        }
+    };
+
+    const refreshList = (deletedUnitId) => {
+        // Update the list of selected units by filtering out the deleted unit
+        setSelectedUnits(prevUnits => prevUnits.filter(unit => unit.id !== deletedUnitId));
+    };
 
     const cardData = {
         title: name,
@@ -81,14 +110,14 @@ function UnitCard({
                         {/* replace with checkbox for Hero status */}
                         <Card.Text>Warlord?: {canBeHero}</Card.Text>
                         {!showAddButton && (
-                    <Button variant="danger" onClick={() => onDeleteUnit(unit.id)}>
+                    <Button variant="danger" onClick={() => handleDeleteUnit(unitCard.id)}>
                         Delete Unit from Army
                     </Button>)}
                         {showAddButton && (
                         <AddArmyUnit username={username} armyId={armyId} cardData={cardData} selectedPoints={selectedPoints} onAddUnit={onAddUnit} showAddButton={showAddButton} />
                         )}
                     </Card.Body>
-                    <Button onClick={() => setModalShow(true)}>View Details</Button>
+                    <Button variant="secondary" onClick={() => setModalShow(true)}>View Details</Button>
                 </Card>
             </div>
             <CardModal

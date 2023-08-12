@@ -16,7 +16,7 @@ function BuilderInfoBlurb({ isLoggedIn }) {
     };
 
     return (
-        <div>
+        <div className="builder-paragraphs">
             <p>Welcome to K04 Army Builder, an application that may or
                 may not have anything to do with Warhammer 40K. With
                 this app, you will be able to view and choose a 40K
@@ -37,18 +37,18 @@ function BuilderInfoBlurb({ isLoggedIn }) {
                 for your army. A smaller point value usually results
                 in fewer large models, since they cost more points per
                 model. Some factors that go into this decision are:</p>
-            <ul>
+            <ul className="builder-paragraphs">
                 <li>Time constraints</li>
                 <li>Which models you have</li>
                 <li>How you want to transport your army</li>
                 <li>Personal preference</li>
             </ul>
-            <h5>Be sure to click the login button above to create and
+            <h5 className="builder-paragraphs">Be sure to click the login button above to create and
                 save your army!</h5>
 
             <div>
                 <Link to="/army-builder">
-                    <Button variant="primary" size="lg" active onClick={handleBuildArmyClick}>
+                    <Button variant="secondary" className="build-btn" size="lg" active onClick={handleBuildArmyClick}>
                         Build Army
                     </Button>
                 </Link>
